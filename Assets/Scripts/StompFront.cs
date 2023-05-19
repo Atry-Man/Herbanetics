@@ -19,7 +19,8 @@ public class StompFront : MonoBehaviour
         if(callbackContext.action.triggered && !isAttacking)
         {
             isAttacking = true;
-            GameObject stomp = Instantiate(stompEffectPrefab, stompPos.position, Quaternion.identity);
+            GameObject stomp = Instantiate(stompEffectPrefab, stompPos.position, stompPos.rotation);
+            stomp.transform.localScale = Vector3.zero;
             StartCoroutine(StompAttack(stomp));
         }
     }
@@ -27,29 +28,24 @@ public class StompFront : MonoBehaviour
    private  IEnumerator StompAttack(GameObject stompObject)
     {
         float elapsedTime = 0f;
-        Vector3 waveScale = Vector3.zero;
+        
 
         while (elapsedTime < stompDuration)
         {
             float t = elapsedTime / stompDuration;
 
-            
-            waveScale = Vector3.Lerp(Vector3.zero, Vector3.one * stompDesiredSize, t);
+            float currentWaveSize = Mathf.Lerp(0f, stompDesiredSize, t);
+           
+           
+            stompObject.transform.position += stompSpeed * Time.deltaTime * stompObject.transform.forward;
 
-            // Move the wave along its path
-            stompObject.transform.position += stompSpeed * Time.deltaTime * transform.forward;
-
-          
-            stompObject.transform.localScale = waveScale;
+            stompObject.transform.localScale = Vector3.one * currentWaveSize;
 
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-       
-        waveScale = Vector3.one * stompDesiredSize;
-        stompObject.transform.localScale = waveScale;
-
+       Destroy(stompObject);
         isAttacking = false;
     }
 
