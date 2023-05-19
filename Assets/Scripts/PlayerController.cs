@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
 
     [Header("External References")]
-
+    [SerializeField] SmolBolts smolBolts;
     //[SerializeField] Animator playerAnim;
 
     private Rigidbody playerRb;
@@ -87,5 +88,6 @@ public class PlayerController : MonoBehaviour
         }
 
         playerRb.velocity = movementVector * MovementSpeed;
+      
     }
 }
