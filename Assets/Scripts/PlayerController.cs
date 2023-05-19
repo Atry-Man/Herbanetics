@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("External References")]
     [SerializeField] SmolBolts smolBolts;
-    //[SerializeField] Animator playerAnim;
+    [SerializeField] Animator playerAnim;
 
     private Rigidbody playerRb;
 
@@ -22,6 +22,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashCooldown;
     private Vector3 dashTarget;
     private bool isDashing;
+
+    [Header("Animation Strings")]
+    private const string isRunning = "isRunning";
+    private const string isDashingStr = "isDashing";
 
     void Start()
     {
@@ -34,6 +38,7 @@ public class PlayerController : MonoBehaviour
         {
             movementVector = ctx.ReadValue<Vector3>();
             movementDirection = movementVector.normalized;
+            playerAnim.SetBool(isRunning, true);
 
         }else if(ctx.canceled) { 
            
@@ -45,12 +50,17 @@ public class PlayerController : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(movementDirection);
         }
+        else
+        {
+            playerAnim.SetBool(isRunning, false);
+        }
     }
 
     public void OnDash(InputAction.CallbackContext ctx)
     {
         if(ctx.action.triggered && !isDashing)
         {
+            playerAnim.SetBool(isDashingStr, true);
             Vector3 dashDirection = transform.TransformDirection(Vector3.forward);
             dashTarget = transform.position + dashDirection * dashSpeed;
             StartCoroutine(Dash());
@@ -67,6 +77,7 @@ public class PlayerController : MonoBehaviour
         while (elapsedTime < dashDuration)
         {
             float t = elapsedTime / dashDuration;
+            playerAnim.SetBool(isDashingStr, true);
             transform.position = Vector3.Lerp(startPosition, dashTarget, t);
 
             elapsedTime += Time.deltaTime;
@@ -75,7 +86,7 @@ public class PlayerController : MonoBehaviour
 
         
         transform.position = dashTarget;
-
+        playerAnim.SetBool(isDashingStr, false);
         yield return new WaitForSeconds(dashCooldown);
         isDashing = false;
     }
