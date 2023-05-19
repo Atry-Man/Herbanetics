@@ -12,14 +12,17 @@ public class StompFront : MonoBehaviour
     [SerializeField] float stompDuration;
     [SerializeField] float stompCooldown;
     [SerializeField] Transform stompPos;
+    [SerializeField] Animator playerAnim;
     private bool canStomp;
 
+    private const string StompTrigger = "Stomp";
 
     public void StartStomp(InputAction.CallbackContext callbackContext)
     {
         if(callbackContext.action.triggered && !canStomp)
         {
             canStomp = true;
+            playerAnim.SetTrigger(StompTrigger);
             GameObject stomp = Instantiate(stompEffectPrefab, stompPos.position, stompPos.rotation);
             stomp.transform.localScale = Vector3.zero;
             StartCoroutine(StompAttack(stomp));
