@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
 
 
     [Header("External References")]
-    [SerializeField] SmolBolts smolBolts;
     [SerializeField] Animator playerAnim;
 
     private Rigidbody playerRb;

@@ -9,15 +9,22 @@ public class SmolBolts : MonoBehaviour
     [SerializeField] GameObject boltPrefab;
     [SerializeField] Transform firePoint;
     [SerializeField] float fireForce;
+    [SerializeField] Animator playerAnim;
 
+    private const string isShootingStr = "isShooting";
 
 
     public void ShootBolts(InputAction.CallbackContext ctx)
     {   
         if(ctx.action.triggered)
-        {
+        {   
+            playerAnim.SetBool(isShootingStr, true);
             GameObject bolt = Instantiate(boltPrefab, firePoint.position, firePoint.rotation);
             bolt.GetComponent<Rigidbody>().AddForce(firePoint.forward * fireForce, ForceMode.Impulse);
+        }
+        else
+        {
+            playerAnim.SetBool(isShootingStr, false);
         }
     }
        

@@ -11,15 +11,19 @@ public class PlayerAttackController : MonoBehaviour
     [SerializeField] private float comboTimer;
     [SerializeField] string[] comboAttack;
     private bool previousAttack;
-    //[SerializeField] Animator animator;
+    [SerializeField] Animator playerAnim;
 
+
+    private const string LeftPunchTrigger = "LeftPunch";
     private void Awake()
     {
-        
+        ResetCombo();
     }
 
-    void OnTripleWhammy(InputAction.CallbackContext context)
+
+    public void OnTripleWhammy(InputAction.CallbackContext context)
     {
+
         if(context.performed)
         {
             if(Time.time - lastAttackTime > comboTimer) {
@@ -31,7 +35,7 @@ public class PlayerAttackController : MonoBehaviour
             if(!previousAttack)
             {   
                 //play animation
-
+                playerAnim.SetTrigger(LeftPunchTrigger);
                 previousAttack = true;
             }
             else
@@ -39,6 +43,7 @@ public class PlayerAttackController : MonoBehaviour
                 if(comboCount < comboAttack.Length)
                 {
                     //Play animations from string list
+                    playerAnim.SetTrigger(comboAttack[comboCount]);
                     comboCount++;
                     lastAttackTime = Time.time;
                 }
