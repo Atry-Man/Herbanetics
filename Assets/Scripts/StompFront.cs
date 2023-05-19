@@ -10,15 +10,16 @@ public class StompFront : MonoBehaviour
     [SerializeField] float stompDesiredSize;
     [SerializeField] float stompSpeed;
     [SerializeField] float stompDuration;
+    [SerializeField] float stompCooldown;
     [SerializeField] Transform stompPos;
-    private bool isAttacking;
+    private bool canStomp;
 
 
     public void StartStomp(InputAction.CallbackContext callbackContext)
     {
-        if(callbackContext.action.triggered && !isAttacking)
+        if(callbackContext.action.triggered && !canStomp)
         {
-            isAttacking = true;
+            canStomp = true;
             GameObject stomp = Instantiate(stompEffectPrefab, stompPos.position, stompPos.rotation);
             stomp.transform.localScale = Vector3.zero;
             StartCoroutine(StompAttack(stomp));
@@ -44,9 +45,11 @@ public class StompFront : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-
        Destroy(stompObject);
-        isAttacking = false;
+
+        yield return new WaitForSeconds(stompCooldown);
+
+        canStomp = false;
     }
 
 

@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
-using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
@@ -77,6 +76,7 @@ public class PlayerController : MonoBehaviour
         
         transform.position = dashTarget;
 
+        yield return new WaitForSeconds(dashCooldown);
         isDashing = false;
     }
 
