@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     NavMeshAgent agent;
     Transform target;
-   // Animator enemyAnim;
+    Animator enemyAnim;
 
-    private const string isRunning = "isRunning";
+    private const string isMoving = "isMoving";
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        //enemyAnim = GetComponent<Animator>();
-      
+        enemyAnim = GetComponent<Animator>();
     }
+
+    
 
     private void Start()
     {
@@ -24,7 +25,12 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        //enemyAnim.SetBool(isRunning, true);
+        enemyAnim.SetBool(isMoving, true);
         agent.SetDestination(target.position);
+    }
+
+    void EnemyAttack()
+    {
+
     }
 }

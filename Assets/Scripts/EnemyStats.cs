@@ -50,7 +50,7 @@ public class EnemyStats : MonoBehaviour
 
     private void Die()
     {
-        Instantiate(deathImpact, transform.position, Quaternion.identity);
+        Instantiate(deathImpact, transform.position, transform.rotation);
         waveSpawner.EnemyDefeated();
         Destroy(gameObject);
     }

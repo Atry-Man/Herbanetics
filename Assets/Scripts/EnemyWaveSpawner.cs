@@ -52,7 +52,7 @@ public class EnemyWaveSpawner : MonoBehaviour
 
             while(enemiesRemaining > 0)
             {
-                Debug.Log(enemiesRemaining);
+               
                 yield return null;
             }
 
