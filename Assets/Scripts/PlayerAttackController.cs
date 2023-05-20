@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,8 +13,13 @@ public class PlayerAttackController : MonoBehaviour
     [SerializeField] Animator playerAnim;
     [SerializeField] float DefaultimeBeforeMovement;
     [SerializeField] float lastAttackDelay;
+
+
     [Header("External Variables")]
     [SerializeField] PlayerController playerController;
+    [SerializeField] BoxCollider[] ComboColliders; 
+   
+
 
     private const string LeftPunchTrigger = "LeftPunch";
     private void Awake()
@@ -39,6 +43,7 @@ public class PlayerAttackController : MonoBehaviour
             {   
                
                 playerAnim.SetTrigger(LeftPunchTrigger);
+                ComboColliders[0].enabled = true;
                 playerController.CanMove = false;
                 playerController.StopMovement();
                 previousAttack = true;
@@ -52,6 +57,10 @@ public class PlayerAttackController : MonoBehaviour
                         DefaultimeBeforeMovement = lastAttackDelay;
                     }
                     playerAnim.SetTrigger(comboAttack[comboCount]);
+                    if(comboCount == 1)
+                    {
+                        ComboColliders[1].enabled = true;
+                    }
                     playerController.CanMove = false;
                     playerController.StopMovement();
                     comboCount++;
@@ -62,6 +71,8 @@ public class PlayerAttackController : MonoBehaviour
         else
         {
             StartCoroutine(ResumeMovement());
+
+            
             
             
         }
@@ -78,6 +89,10 @@ public class PlayerAttackController : MonoBehaviour
     IEnumerator ResumeMovement()
     {
         yield return new WaitForSeconds(DefaultimeBeforeMovement);
+        foreach(Collider col  in ComboColliders)
+            {
+                col.enabled = false;
+            }
         playerController.CanMove = true;
     }
 }
