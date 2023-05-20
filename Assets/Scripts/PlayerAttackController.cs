@@ -9,7 +9,6 @@ public class PlayerAttackController : MonoBehaviour
     private float lastAttackTime;
     [SerializeField] private float comboTimer;
     [SerializeField] string[] comboAttack;
-    private bool previousAttack;
     [SerializeField] Animator playerAnim;
     [SerializeField] float DefaultimeBeforeMovement;
     [SerializeField] float lastAttackDelay;
@@ -19,12 +18,10 @@ public class PlayerAttackController : MonoBehaviour
     [SerializeField] PlayerController playerController;
     [SerializeField] BoxCollider[] ComboColliders; 
    
-
-
-    private const string LeftPunchTrigger = "LeftPunch";
     private void Awake()
     {
         ResetCombo();
+        
     }
 
 
@@ -41,21 +38,27 @@ public class PlayerAttackController : MonoBehaviour
 
             if (comboCount < comboAttack.Length)
             {
-                if (comboCount == comboAttack.Length - 1)
-                {
-                    DefaultimeBeforeMovement = lastAttackDelay;
-
-                }
                 playerAnim.SetTrigger(comboAttack[comboCount]);
-
-                if (comboCount != comboAttack.Length - 1)
-                {
-                    ComboColliders[comboCount].enabled = true;
-                }
                 playerController.CanMove = false;
                 playerController.StopMovement();
+              
+
+
+                if (comboCount <= 1)
+                {
+
+                    ComboColliders[comboCount].enabled = true;
+                }
+
                 comboCount++;
                 lastAttackTime = Time.time;
+
+                if (comboCount == 2)
+                {
+                    DefaultimeBeforeMovement = lastAttackDelay;
+                    ComboColliders[0].enabled = true;
+                    ComboColliders[1].enabled = true;
+                }
             }
         }
         else

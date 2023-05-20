@@ -26,6 +26,9 @@ public class PlayerController : MonoBehaviour
     private const string isRunning = "isRunning";
     private const string isDashingStr = "isDashing";
 
+    [Header("Collision Variables")]
+    [SerializeField] LayerMask obstacleLayerMask;
+    [SerializeField] float rayDistance;
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
@@ -72,6 +75,16 @@ public class PlayerController : MonoBehaviour
             playerAnim.SetBool(isDashingStr, true);
             Vector3 dashDirection = transform.TransformDirection(Vector3.forward);
             dashTarget = transform.position + dashDirection * dashSpeed;
+
+            RaycastHit hit;
+
+            if(Physics.Raycast(transform.position, dashDirection, out hit, rayDistance, obstacleLayerMask))
+            {
+                playerAnim.SetBool(isDashingStr, false);
+                return;
+               
+            }
+
             StartCoroutine(Dash());
         }
     }

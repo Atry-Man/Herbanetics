@@ -9,7 +9,7 @@ public class PunchAttack : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         collisionCount++;
-        Debug.Log(collisionCount);
+        
         if(other.gameObject.CompareTag("Enemy") && collisionCount<= maxCollisions)
         {
             Debug.Log("Hit");
