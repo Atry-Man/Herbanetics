@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531540123}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.07, y: 2.41, z: 22.1}
+  m_LocalPosition: {x: -5.1, y: 2.41, z: 29.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -86,7 +86,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 753802820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.62, y: 2.41, z: 12.77}
+  m_LocalPosition: {x: -18.75, y: 2.41, z: 22.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -117,7 +117,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896891205}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.41, z: 29}
+  m_LocalPosition: {x: 13.44, y: 2.41, z: 26.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366050543}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.94, y: 2.41, z: 3.05}
+  m_LocalPosition: {x: -27.29, y: 2.41, z: 11.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -179,7 +179,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040941107}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.4, y: 2.41, z: 24.2}
+  m_LocalPosition: {x: 21.73, y: 2.41, z: 18.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -226,6 +226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 980512422173486549}
+  - component: {fileID: 1763630919}
   m_Layer: 0
   m_Name: SpawnPoints
   m_TagString: Untagged
@@ -255,3 +256,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1763630919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6584470472315276332}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ccb0aa6c1465c45833f1553954c481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves:
+  - name: First Wave
+    enemyPrefabs: []
+    spawnInterval: 0
+  - name: Second Wave
+    enemyPrefabs: []
+    spawnInterval: 0
+  - name: Third Wave
+    enemyPrefabs: []
+    spawnInterval: 0
+  - name: Fourth Wave
+    enemyPrefabs: []
+    spawnInterval: 0
+  totalWaves: 4
+  timeBtnWaves: 5
+  spawnPoints:
+  - {fileID: 1366050544}
+  - {fileID: 753802821}
+  - {fileID: 531540124}
+  - {fileID: 896891206}
+  - {fileID: 2040941108}
+  - {fileID: 314849021}

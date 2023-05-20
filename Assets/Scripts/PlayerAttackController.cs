@@ -13,14 +13,18 @@ public class PlayerAttackController : MonoBehaviour
     [SerializeField] Animator handsAnim;
     [SerializeField] float DefaultimeBeforeMovement;
     [SerializeField] float lastAttackDelay;
-    [SerializeField] GameObject attackEffect;
-    [SerializeField] GameObject attackEffect2;
+    [SerializeField] GameObject[] attackEffects;
     [SerializeField] GameObject hands;
-
+    int currentAttackEffectIndex;
+    int AttackEffectIndex;
     [Header("External Variables")]
     [SerializeField] PlayerController playerController;
-    [SerializeField] BoxCollider[] ComboColliders; 
-   
+    [SerializeField] BoxCollider[] ComboColliders;
+
+
+    private Coroutine disableHandsCoroutine;
+
+
     private void Awake()
     {
         ResetCombo();
@@ -30,31 +34,26 @@ public class PlayerAttackController : MonoBehaviour
 
     public void OnTripleWhammy(InputAction.CallbackContext context)
     {
-
-        if(context.performed)
+        if (context.performed)
         {
-            if(Time.time - lastAttackTime > comboTimer) {
-
+            if (Time.time - lastAttackTime > comboTimer)
+            {
                 ResetCombo();
-               
             }
 
             if (comboCount < comboAttack.Length)
-            {   
+            {
                 hands.SetActive(true);
                 playerAnim.SetTrigger(comboAttack[comboCount]);
                 handsAnim.SetTrigger(comboAttack[comboCount]);
-                attackEffect.SetActive(true);
-                attackEffect2.SetActive(true);
+
                 playerController.CanMove = false;
                 playerController.StopMovement();
-              
-
 
                 if (comboCount <= 1)
                 {
-
                     ComboColliders[comboCount].enabled = true;
+                   
                 }
 
                 comboCount++;
@@ -62,19 +61,47 @@ public class PlayerAttackController : MonoBehaviour
 
                 if (comboCount == 3)
                 {
-                   
                     DefaultimeBeforeMovement = lastAttackDelay;
                     ComboColliders[0].enabled = true;
                     ComboColliders[1].enabled = true;
-                    attackEffect.SetActive(true);
-                    attackEffect2.SetActive(true);
-                    StartCoroutine(DisableHands());
+                    attackEffects[0].SetActive(true);
+                    attackEffects[1].SetActive(true);
+                    currentAttackEffectIndex = 0;
+                    if (disableHandsCoroutine != null)
+                    {
+                        StopCoroutine(disableHandsCoroutine);
+                    }
+                    disableHandsCoroutine = StartCoroutine(DisableHands(1.5f));
+                }
+                else
+                {
+                   
+                    if (disableHandsCoroutine != null)
+                    {
+                        StopCoroutine(disableHandsCoroutine);
+                    }
+
+                    if(currentAttackEffectIndex >=0)
+                    {
+                        attackEffects[currentAttackEffectIndex].SetActive(false);
+                    }
+
+                    attackEffects[comboCount- 1].SetActive(true);
+                    currentAttackEffectIndex = comboCount-1;
                 }
             }
         }
         else
         {
-            StartCoroutine(DisableCollidersAndResumeMovement()); 
+            StartCoroutine(DisableCollidersAndResumeMovement());
+            if (comboCount != 3)
+            {
+                if (disableHandsCoroutine != null)
+                {
+                    StopCoroutine(disableHandsCoroutine);
+                }
+                disableHandsCoroutine = StartCoroutine(DisableHands(0.75f));
+            }
         }
     }
 
@@ -88,18 +115,15 @@ public class PlayerAttackController : MonoBehaviour
 
     }
 
-    IEnumerator DisableHands()
+    IEnumerator DisableHands(float delay)
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(delay);
         hands.SetActive(false);
     }
-    
+
     IEnumerator DisableCollidersAndResumeMovement()
     {
         yield return new WaitForSeconds(DefaultimeBeforeMovement);
-       
-        attackEffect.SetActive(false);
-        attackEffect2.SetActive(false);
         foreach (Collider col  in ComboColliders)
             {
                 col.enabled = false;
