@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class PunchAttack : MonoBehaviour
 {
+    int collisionCount;
+    [SerializeField] int maxCollisions;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Enemy"))
+        collisionCount++;
+        Debug.Log(collisionCount);
+        if(other.gameObject.CompareTag("Enemy") && collisionCount<= maxCollisions)
         {
-            //do Something
+            Debug.Log("Hit");
+            collisionCount = 0;
         }
     }
+
+    
 }

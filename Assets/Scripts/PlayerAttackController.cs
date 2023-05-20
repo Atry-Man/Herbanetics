@@ -36,45 +36,31 @@ public class PlayerAttackController : MonoBehaviour
             if(Time.time - lastAttackTime > comboTimer) {
 
                 ResetCombo();
-                
+               
             }
 
-            if(!previousAttack)
-            {   
-               
-                playerAnim.SetTrigger(LeftPunchTrigger);
-                ComboColliders[0].enabled = true;
+            if (comboCount < comboAttack.Length)
+            {
+                if (comboCount == comboAttack.Length - 1)
+                {
+                    DefaultimeBeforeMovement = lastAttackDelay;
+
+                }
+                playerAnim.SetTrigger(comboAttack[comboCount]);
+
+                if (comboCount != comboAttack.Length - 1)
+                {
+                    ComboColliders[comboCount].enabled = true;
+                }
                 playerController.CanMove = false;
                 playerController.StopMovement();
-                previousAttack = true;
-            }
-            else
-            {
-                if(comboCount < comboAttack.Length)
-                {   
-                    if(comboCount == comboAttack.Length - 1)
-                    {
-                        DefaultimeBeforeMovement = lastAttackDelay;
-                    }
-                    playerAnim.SetTrigger(comboAttack[comboCount]);
-                    if(comboCount == 1)
-                    {
-                        ComboColliders[1].enabled = true;
-                    }
-                    playerController.CanMove = false;
-                    playerController.StopMovement();
-                    comboCount++;
-                    lastAttackTime = Time.time;
-                }
+                comboCount++;
+                lastAttackTime = Time.time;
             }
         }
         else
         {
-            StartCoroutine(ResumeMovement());
-
-            
-            
-            
+            StartCoroutine(DiableCollidersAndResumeMovement()); 
         }
     }
 
@@ -84,9 +70,11 @@ public class PlayerAttackController : MonoBehaviour
         comboCount = 0;
         lastAttackTime = 0;
         DefaultimeBeforeMovement =  1.25f;
-    }
+       
 
-    IEnumerator ResumeMovement()
+    }
+    
+    IEnumerator DiableCollidersAndResumeMovement()
     {
         yield return new WaitForSeconds(DefaultimeBeforeMovement);
         foreach(Collider col  in ComboColliders)
@@ -95,4 +83,6 @@ public class PlayerAttackController : MonoBehaviour
             }
         playerController.CanMove = true;
     }
+
+    
 }
