@@ -6,6 +6,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private int maxHealth;
     [SerializeField] Slider healthSlider;
     private int currentHealth;
+    [SerializeField] GameObject gameOverPanel;
    
 
     public int MaxHealth
@@ -48,6 +49,8 @@ public class PlayerStats : MonoBehaviour
 
     private void Die()
     {  
+      gameOverPanel.SetActive(true);
+      Time.timeScale = 0f;
       Destroy(gameObject);
     }
 }
