@@ -390,8 +390,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61969db7d625f8a49a0fa113681ee01f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 1
-  enemyDamage: 0
+  attackRange: 2
+  enemyDamage: 4
 --- !u!195 &3887702768961762533
 NavMeshAgent:
   m_ObjectHideFlags: 0

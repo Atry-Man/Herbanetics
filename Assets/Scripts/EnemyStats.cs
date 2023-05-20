@@ -49,7 +49,7 @@ public class EnemyStats : MonoBehaviour
            
         }
     }
-
+   
     private void Die()
     {
         Instantiate(deathImpact, fxSpawnPoint.position, transform.rotation);

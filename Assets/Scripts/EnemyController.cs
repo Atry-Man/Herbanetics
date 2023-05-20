@@ -51,6 +51,7 @@ public class EnemyController : MonoBehaviour
         {
             PlayerStats playerStats = collision.gameObject.GetComponent<PlayerStats>();
             playerStats.TakeDamage(enemyDamage);
+            Debug.Log(playerStats.CurrentHealth);
         }
     }
 }
