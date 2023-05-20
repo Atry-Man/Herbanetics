@@ -10,6 +10,8 @@ public class EnemyController : MonoBehaviour
     Animator enemyAnim;
 
     private const string isMoving = "isMoving";
+    private const string isAttacking = "isAttacking";
+    [SerializeField] float attackRange;
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -25,12 +27,20 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        enemyAnim.SetBool(isMoving, true);
-        agent.SetDestination(target.position);
-    }
+        float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
-    void EnemyAttack()
-    {
+        if(distanceToTarget <= attackRange) {
 
+            enemyAnim.SetBool(isMoving, false);
+            //enemyAnim.SetBool(isAttacking, true);
+        }
+        else
+        {
+            enemyAnim.SetBool(isMoving, true);
+            //enemyAnim.SetBool(isAttacking, false);
+            agent.SetDestination(target.position);
+        }
+       
+       
     }
 }

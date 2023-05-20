@@ -8,6 +8,8 @@ public class EnemyStats : MonoBehaviour
     [SerializeField] private int damage;
     EnemyWaveSpawner waveSpawner;
     [SerializeField] GameObject deathImpact;
+    [SerializeField] GameObject damageImpact;
+    [SerializeField] Transform fxSpawnPoint;
     private int currentHealth;
 
     public int MaxHealth
@@ -40,7 +42,7 @@ public class EnemyStats : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
-
+        Instantiate(damageImpact, fxSpawnPoint.position, Quaternion.identity);
         if (currentHealth <= 0)
         {
             Die();
@@ -50,7 +52,7 @@ public class EnemyStats : MonoBehaviour
 
     private void Die()
     {
-        Instantiate(deathImpact, transform.position, transform.rotation);
+        Instantiate(deathImpact, fxSpawnPoint.position, transform.rotation);
         waveSpawner.EnemyDefeated();
         Destroy(gameObject);
     }
