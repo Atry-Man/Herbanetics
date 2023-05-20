@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5472169555248887929}
   - component: {fileID: 4601263077999260311}
   - component: {fileID: 8334292262593285766}
+  - component: {fileID: 7820445329824454307}
   m_Layer: 6
   m_Name: Floating Collider
   m_TagString: Enemy
@@ -108,6 +109,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61969db7d625f8a49a0fa113681ee01f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7820445329824454307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158101129155043852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d656dcdb205ed94ca72b0cc9c4ed5db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 2
+  damage: 3
+  deathImpact: {fileID: 5475267667346602053, guid: f5098f68081c84f439f2f162dc3be112,
+    type: 3}
 --- !u!1 &2126995590295514703
 GameObject:
   m_ObjectHideFlags: 0

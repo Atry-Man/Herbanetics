@@ -237,6 +237,22 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2291491206684982747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408204779248230830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d656dcdb205ed94ca72b0cc9c4ed5db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  damage: 5
+  deathImpact: {fileID: 5475267667346602053, guid: f5098f68081c84f439f2f162dc3be112,
+    type: 3}
 --- !u!4 &1783744747767692052 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4de43f44d7e201444a0f6e0ddcd2f80f,

@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 314849020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.15, y: 2.41, z: 11}
+  m_LocalPosition: {x: 25.15, y: 1.426, z: 9.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531540123}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.1, y: 2.41, z: 29.1}
+  m_LocalPosition: {x: -5.1, y: 1.485, z: 29.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -86,7 +86,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 753802820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.75, y: 2.41, z: 22.17}
+  m_LocalPosition: {x: -18.75, y: 1.416, z: 22.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -117,7 +117,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896891205}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.44, y: 2.41, z: 26.58}
+  m_LocalPosition: {x: 13.44, y: 1.44, z: 26.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366050543}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.29, y: 2.41, z: 11.21}
+  m_LocalPosition: {x: -27.29, y: 1.44, z: 11.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -179,7 +179,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2040941107}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.73, y: 2.41, z: 18.44}
+  m_LocalPosition: {x: 21.73, y: 1.463, z: 18.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 1763630919}
   m_Layer: 0
   m_Name: SpawnPoints
-  m_TagString: Untagged
+  m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -263,18 +263,34 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6584470472315276332}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9ccb0aa6c1465c45833f1553954c481, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
   - name: First Wave
-    enemyPrefabs: []
-    spawnInterval: 0
+    enemyPrefabs:
+    - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
+    - {fileID: 6215496076413004311, guid: b33f39f1832c4174bbaefe8039bc35e7, type: 3}
+    - {fileID: 3305598254533266054, guid: e82b3c028b5b0e34d8b1a5b66570a496, type: 3}
+    - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
+    - {fileID: 6215496076413004311, guid: b33f39f1832c4174bbaefe8039bc35e7, type: 3}
+    - {fileID: 3305598254533266054, guid: e82b3c028b5b0e34d8b1a5b66570a496, type: 3}
+    spawnInterval: 2
   - name: Second Wave
-    enemyPrefabs: []
-    spawnInterval: 0
+    enemyPrefabs:
+    - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
+    - {fileID: 6215496076413004311, guid: b33f39f1832c4174bbaefe8039bc35e7, type: 3}
+    - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
+    - {fileID: 3305598254533266054, guid: e82b3c028b5b0e34d8b1a5b66570a496, type: 3}
+    - {fileID: 3305598254533266054, guid: e82b3c028b5b0e34d8b1a5b66570a496, type: 3}
+    - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
+    - {fileID: 6215496076413004311, guid: b33f39f1832c4174bbaefe8039bc35e7, type: 3}
+    - {fileID: 6215496076413004311, guid: b33f39f1832c4174bbaefe8039bc35e7, type: 3}
+    - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
+    - {fileID: 3305598254533266054, guid: e82b3c028b5b0e34d8b1a5b66570a496, type: 3}
+    spawnInterval: 1.5
   - name: Third Wave
     enemyPrefabs: []
     spawnInterval: 0
@@ -290,3 +306,4 @@ MonoBehaviour:
   - {fileID: 896891206}
   - {fileID: 2040941108}
   - {fileID: 314849021}
+  startDelay: 4

@@ -2,18 +2,15 @@ using UnityEngine;
 
 public class StompDamage : MonoBehaviour
 {
-    EnemyWaveSpawner waveSpawner;
+    [SerializeField] int stompDamage;
 
-    private void Awake()
-    {
-        waveSpawner = GameObject.FindWithTag("Spawner").GetComponent<EnemyWaveSpawner>();
-    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Enemy"))
-        {
-            Destroy(other.gameObject);
-            waveSpawner.EnemyDefeated();
+        {    
+            EnemyStats enemyStats = other.GetComponent<EnemyStats>();
+            enemyStats.TakeDamage(stompDamage);
+            
         }
     }
 }

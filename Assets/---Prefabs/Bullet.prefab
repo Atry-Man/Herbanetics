@@ -52,7 +52,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834800682920001979}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -85,12 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d84223689f939f45b452268d851b333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  ObstacleLayer:
-    serializedVersion: 2
-    m_Bits: 8
+  boltDamage: 3
 --- !u!1001 &4898831305536155978
 PrefabInstance:
   m_ObjectHideFlags: 0
