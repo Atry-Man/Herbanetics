@@ -4,11 +4,24 @@ using UnityEngine;
 
 public class Bolt : MonoBehaviour
 {
-    [SerializeField] LayerMask EnemyLayer;
-    [SerializeField] LayerMask ObstacleLayer;
+    EnemyWaveSpawner waveSpawner;
+
+    private void Awake()
+    {
+        waveSpawner = GameObject.FindWithTag("Spawner").GetComponent<EnemyWaveSpawner>();
+    }
+
+
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Obstacle"))
+        if(collision.gameObject.CompareTag("Enemy"))
+        {   
+            Destroy(collision.gameObject);
+            waveSpawner.EnemyDefeated();
+            Destroy(gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Obstacle"))
         {
             Destroy(gameObject);
         }

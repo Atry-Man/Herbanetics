@@ -21,15 +21,18 @@ public class EnemyWaveSpawner : MonoBehaviour
     private int currentWaveIndex;
     private int enemiesRemaining;
     private float waveTimer;
+    [SerializeField] float startDelay;
     
     void Start()
     {
-        
+        StartCoroutine(SpawnWaves(startDelay));
     }
 
    
-    IEnumerator SpawnWaves()
-    {
+    IEnumerator SpawnWaves(float startDelay)
+    {    
+        yield return new WaitForSeconds(startDelay); 
+
         while(currentWaveIndex < totalWaves)
         {
 
@@ -49,6 +52,7 @@ public class EnemyWaveSpawner : MonoBehaviour
 
             while(enemiesRemaining > 0)
             {
+                Debug.Log(enemiesRemaining);
                 yield return null;
             }
 

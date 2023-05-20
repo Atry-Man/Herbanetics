@@ -27,6 +27,7 @@ public class StompFront : MonoBehaviour
             playerController.StopMovement();
             playerAnim.SetTrigger(StompTrigger);
             GameObject stomp = Instantiate(stompEffectPrefab, stompPos.position, stompPos.rotation);
+            StartCoroutine(ResumeMovement(0.5f));
             stomp.transform.localScale = Vector3.zero;
             StartCoroutine(StompAttack(stomp));
         }
@@ -52,12 +53,15 @@ public class StompFront : MonoBehaviour
             yield return null;
         }
         Destroy(stompObject);
-        playerController.CanMove= true;
+       
         yield return new WaitForSeconds(stompCooldown);
-
         canStomp = false;
     }
 
-
+    IEnumerator ResumeMovement(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        playerController.CanMove = true;
+    }
 
 }

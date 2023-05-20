@@ -12,10 +12,11 @@ public class PunchAttack : MonoBehaviour
         
         if(other.gameObject.CompareTag("Enemy") && collisionCount<= maxCollisions)
         {
-            Debug.Log("Hit");
+            Destroy(other.gameObject);
             collisionCount = 0;
         }
     }
 
     
+
 }
