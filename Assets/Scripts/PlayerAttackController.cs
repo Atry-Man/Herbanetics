@@ -13,10 +13,7 @@ public class PlayerAttackController : MonoBehaviour
     [SerializeField] Animator handsAnim;
     [SerializeField] float DefaultimeBeforeMovement;
     [SerializeField] float lastAttackDelay;
-    [SerializeField] GameObject[] attackEffects;
     [SerializeField] GameObject hands;
-    int currentAttackEffectIndex;
-    int AttackEffectIndex;
     [Header("External Variables")]
     [SerializeField] PlayerController playerController;
     [SerializeField] BoxCollider[] ComboColliders;
@@ -64,9 +61,6 @@ public class PlayerAttackController : MonoBehaviour
                     DefaultimeBeforeMovement = lastAttackDelay;
                     ComboColliders[0].enabled = true;
                     ComboColliders[1].enabled = true;
-                    attackEffects[0].SetActive(true);
-                    attackEffects[1].SetActive(true);
-                    currentAttackEffectIndex = 0;
                     if (disableHandsCoroutine != null)
                     {
                         StopCoroutine(disableHandsCoroutine);
@@ -81,13 +75,7 @@ public class PlayerAttackController : MonoBehaviour
                         StopCoroutine(disableHandsCoroutine);
                     }
 
-                    if(currentAttackEffectIndex >=0)
-                    {
-                        attackEffects[currentAttackEffectIndex].SetActive(false);
-                    }
-
-                    attackEffects[comboCount- 1].SetActive(true);
-                    currentAttackEffectIndex = comboCount-1;
+                    
                 }
             }
         }

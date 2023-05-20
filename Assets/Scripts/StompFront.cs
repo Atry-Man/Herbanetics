@@ -27,7 +27,7 @@ public class StompFront : MonoBehaviour
             playerController.StopMovement();
             playerAnim.SetTrigger(StompTrigger);
             GameObject stomp = Instantiate(stompEffectPrefab, stompPos.position, stompPos.rotation);
-            StartCoroutine(ResumeMovement(0.5f));
+            StartCoroutine(ResumeMovement(0.75f));
             stomp.transform.localScale = Vector3.zero;
             StartCoroutine(StompAttack(stomp));
         }
