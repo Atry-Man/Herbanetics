@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 movementVector;
     private Vector3 movementDirection;
     [field: SerializeField] float MovementSpeed {  get; set; }
-
+    public bool  CanMove { get; set; }
 
     [Header("External References")]
     [SerializeField] Animator playerAnim;
@@ -29,30 +29,40 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
+        CanMove = true;
     }
 
     public void OnMove(InputAction.CallbackContext ctx)
-    {
-        if(ctx.action.triggered)
-        {
-            movementVector = ctx.ReadValue<Vector3>();
-            movementDirection = movementVector.normalized;
-            playerAnim.SetBool(isRunning, true);
+    {   
+        if(CanMove && !isDashing) {
 
-        }else if(ctx.canceled) { 
-           
-            movementVector = Vector3.zero;
+
+            if (ctx.action.triggered)
+            {
+                movementVector = ctx.ReadValue<Vector3>();
+                movementDirection = movementVector.normalized;
+                playerAnim.SetBool(isRunning, true);
+
+            }
+            else if (ctx.canceled)
+            {
+
+                movementVector = Vector3.zero;
+            }
+
+            if (movementVector != Vector3.zero)
+            {
+                transform.rotation = Quaternion.LookRotation(movementDirection);
+            }
+            else
+            {
+                playerAnim.SetBool(isRunning, false);
+            }
+
+
+        }
+
         
-        }
-
-        if(movementVector != Vector3.zero)
-        {
-            transform.rotation = Quaternion.LookRotation(movementDirection);
-        }
-        else
-        {
-            playerAnim.SetBool(isRunning, false);
-        }
     }
 
     public void OnDash(InputAction.CallbackContext ctx)
@@ -88,6 +98,13 @@ public class PlayerController : MonoBehaviour
         playerAnim.SetBool(isDashingStr, false);
         yield return new WaitForSeconds(dashCooldown);
         isDashing = false;
+    }
+
+    public void StopMovement()
+    {
+        playerAnim.SetBool(isRunning, false);
+        movementVector = Vector3.zero;
+
     }
 
     private void FixedUpdate()

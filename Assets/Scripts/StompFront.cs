@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,6 +14,8 @@ public class StompFront : MonoBehaviour
     [SerializeField] Animator playerAnim;
     private bool canStomp;
 
+    [Header("External Variables")]
+    [SerializeField] PlayerController playerController;
     private const string StompTrigger = "Stomp";
 
     public void StartStomp(InputAction.CallbackContext callbackContext)
@@ -22,6 +23,8 @@ public class StompFront : MonoBehaviour
         if(callbackContext.action.triggered && !canStomp)
         {
             canStomp = true;
+            playerController.CanMove = false;
+            playerController.StopMovement();
             playerAnim.SetTrigger(StompTrigger);
             GameObject stomp = Instantiate(stompEffectPrefab, stompPos.position, stompPos.rotation);
             stomp.transform.localScale = Vector3.zero;
@@ -48,8 +51,8 @@ public class StompFront : MonoBehaviour
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-       Destroy(stompObject);
-
+        Destroy(stompObject);
+        playerController.CanMove= true;
         yield return new WaitForSeconds(stompCooldown);
 
         canStomp = false;

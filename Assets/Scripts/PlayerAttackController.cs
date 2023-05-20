@@ -12,7 +12,10 @@ public class PlayerAttackController : MonoBehaviour
     [SerializeField] string[] comboAttack;
     private bool previousAttack;
     [SerializeField] Animator playerAnim;
-
+    [SerializeField] float DefaultimeBeforeMovement;
+    [SerializeField] float lastAttackDelay;
+    [Header("External Variables")]
+    [SerializeField] PlayerController playerController;
 
     private const string LeftPunchTrigger = "LeftPunch";
     private void Awake()
@@ -34,20 +37,33 @@ public class PlayerAttackController : MonoBehaviour
 
             if(!previousAttack)
             {   
-                //play animation
+               
                 playerAnim.SetTrigger(LeftPunchTrigger);
+                playerController.CanMove = false;
+                playerController.StopMovement();
                 previousAttack = true;
             }
             else
             {
                 if(comboCount < comboAttack.Length)
-                {
-                    //Play animations from string list
+                {   
+                    if(comboCount == comboAttack.Length - 1)
+                    {
+                        DefaultimeBeforeMovement = lastAttackDelay;
+                    }
                     playerAnim.SetTrigger(comboAttack[comboCount]);
+                    playerController.CanMove = false;
+                    playerController.StopMovement();
                     comboCount++;
                     lastAttackTime = Time.time;
                 }
             }
+        }
+        else
+        {
+            StartCoroutine(ResumeMovement());
+            
+            
         }
     }
 
@@ -56,5 +72,12 @@ public class PlayerAttackController : MonoBehaviour
     {
         comboCount = 0;
         lastAttackTime = 0;
+        DefaultimeBeforeMovement =  1.25f;
+    }
+
+    IEnumerator ResumeMovement()
+    {
+        yield return new WaitForSeconds(DefaultimeBeforeMovement);
+        playerController.CanMove = true;
     }
 }
