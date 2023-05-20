@@ -12,6 +12,8 @@ public class PlayerAttackController : MonoBehaviour
     [SerializeField] Animator playerAnim;
     [SerializeField] float DefaultimeBeforeMovement;
     [SerializeField] float lastAttackDelay;
+    [SerializeField] GameObject attackEffect;
+    [SerializeField] GameObject attackEffect2;
 
 
     [Header("External Variables")]
@@ -39,6 +41,8 @@ public class PlayerAttackController : MonoBehaviour
             if (comboCount < comboAttack.Length)
             {
                 playerAnim.SetTrigger(comboAttack[comboCount]);
+                attackEffect.SetActive(true);
+                attackEffect2.SetActive(true);
                 playerController.CanMove = false;
                 playerController.StopMovement();
               
@@ -58,6 +62,8 @@ public class PlayerAttackController : MonoBehaviour
                     DefaultimeBeforeMovement = lastAttackDelay;
                     ComboColliders[0].enabled = true;
                     ComboColliders[1].enabled = true;
+                    attackEffect.SetActive(true);
+                    attackEffect2.SetActive(true);
                 }
             }
         }
@@ -80,7 +86,9 @@ public class PlayerAttackController : MonoBehaviour
     IEnumerator DiableCollidersAndResumeMovement()
     {
         yield return new WaitForSeconds(DefaultimeBeforeMovement);
-        foreach(Collider col  in ComboColliders)
+        attackEffect.SetActive(false);
+        attackEffect2.SetActive(false);
+        foreach (Collider col  in ComboColliders)
             {
                 col.enabled = false;
             }

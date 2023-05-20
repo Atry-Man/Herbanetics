@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashDuration;
     [SerializeField] private float dashCooldown;
+    [SerializeField] private GameObject dashEffect;
     private Vector3 dashTarget;
     private bool isDashing;
 
@@ -73,6 +74,7 @@ public class PlayerController : MonoBehaviour
         if(ctx.action.triggered && !isDashing)
         {
             playerAnim.SetBool(isDashingStr, true);
+            dashEffect.SetActive(true);
             Vector3 dashDirection = transform.TransformDirection(Vector3.forward);
             dashTarget = transform.position + dashDirection * dashSpeed;
 
@@ -81,6 +83,7 @@ public class PlayerController : MonoBehaviour
             if(Physics.Raycast(transform.position, dashDirection, out hit, rayDistance, obstacleLayerMask))
             {
                 playerAnim.SetBool(isDashingStr, false);
+                dashEffect.SetActive(false);
                 return;
                
             }
@@ -109,6 +112,7 @@ public class PlayerController : MonoBehaviour
         
         transform.position = dashTarget;
         playerAnim.SetBool(isDashingStr, false);
+        dashEffect.SetActive(false);
         yield return new WaitForSeconds(dashCooldown);
         isDashing = false;
     }
