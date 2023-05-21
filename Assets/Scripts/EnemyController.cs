@@ -13,10 +13,13 @@ public class EnemyController : MonoBehaviour
     private const string isAttacking = "isAttacking";
     [SerializeField] float attackRange;
     [SerializeField] int enemyDamage;
+    int collisionCount;
+    int maxCollisions;
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         enemyAnim = GetComponent<Animator>();
+        maxCollisions = 1;
     }
 
     
@@ -51,11 +54,13 @@ public class EnemyController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        collisionCount++;
+
+        if(collision.gameObject.CompareTag("Player") && collisionCount<= maxCollisions)
         {
             PlayerStats playerStats = collision.gameObject.GetComponent<PlayerStats>();
             playerStats.TakeDamage(enemyDamage);
-            Debug.Log(playerStats.CurrentHealth);
+            collisionCount = 0;
         }
     }
 }

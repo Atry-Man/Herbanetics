@@ -199,6 +199,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8704082659217820965, guid: 4de43f44d7e201444a0f6e0ddcd2f80f,
         type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8704082659217820965, guid: 4de43f44d7e201444a0f6e0ddcd2f80f,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 413bdba478530b04ab9d06cc3d41050c, type: 2}
@@ -251,8 +256,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61969db7d625f8a49a0fa113681ee01f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 2
-  enemyDamage: 3
+  attackRange: 1
+  enemyDamage: 2
 --- !u!195 &2109034812001992230
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -287,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d656dcdb205ed94ca72b0cc9c4ed5db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 8
   damage: 5
   deathImpact: {fileID: 5475267667346602053, guid: f5098f68081c84f439f2f162dc3be112,
     type: 3}

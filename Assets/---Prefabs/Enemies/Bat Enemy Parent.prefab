@@ -302,6 +302,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: BATMONSTER
       objectReference: {fileID: 0}
+    - target: {fileID: 3807195052837979625, guid: 02a616fe4ea22ef4eaf3164c11c557bb,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -6478536213147159724, guid: 4de43f44d7e201444a0f6e0ddcd2f80f,
+        type: 3}
     - target: {fileID: 5866666021909216657, guid: 02a616fe4ea22ef4eaf3164c11c557bb,
         type: 3}
       propertyPath: m_Controller

@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88c88da6c8f7d2b4b9ce6c85149c6d90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stompDamage: 4
+  stompDamage: 5
 --- !u!1 &5485162162285436477
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88c88da6c8f7d2b4b9ce6c85149c6d90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stompDamage: 4
+  stompDamage: 5
 --- !u!1001 &986974396251137110
 PrefabInstance:
   m_ObjectHideFlags: 0

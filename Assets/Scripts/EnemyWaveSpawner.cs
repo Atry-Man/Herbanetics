@@ -17,6 +17,7 @@ public class EnemyWaveSpawner : MonoBehaviour
     [SerializeField] int totalWaves;
     [SerializeField] float timeBtnWaves;
     [SerializeField] Transform[] spawnPoints;
+    [SerializeField] GameObject[] waveText;
 
     private int currentWaveIndex;
     private int enemiesRemaining;
@@ -38,7 +39,7 @@ public class EnemyWaveSpawner : MonoBehaviour
         {
 
             Wave currentWave = waves[currentWaveIndex];
-            Debug.Log("Starting Wave "+ currentWave.name);
+            waveText[currentWaveIndex].SetActive(true);
 
             for(int i = 0; i< currentWave.enemyPrefabs.Count; i++) { 
                 
@@ -62,11 +63,13 @@ public class EnemyWaveSpawner : MonoBehaviour
             waveTimer = timeBtnWaves;
 
             Debug.Log("Wave " + currentWave.name + "Completed. Proceeding to the next wave");
+
             playerStats.IncreaseHealth(4);
 
             yield return new WaitForSeconds(timeBtnWaves);
         }
 
+        waveText[totalWaves].SetActive(true);
         Debug.Log("All Waves completed");
     }
 
