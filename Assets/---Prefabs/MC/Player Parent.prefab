@@ -194,13 +194,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stompEffectPrefab: {fileID: 5485162162285436477, guid: 6a75cc7a44829744da379bcc28454773,
     type: 3}
-  stompDesiredSize: 2.5
+  stompDesiredSize: 3
   stompSpeed: 5
   stompDuration: 2
-  stompCooldown: 2
+  stompCooldown: 1
   stompPos: {fileID: 802467025}
   playerAnim: {fileID: 3183314842080261312}
-  playerController: {fileID: 2027632121}
+  playerController: {fileID: 7285735708179069782}
 --- !u!114 &5337218223308827324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ MonoBehaviour:
   DefaultimeBeforeMovement: 1
   lastAttackDelay: 1.75
   hands: {fileID: 7502311038762438673}
-  playerController: {fileID: 2027632121}
+  playerController: {fileID: 7285735708179069782}
   ComboColliders:
   - {fileID: 1876435206}
   - {fileID: 1270453387}
@@ -400,10 +400,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5337218222680548487}
-  - component: {fileID: 2027632121}
-  - component: {fileID: 2027632122}
-  - component: {fileID: 2027632123}
-  - component: {fileID: 2027632124}
   m_Layer: 0
   m_Name: Player Parent
   m_TagString: Player
@@ -431,169 +427,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2027632121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5337218222680548486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d75f85d64c43b74e80e090c1276504f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <MovementSpeed>k__BackingField: 10
-  playerAnim: {fileID: 3183314842080261312}
-  dashSpeed: 8
-  dashDuration: 0.35
-  dashCooldown: 0.2
-  dashEffect: {fileID: 6954800024635163164}
-  obstacleLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  rayDistance: 8
---- !u!114 &2027632122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5337218222680548486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 4737b140898ddda48b3fa1e5b6a8e3bb,
-    type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2027632121}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnMove
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 84f50024-73f4-43a3-b242-a8e6ed13d0e7
-    m_ActionName: Player/Movement
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2027632121}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnDash
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 6af8292b-533c-4f8d-bed4-e69913cb6857
-    m_ActionName: Player/Dash[/Keyboard/space]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5337218223308827324}
-        m_TargetAssemblyTypeName: PlayerAttackController, Assembly-CSharp
-        m_MethodName: OnTripleWhammy
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 32ed7d24-4da2-4818-8731-e733372c3ee1
-    m_ActionName: Player/Triple Whammy[/DualShock4GamepadHID/buttonWest]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5337218223308827330}
-        m_TargetAssemblyTypeName: SmolBolts, Assembly-CSharp
-        m_MethodName: ShootBolts
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: b37db39e-09c5-4d4a-90cc-0a82746a3634
-    m_ActionName: Player/Smol Bolts[/DualShock4GamepadHID/rightShoulder]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1428173390}
-        m_TargetAssemblyTypeName: StompFront, Assembly-CSharp
-        m_MethodName: StartStomp
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 267b60c6-cf9d-4eb1-a54a-184c9a19b3bc
-    m_ActionName: Player/Stomp Front[/DualShock4GamepadHID/buttonEast]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
---- !u!54 &2027632123
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5337218222680548486}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 2
---- !u!114 &2027632124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5337218222680548486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98b663503e228d9449d90d21092a9129, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 15
-  healthSlider: {fileID: 0}
 --- !u!1001 &2090097750663839215
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1431,8 +1264,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 9027450413593168209}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &3691220765446456654
-BoxCollider:
+--- !u!54 &6689860140946376285
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8180396763289596928}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 2
+--- !u!136 &4610210042569260439
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1441,25 +1290,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.4314845, y: 1.8216078, z: 0.7898215}
-  m_Center: {x: -0.08651698, y: 0.9050673, z: 0.038866505}
---- !u!114 &496037303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8180396763289596928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fff0960ef4ea6e04eac66b4a7fd2189d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RigLayers:
-  - m_Rig: {fileID: 0}
-    m_Active: 1
-  m_Effectors: []
+  m_Radius: 0.5
+  m_Height: 1.8310034
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.88175976, z: 0}
 --- !u!114 &5337218223308827331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1521,6 +1355,154 @@ MonoBehaviour:
   - {fileID: 4706371898021254711}
   - {fileID: 5574167716873804584}
   - {fileID: 8159064278683441761}
+--- !u!114 &7285735708179069782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8180396763289596928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d75f85d64c43b74e80e090c1276504f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAnim: {fileID: 3183314842080261312}
+  dashSpeed: 8
+  dashDuration: 0.35
+  dashCooldown: 0.2
+  dashEffect: {fileID: 6954800024635163164}
+  obstacleLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  rayDistance: 8
+  playerConfig: {fileID: 11400000, guid: 49f071c7fb2cd8240a85e616b582173a, type: 2}
+--- !u!114 &8805219305208626501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8180396763289596928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 4737b140898ddda48b3fa1e5b6a8e3bb,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7285735708179069782}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 84f50024-73f4-43a3-b242-a8e6ed13d0e7
+    m_ActionName: Player/Movement
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7285735708179069782}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnDash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6af8292b-533c-4f8d-bed4-e69913cb6857
+    m_ActionName: Player/Dash[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5337218223308827324}
+        m_TargetAssemblyTypeName: PlayerAttackController, Assembly-CSharp
+        m_MethodName: OnTripleWhammy
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 32ed7d24-4da2-4818-8731-e733372c3ee1
+    m_ActionName: Player/Triple Whammy[/DualShock4GamepadHID/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5337218223308827330}
+        m_TargetAssemblyTypeName: SmolBolts, Assembly-CSharp
+        m_MethodName: ShootBolts
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b37db39e-09c5-4d4a-90cc-0a82746a3634
+    m_ActionName: Player/Smol Bolts[/DualShock4GamepadHID/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1428173390}
+        m_TargetAssemblyTypeName: StompFront, Assembly-CSharp
+        m_MethodName: StartStomp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 267b60c6-cf9d-4eb1-a54a-184c9a19b3bc
+    m_ActionName: Player/Stomp Front[/DualShock4GamepadHID/buttonEast]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &8871555027878717304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8180396763289596928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98b663503e228d9449d90d21092a9129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 15
+  healthSlider: {fileID: 0}
+  gameOverPanel: {fileID: 0}
 --- !u!4 &8660411649400186702 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8833805373484061153, guid: 5534c7dd38629f5408ed5b173d3c7e76,

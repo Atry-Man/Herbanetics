@@ -5,16 +5,24 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
     [Header("PlayerMovement Variables")]
+    private Vector3 movementDir;
     private Vector3 movementVector;
-    private Vector3 movementDirection;
-    [field: SerializeField] float MovementSpeed {  get; set; }
-    public bool  CanMove { get; set; }
+    float movSpeed;
+    float movSpeedPen;
+    private float defaultMovSpeed;
+    public float MovSpeed
+    {
+        get { return movSpeed; }
+        set { movSpeed = value; }
+    }
+    public bool CanMove { get; set; }
+    private Vector3 smoothedMovementInput;
+    private Vector3 movementInputSpeedVelocity;
 
     [Header("External References")]
     [SerializeField] Animator playerAnim;
 
-    private Rigidbody playerRb;
-
+   
     [Header("Dash Variables")]
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashDuration;
@@ -30,8 +38,14 @@ public class PlayerController : MonoBehaviour
     [Header("Collision Variables")]
     [SerializeField] LayerMask obstacleLayerMask;
     [SerializeField] float rayDistance;
-    void Start()
+
+    [Header("Player Config")]
+    [SerializeField] PlayerConfig playerConfig;
+
+    private Rigidbody playerRb;
+    void Awake()
     {
+        InitializeValues();
         playerRb = GetComponent<Rigidbody>();
         CanMove = true;
     }
@@ -44,7 +58,7 @@ public class PlayerController : MonoBehaviour
             if (ctx.action.triggered)
             {
                 movementVector = ctx.ReadValue<Vector3>();
-                movementDirection = movementVector.normalized;
+                movementDir = movementVector.normalized;
                 playerAnim.SetBool(isRunning, true);
 
             }
@@ -56,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
             if (movementVector != Vector3.zero)
             {
-                transform.rotation = Quaternion.LookRotation(movementDirection);
+                transform.rotation = Quaternion.LookRotation(movementDir);
             }
             else
             {
@@ -125,13 +139,28 @@ public class PlayerController : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {   
-        if(isDashing)
-        {
-            return;
-        }
+    {
+        smoothedMovementInput = Vector3.SmoothDamp(smoothedMovementInput, movementVector, ref movementInputSpeedVelocity, 0.1f);
+        playerRb.velocity = smoothedMovementInput * movSpeed;
 
-        playerRb.velocity = movementVector * MovementSpeed;
-      
+    }
+
+    public void ApplyMovementSpeedPenalty()
+    {
+        movSpeed *= movSpeedPen;
+    }
+
+    public void RemoveMovementSpeedPenalty()
+    {
+        movSpeed = defaultMovSpeed;
+    }
+
+    void InitializeValues()
+    {
+        movSpeed = playerConfig.movementSpeed;
+        movSpeedPen = playerConfig.movementSpeedPen;
+        dashSpeed = playerConfig.dashSpeed;
+        dashDuration = playerConfig.dashDuration;
+        dashCooldown = playerConfig.dashCooldown;
     }
 }
