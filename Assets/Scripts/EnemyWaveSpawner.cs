@@ -23,7 +23,7 @@ public class EnemyWaveSpawner : MonoBehaviour
     private int enemiesRemaining;
     private float waveTimer;
     [SerializeField] float startDelay;
-    [SerializeField] PlayerStats playerStats;
+    [SerializeField] PlayerDamage playerDamage;
     
     void Start()
     {
@@ -64,7 +64,7 @@ public class EnemyWaveSpawner : MonoBehaviour
 
             Debug.Log("Wave " + currentWave.name + "Completed. Proceeding to the next wave");
 
-            playerStats.IncreaseHealth(4);
+            playerDamage.IncreaseHealth(4);
 
             yield return new WaitForSeconds(timeBtnWaves);
         }

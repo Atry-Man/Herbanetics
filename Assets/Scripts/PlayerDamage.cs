@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerDamage : MonoBehaviour
 {
-    [SerializeField] private int maxHealth;
     [SerializeField] Slider healthSlider;
-    private int currentHealth;
     [SerializeField] GameObject gameOverPanel;
-   
+    [SerializeField] PlayerConfig playerConfig;
+    private int maxHealth;
+    private int currentHealth;
 
     public int MaxHealth
     {
@@ -18,10 +18,12 @@ public class PlayerStats : MonoBehaviour
     public int CurrentHealth
     {
         get { return currentHealth; }
+        set { currentHealth = value; }
     }
 
-    private void Start()
+    private void Awake()
     {
+        maxHealth = playerConfig.maxHealth;
         currentHealth = maxHealth;
         healthSlider.value = currentHealth;
     }
@@ -29,19 +31,22 @@ public class PlayerStats : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
-        healthSlider.value = currentHealth;
+        healthSlider.value = ((float)currentHealth / maxHealth);
+        //Instantiate(hitEffect, hitSpawn.position, quaternion.identity);
+        //playerAnim.SetTrigger(hurtStr);
+
         if (currentHealth <= 0)
         {
             Die();
-
         }
     }
+
 
     public void IncreaseHealth(int amount)
     {
         currentHealth += amount;
         healthSlider.value = currentHealth;
-        if (currentHealth>= MaxHealth)
+        if (currentHealth>= maxHealth)
         {
             currentHealth = maxHealth;
         }
