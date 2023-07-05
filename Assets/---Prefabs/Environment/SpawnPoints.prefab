@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - name: First Wave
+  - name: Mixed Enemy Wave 1
     enemyPrefabs:
     - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
     - {fileID: 6215496076413004311, guid: b33f39f1832c4174bbaefe8039bc35e7, type: 3}
@@ -278,7 +278,7 @@ MonoBehaviour:
     - {fileID: 6215496076413004311, guid: b33f39f1832c4174bbaefe8039bc35e7, type: 3}
     - {fileID: 3305598254533266054, guid: e82b3c028b5b0e34d8b1a5b66570a496, type: 3}
     spawnInterval: 2
-  - name: Second Wave
+  - name: Mixed Enemy Wave 2
     enemyPrefabs:
     - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
     - {fileID: 6215496076413004311, guid: b33f39f1832c4174bbaefe8039bc35e7, type: 3}
@@ -291,14 +291,57 @@ MonoBehaviour:
     - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
     - {fileID: 3305598254533266054, guid: e82b3c028b5b0e34d8b1a5b66570a496, type: 3}
     spawnInterval: 1.5
-  - name: Third Wave
-    enemyPrefabs: []
-    spawnInterval: 0
-  - name: Fourth Wave
-    enemyPrefabs: []
-    spawnInterval: 0
-  totalWaves: 4
-  timeBtnWaves: 5
+  - name: Bat Wave
+    enemyPrefabs:
+    - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
+    - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
+    - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
+    - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
+    - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
+    - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
+    - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
+    - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
+    - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
+    - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
+    spawnInterval: 2
+  - name: Giants Wave
+    enemyPrefabs:
+    - {fileID: 3305598254533266054, guid: e82b3c028b5b0e34d8b1a5b66570a496, type: 3}
+    - {fileID: 3305598254533266054, guid: e82b3c028b5b0e34d8b1a5b66570a496, type: 3}
+    - {fileID: 3305598254533266054, guid: e82b3c028b5b0e34d8b1a5b66570a496, type: 3}
+    - {fileID: 3305598254533266054, guid: e82b3c028b5b0e34d8b1a5b66570a496, type: 3}
+    - {fileID: 3305598254533266054, guid: e82b3c028b5b0e34d8b1a5b66570a496, type: 3}
+    - {fileID: 3305598254533266054, guid: e82b3c028b5b0e34d8b1a5b66570a496, type: 3}
+    - {fileID: 3305598254533266054, guid: e82b3c028b5b0e34d8b1a5b66570a496, type: 3}
+    - {fileID: 3305598254533266054, guid: e82b3c028b5b0e34d8b1a5b66570a496, type: 3}
+    - {fileID: 6215496076413004311, guid: b33f39f1832c4174bbaefe8039bc35e7, type: 3}
+    - {fileID: 6215496076413004311, guid: b33f39f1832c4174bbaefe8039bc35e7, type: 3}
+    spawnInterval: 1.8
+  - name: Final Wave
+    enemyPrefabs:
+    - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
+    - {fileID: 6215496076413004311, guid: b33f39f1832c4174bbaefe8039bc35e7, type: 3}
+    - {fileID: 3305598254533266054, guid: e82b3c028b5b0e34d8b1a5b66570a496, type: 3}
+    - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
+    - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
+    - {fileID: 3305598254533266054, guid: e82b3c028b5b0e34d8b1a5b66570a496, type: 3}
+    - {fileID: 6215496076413004311, guid: b33f39f1832c4174bbaefe8039bc35e7, type: 3}
+    - {fileID: 6215496076413004311, guid: b33f39f1832c4174bbaefe8039bc35e7, type: 3}
+    - {fileID: 6215496076413004311, guid: b33f39f1832c4174bbaefe8039bc35e7, type: 3}
+    - {fileID: 6215496076413004311, guid: b33f39f1832c4174bbaefe8039bc35e7, type: 3}
+    - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
+    - {fileID: 3305598254533266054, guid: e82b3c028b5b0e34d8b1a5b66570a496, type: 3}
+    - {fileID: 3305598254533266054, guid: e82b3c028b5b0e34d8b1a5b66570a496, type: 3}
+    - {fileID: 3305598254533266054, guid: e82b3c028b5b0e34d8b1a5b66570a496, type: 3}
+    - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
+    - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
+    - {fileID: 3305598254533266054, guid: e82b3c028b5b0e34d8b1a5b66570a496, type: 3}
+    - {fileID: 6215496076413004311, guid: b33f39f1832c4174bbaefe8039bc35e7, type: 3}
+    - {fileID: 6215496076413004311, guid: b33f39f1832c4174bbaefe8039bc35e7, type: 3}
+    - {fileID: 2126995590295514703, guid: 7fedeefa110a5104e8b19fe8d38c9fe3, type: 3}
+    spawnInterval: 2.25
+  totalWaves: 5
+  timeBtnWaves: 6
   spawnPoints:
   - {fileID: 1366050544}
   - {fileID: 753802821}
@@ -306,4 +349,11 @@ MonoBehaviour:
   - {fileID: 896891206}
   - {fileID: 2040941108}
   - {fileID: 314849021}
+  waveText:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   startDelay: 4
+  playerDamage: {fileID: 0}

@@ -24,9 +24,9 @@ public class PlayerController : MonoBehaviour
 
    
     [Header("Dash Variables")]
-    [SerializeField] private float dashSpeed;
-    [SerializeField] private float dashDuration;
-    [SerializeField] private float dashCooldown;
+    private float dashSpeed;
+    private float dashDuration;
+    private float dashCooldown;
     [SerializeField] private GameObject dashEffect;
     private Vector3 dashTarget;
     private bool isDashing;
@@ -162,5 +162,6 @@ public class PlayerController : MonoBehaviour
         dashSpeed = playerConfig.dashSpeed;
         dashDuration = playerConfig.dashDuration;
         dashCooldown = playerConfig.dashCooldown;
+        defaultMovSpeed = playerConfig.movementSpeed;
     }
 }
