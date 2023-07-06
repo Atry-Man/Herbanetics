@@ -6909,7 +6909,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1139174787}
-  m_RootOrder: 7
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -3.609, z: 0}
 --- !u!23 &454121119
 MeshRenderer:
@@ -7137,6 +7137,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: d2dfffd7c48f48047b98d380209bd78a,
         type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: d2dfffd7c48f48047b98d380209bd78a,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5ae00fee445d0c34b885b3cbb733f14f, type: 2}
@@ -7226,6 +7231,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: d2dfffd7c48f48047b98d380209bd78a,
         type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: d2dfffd7c48f48047b98d380209bd78a,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5ae00fee445d0c34b885b3cbb733f14f, type: 2}
@@ -7302,6 +7312,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 5.004
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: d2dfffd7c48f48047b98d380209bd78a,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: d2dfffd7c48f48047b98d380209bd78a,
         type: 3}
@@ -7816,6 +7831,11 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: d2dfffd7c48f48047b98d380209bd78a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: d2dfffd7c48f48047b98d380209bd78a,
+        type: 3}
+      propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: d2dfffd7c48f48047b98d380209bd78a,
@@ -10415,6 +10435,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: d2dfffd7c48f48047b98d380209bd78a,
         type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: d2dfffd7c48f48047b98d380209bd78a,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5ae00fee445d0c34b885b3cbb733f14f, type: 2}
@@ -11463,6 +11488,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3024716689823745039, guid: 29788cc49d33e4b48bfc3fdba6a97b15,
         type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3024716689823745039, guid: 29788cc49d33e4b48bfc3fdba6a97b15,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5ae00fee445d0c34b885b3cbb733f14f, type: 2}
@@ -11638,7 +11668,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1139174787}
-  m_RootOrder: 6
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -3.609, z: 0}
 --- !u!1 &8918266670210502173
 GameObject:
