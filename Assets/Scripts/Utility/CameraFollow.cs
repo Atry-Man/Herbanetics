@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] Transform target;
+    Transform target;
     [SerializeField][Range(0.01f, 1f)] private float smoothness;
     [SerializeField] Vector3 offset;
-
+    private const string playerStr = "Player";
+    private void Awake()
+    {
+        target = GameObject.FindGameObjectWithTag(playerStr).transform;
+    }
     private void LateUpdate()
     {
         if (target != null)
