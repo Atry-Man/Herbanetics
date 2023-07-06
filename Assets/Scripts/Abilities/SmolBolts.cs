@@ -4,15 +4,13 @@ using UnityEngine.InputSystem;
 public class SmolBolts : MonoBehaviour
 {
     [Header("Smol Bolts references")]
-    [SerializeField] GameObject boltPrefab;
     [SerializeField] Transform firePoint;
-    [SerializeField] float fireForce;
-    [SerializeField] float fireRate;
     [SerializeField] Animator playerAnim;
+    [SerializeField] SmolBoltsSO SmolBoltsSO;
     private float fireRateTimer;
     private bool canShoot;
-
     private const string isShootingStr = "isShooting";
+   
 
     private void Awake()
     {
@@ -23,8 +21,8 @@ public class SmolBolts : MonoBehaviour
         if(ctx.action.triggered && canShoot)
         {   
             playerAnim.SetBool(isShootingStr, true);
-            GameObject bolt = Instantiate(boltPrefab, firePoint.position, firePoint.rotation);
-            bolt.GetComponent<Rigidbody>().AddForce(firePoint.forward * fireForce, ForceMode.Impulse);
+            GameObject bolt = Instantiate(SmolBoltsSO.boltPrefab, firePoint.position, firePoint.rotation);
+            bolt.GetComponent<Rigidbody>().AddForce(firePoint.forward * SmolBoltsSO.fireForce, ForceMode.Impulse);
             fireRateTimer = 0f;
             canShoot=false;
         }
@@ -38,7 +36,7 @@ public class SmolBolts : MonoBehaviour
     {
         fireRateTimer += Time.deltaTime;
 
-        if(fireRateTimer > fireRate) {
+        if(fireRateTimer > SmolBoltsSO.fireRate) {
                canShoot = true;
         }
     }
