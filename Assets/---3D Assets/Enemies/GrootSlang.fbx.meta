@@ -3,7 +3,17 @@ guid: c627a3ce7edb5b2469588775dcc0b7e3
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Outline
+    second: {fileID: 2100000, guid: b5640fdb305aba5488ad26359104f7d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: grootslang
+    second: {fileID: 2100000, guid: 523d1b36b3f160d428d48a46db3fad03, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

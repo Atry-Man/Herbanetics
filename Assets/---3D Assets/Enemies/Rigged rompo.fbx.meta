@@ -1,19 +1,9 @@
 fileFormatVersion: 2
-guid: c8e2965892c376d4f9ce69025ecbef27
+guid: d22514e32bda1a64cb2df9e3f0b51416
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Outline
-    second: {fileID: 2100000, guid: b5640fdb305aba5488ad26359104f7d9, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: popobawa
-    second: {fileID: 2100000, guid: c71bad60b31f3b940bc993f465cebb94, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
