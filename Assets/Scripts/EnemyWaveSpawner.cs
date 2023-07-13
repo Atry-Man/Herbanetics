@@ -1,80 +1,103 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyWaveSpawner : MonoBehaviour
 {
-    [System.Serializable]
-    public class Wave
+    [SerializeField] Transform player;  // Reference to the player's transform
+    [SerializeField] int numberOfEnemiesToSpawn;  // Number of enemies to spawn
+    [SerializeField] float spawnDelay;  // Delay between enemy spawns
+    [SerializeField] List<EnemySetup> enemyPrefabs = new();  // List of enemy prefabs to spawn
+    public SpawnMethod enemySpawnMethod = SpawnMethod.RoundRobin;  // Method for spawning enemies
+    [SerializeField] GameObject spawnEffect;
+    private NavMeshTriangulation triangulation;  // NavMesh triangulation data
+    private Dictionary<int, ObjectPool> EnemyObjectPools = new Dictionary<int, ObjectPool>();  // Dictionary of enemy object pools
+
+
+    private void Awake()
     {
-        public string name;
-        public List<GameObject> enemyPrefabs;
-        public float spawnInterval;
-    }
-
-    [Header("Enemy Wave Settings")]
-    [SerializeField] List<Wave> waves;
-    [SerializeField] int totalWaves;
-    [SerializeField] float timeBtnWaves;
-    [SerializeField] Transform[] spawnPoints;
-    [SerializeField] GameObject[] waveText;
-
-    private int currentWaveIndex;
-    private int enemiesRemaining;
-    private float waveTimer;
-    [SerializeField] float startDelay;
-    [SerializeField] PlayerDamage playerDamage;
-    
-    void Start()
-    {
-        StartCoroutine(SpawnWaves(startDelay));
-    }
-
-   
-    IEnumerator SpawnWaves(float startDelay)
-    {    
-        yield return new WaitForSeconds(startDelay); 
-
-        while(currentWaveIndex < totalWaves)
+        // Create object pools for each enemy prefab
+        for (int i = 0; i < enemyPrefabs.Count; i++)
         {
-
-            Wave currentWave = waves[currentWaveIndex];
-            waveText[currentWaveIndex].SetActive(true);
-
-            for(int i = 0; i< currentWave.enemyPrefabs.Count; i++) { 
-                
-                GameObject enemyPrefab = currentWave.enemyPrefabs[i];
-                Transform spawnPoint = spawnPoints[i % spawnPoints.Length];
-                Instantiate(enemyPrefab, spawnPoint.position,spawnPoint.rotation);
-                enemiesRemaining++;
-
-                yield return new WaitForSeconds(currentWave.spawnInterval);
-            
-            }
-
-            while(enemiesRemaining > 0)
-            {
-               
-                yield return null;
-            }
-
-
-            currentWaveIndex++;
-            waveTimer = timeBtnWaves;
-
-            Debug.Log("Wave " + currentWave.name + "Completed. Proceeding to the next wave");
-
-            playerDamage.IncreaseHealth(4);
-
-            yield return new WaitForSeconds(timeBtnWaves);
+            EnemyObjectPools.Add(i, ObjectPool.CreateInstance(enemyPrefabs[i], numberOfEnemiesToSpawn));
         }
-
-        waveText[totalWaves].SetActive(true);
-        Debug.Log("All Waves completed");
     }
 
-    public void EnemyDefeated()
+    private void Start()
     {
-        enemiesRemaining--;
+        triangulation = NavMesh.CalculateTriangulation();  // Calculate NavMesh triangulation data
+        StartCoroutine(SpawnEnemies());  // Start spawning enemies
+    }
+
+    private IEnumerator SpawnEnemies()
+    {
+        WaitForSeconds wait = new WaitForSeconds(spawnDelay);
+
+        int spawnedEnemies = 0;
+
+        while (spawnedEnemies < numberOfEnemiesToSpawn)
+        {
+            if (enemySpawnMethod == SpawnMethod.RoundRobin)
+            {
+                SpawnRoundRobinEnemy(spawnedEnemies);
+            }
+            else if (enemySpawnMethod == SpawnMethod.Random)
+            {
+                SpawnRandomEnemy();
+            }
+            spawnedEnemies++;
+
+            yield return wait;
+        }
+    }
+
+    private void SpawnRoundRobinEnemy(int spawnedEnemies)
+    {
+        int spawnIndex = spawnedEnemies % enemyPrefabs.Count;
+        DoSpawnEnemy(spawnIndex);
+    }
+
+    private void SpawnRandomEnemy()
+    {
+        DoSpawnEnemy(Random.Range(0, enemyPrefabs.Count));
+    }
+
+    private void DoSpawnEnemy(int spawnIndex)
+    {
+
+        PoolableObject poolableObject = EnemyObjectPools[spawnIndex].GetObject();
+
+        if (poolableObject != null)
+        {
+            EnemySetup enemy = poolableObject.GetComponent<EnemySetup>();
+            int vertexIndex = Random.Range(0, triangulation.vertices.Length);
+
+            // Try to place the enemy on the NavMesh
+            if (NavMesh.SamplePosition(triangulation.vertices[vertexIndex], out NavMeshHit hit, 2f, -1))
+            {
+                enemy.agent.Warp(hit.position);
+                Instantiate(spawnEffect, hit.position, Quaternion.identity);
+                enemy.movement.target = player;
+                enemy.agent.enabled = true;
+                enemy.movement.StartChasing();
+            }
+            else
+            {
+                Debug.LogError($"Unable to place NavMeshAgent on NavMesh. Tried to use {triangulation.vertices[vertexIndex]}");
+            }
+        }
+        else
+        {
+            Debug.LogError($"Unable to fetch enemy of type {spawnIndex} from object pool. Out of objects?");
+        }
+    }
+
+
+
+    public enum SpawnMethod
+    {
+        RoundRobin,
+        Random
     }
 }

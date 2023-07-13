@@ -383,20 +383,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1038157, y: 0.95802146, z: 1}
   m_Center: {x: -0.0063990834, y: 0.45623526, z: 0}
---- !u!114 &982790399157952523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 264124000765276506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61969db7d625f8a49a0fa113681ee01f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackRange: 1
-  enemyDamage: 3
 --- !u!195 &3887702768961762533
 NavMeshAgent:
   m_ObjectHideFlags: 0
