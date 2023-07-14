@@ -179,7 +179,7 @@ MonoBehaviour:
   attackRadius: {fileID: 4189519492536208537}
   enemyScriptableObject: {fileID: 11400000, guid: 854a5219e23b56d4d9c0ae090c416aa9,
     type: 2}
-  damageEffects: {fileID: 7297757046258931675, guid: a5b8a4b999d70d742a662b053dd17389,
+  damageEffects: {fileID: 1999715483303943544, guid: 71878ec3f63c377468c33fe899f9fb04,
     type: 3}
   hitSpawn: {fileID: 6920170404512982186}
 --- !u!114 &899208279
