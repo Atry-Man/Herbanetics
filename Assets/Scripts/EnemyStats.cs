@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStats : MonoBehaviour
+public class EnemyStats : MonoBehaviour,IDamagable
 {
     [SerializeField] private int maxHealth;
     [SerializeField] private int damage;
-    EnemyWaveSpawner waveSpawner;
     [SerializeField] GameObject deathImpact;
     [SerializeField] GameObject damageImpact;
     [SerializeField] Transform fxSpawnPoint;
@@ -29,11 +26,6 @@ public class EnemyStats : MonoBehaviour
         get { return currentHealth; }
     }
 
-    private void Awake()
-    {
-        waveSpawner = GameObject.FindWithTag("Spawner").GetComponent<EnemyWaveSpawner>();
-    }
-
     private void Start()
     {
         currentHealth = maxHealth;
@@ -53,7 +45,11 @@ public class EnemyStats : MonoBehaviour
     private void Die()
     {
         Instantiate(deathImpact, fxSpawnPoint.position, transform.rotation);
-        //waveSpawner.EnemyDefeated();
         Destroy(gameObject);
+    }
+
+    public Transform GetTransform()
+    {
+        return transform;
     }
 }

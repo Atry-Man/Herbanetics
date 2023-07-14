@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5478153749713604133}
   m_Layer: 7
   m_Name: AttackRadius
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,8 +77,8 @@ GameObject:
   - component: {fileID: 999934843}
   - component: {fileID: 999934844}
   - component: {fileID: 999934847}
-  - component: {fileID: 1393120954}
   - component: {fileID: 7178458153464080953}
+  - component: {fileID: 8822475527380926714}
   m_Layer: 6
   m_Name: Rompo
   m_TagString: Enemy
@@ -240,20 +240,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a2a974cb5bccc4fa6f0732453316c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &1393120954
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1690245984185135336}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.72993016
-  m_Height: 2.3270433
-  m_Direction: 1
-  m_Center: {x: 0.00000007208351, y: 0.9101014, z: 0.27094197}
 --- !u!95 &7178458153464080953
 Animator:
   serializedVersion: 5
@@ -275,6 +261,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!136 &8822475527380926714
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690245984185135336}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.2439499
+  m_Height: 4.542239
+  m_Direction: 2
+  m_Center: {x: -0.00000011920929, y: 0.51772404, z: -1.4650493}
 --- !u!1 &3654393467453153785
 GameObject:
   m_ObjectHideFlags: 0

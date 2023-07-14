@@ -89,10 +89,10 @@ public class EnemySetup : PoolableObject, IDamagable
             //enemyAnimantionHandler.PlayDeathAnim();  // Play the death animation if the health is below zero
             RemoveEnemy();
         }
-        else
+        /*else
         {
             ApplyKnockBack();
-        }
+        }*/
 
     }
 
@@ -106,12 +106,12 @@ public class EnemySetup : PoolableObject, IDamagable
         gameObject.SetActive(false);  // Disable the game object of the enemy
     }
 
-    void ApplyKnockBack()
+    /*void ApplyKnockBack()
     {
         Vector3 knockbackDirection = -transform.forward;
-        //Vector3 knockbackVector = knockbackDirection * enemyScriptableObject.knockBackForce;
-        //transform.position += knockbackVector;
-    }
+        Vector3 knockbackVector = knockbackDirection * enemyScriptableObject.knockBackForce;
+        transform.position += knockbackVector;
+    }*/
 
 
 }

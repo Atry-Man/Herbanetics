@@ -1,11 +1,13 @@
 using UnityEngine;
+using System;
 using UnityEngine.UI;
 
-public class PlayerDamage : MonoBehaviour
+public class PlayerDamage : MonoBehaviour,IDamagable
 {
     [SerializeField] Slider healthSlider;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] PlayerConfig playerConfig;
+    public static event Action StopAttacking;
     private int maxHealth;
     private int currentHealth;
 
@@ -40,22 +42,16 @@ public class PlayerDamage : MonoBehaviour
             Die();
         }
     }
-
-
-    public void IncreaseHealth(int amount)
-    {
-        currentHealth += amount;
-        healthSlider.value = currentHealth;
-        if (currentHealth>= maxHealth)
-        {
-            currentHealth = maxHealth;
-        }
-    }
-
     private void Die()
     {  
       gameOverPanel.SetActive(true);
+        StopAttacking?.Invoke();
       Time.timeScale = 0f;
       Destroy(gameObject);
+    }
+
+    public Transform GetTransform()
+    {
+        return transform;
     }
 }

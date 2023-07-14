@@ -22,12 +22,12 @@ public class AttackRadius : MonoBehaviour
 
     protected virtual void OnEnable()
     {
-        //PlayerDamage.StopAttacking += StopAttack;
+        PlayerDamage.StopAttacking += StopAttack;
     }
 
     protected virtual void OnDisable()
     {
-        //PlayerDamage.StopAttacking -= StopAttack;
+        PlayerDamage.StopAttacking -= StopAttack;
     }
     protected virtual void OnTriggerEnter(Collider other)
     {

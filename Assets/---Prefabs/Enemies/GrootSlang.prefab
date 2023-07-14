@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6337882247505683555}
   m_Layer: 7
   m_Name: AttackRadius
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356347296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.0415, z: -0}
+  m_LocalPosition: {x: -0, y: 0.32, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,8 +44,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 3
+  m_Center: {x: 0, y: -0.13232994, z: 0}
 --- !u!114 &6337882247505683555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,7 +95,7 @@ Transform:
   m_GameObject: {fileID: 1134763700780727118}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 356347297}
@@ -250,10 +250,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.015450061
-  m_Height: 0.13080016
-  m_Direction: 1
-  m_Center: {x: 0.0000000046188116, y: 0.054556776, z: 0.0075199152}
+  m_Radius: 1.7879596
+  m_Height: 13.378311
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.6978421, z: -5.4535837}
 --- !u!95 &4842143655857582054
 Animator:
   serializedVersion: 5
