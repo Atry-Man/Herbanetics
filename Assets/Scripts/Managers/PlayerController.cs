@@ -131,17 +131,10 @@ public class PlayerController : MonoBehaviour
         isDashing = false;
     }
 
-    public void StopMovement()
-    {
-        playerAnim.SetBool(isRunning, false);
-        movementVector = Vector3.zero;
-
-    }
-
     private void FixedUpdate()
     {
         smoothedMovementInput = Vector3.SmoothDamp(smoothedMovementInput, movementVector, ref movementInputSpeedVelocity, 0.1f);
-        playerRb.velocity = smoothedMovementInput * movSpeed;
+        playerRb.velocity = new Vector3(smoothedMovementInput.x * movSpeed, playerRb.velocity.y, smoothedMovementInput.z * movSpeed);
 
     }
 
