@@ -5,41 +5,49 @@ using UnityEngine.AI;
 
 public class EnemyWaveSpawner : MonoBehaviour
 {
-
     [System.Serializable]
     public class Wave
     {
         public string name;
-        public List<GameObject> enemyPrefabs;
+        public List<EnemySetup> enemyPrefabs;
         public float spawnInterval;
     }
 
-    public Wave[] Waves;
-    [SerializeField] Transform player;  // Reference to the player's transform
-    [SerializeField] int numberOfEnemiesToSpawn;  // Number of enemies to spawn
+    [Header("Enemy Wave Variables")]
+    public Wave[] waves;
+    private int currentWaveIndex = 0; // Current wave index
+
+    public int numberOfEnemiesToSpawn;  // Number of enemies to spawn
     [SerializeField] float spawnDelay;  // Delay between enemy spawns
-    [SerializeField] List<EnemySetup> enemyPrefabs = new();  // List of enemy prefabs to spawn
-    public SpawnMethod enemySpawnMethod = SpawnMethod.RoundRobin;  // Method for spawning enemies
     [SerializeField] GameObject spawnEffect;
+    [SerializeField] Transform player;  // Reference to the player's transform
+    public SpawnMethod enemySpawnMethod = SpawnMethod.RoundRobin;  // Method for spawning enemies
+
     private NavMeshTriangulation triangulation;  // NavMesh triangulation data
-    private Dictionary<int, ObjectPool> EnemyObjectPools = new Dictionary<int, ObjectPool>();  // Dictionary of enemy object pools
+    private Dictionary<int, ObjectPool> enemyObjectPools = new();  // Dictionary of enemy object pools
 
     private void Awake()
     {
         // Create object pools for each enemy prefab
-        for (int i = 0; i < enemyPrefabs.Count; i++)
+        for (int i = 0; i < waves.Length; i++)
         {
-            EnemyObjectPools.Add(i, ObjectPool.CreateInstance(enemyPrefabs[i], numberOfEnemiesToSpawn));
+            foreach (var enemyPrefab in waves[i].enemyPrefabs)
+            {
+                if (!enemyObjectPools.ContainsKey(enemyPrefab.GetInstanceID()))
+                {
+                    enemyObjectPools.Add(enemyPrefab.GetInstanceID(), ObjectPool.CreateInstance(enemyPrefab, numberOfEnemiesToSpawn));
+                }
+            }
         }
     }
 
     private void Start()
     {
         triangulation = NavMesh.CalculateTriangulation();  // Calculate NavMesh triangulation data
-        Invoke(nameof(StartEnemySpawning), 2f);
+        StartNextWave(); // Start the first wave
     }
 
-    private IEnumerator SpawnEnemies()
+    private IEnumerator SpawnEnemies(Wave wave)
     {
         WaitForSeconds wait = new WaitForSeconds(spawnDelay);
 
@@ -49,33 +57,45 @@ public class EnemyWaveSpawner : MonoBehaviour
         {
             if (enemySpawnMethod == SpawnMethod.RoundRobin)
             {
-                SpawnRoundRobinEnemy(spawnedEnemies);
+                SpawnRoundRobinEnemy(wave, spawnedEnemies);
             }
             else if (enemySpawnMethod == SpawnMethod.Random)
             {
-                SpawnRandomEnemy();
+                SpawnRandomEnemy(wave);
             }
             spawnedEnemies++;
 
             yield return wait;
         }
+
+        yield return new WaitForSeconds(wave.spawnInterval);
+        StartNextWave();
     }
 
-    private void SpawnRoundRobinEnemy(int spawnedEnemies)
+    private void SpawnRoundRobinEnemy(Wave wave, int spawnedEnemies)
     {
-        int spawnIndex = spawnedEnemies % enemyPrefabs.Count;
-        DoSpawnEnemy(spawnIndex);
+        int spawnIndex = wave.enemyPrefabs.Count > 0 ? spawnedEnemies % wave.enemyPrefabs.Count : -1;
+
+        if (spawnIndex >= 0)
+        {
+            EnemySetup enemyPrefab = wave.enemyPrefabs[spawnIndex];
+            DoSpawnEnemy(enemyPrefab);
+        }
     }
 
-    private void SpawnRandomEnemy()
+    private void SpawnRandomEnemy(Wave wave)
     {
-        DoSpawnEnemy(Random.Range(0, enemyPrefabs.Count));
+        if (wave.enemyPrefabs.Count > 0)
+        {
+            int spawnIndex = Random.Range(0, wave.enemyPrefabs.Count);
+            EnemySetup enemyPrefab = wave.enemyPrefabs[spawnIndex];
+            DoSpawnEnemy(enemyPrefab);
+        }
     }
 
-    private void DoSpawnEnemy(int spawnIndex)
+    private void DoSpawnEnemy(EnemySetup enemyPrefab)
     {
-
-        PoolableObject poolableObject = EnemyObjectPools[spawnIndex].GetObject();
+        PoolableObject poolableObject = enemyObjectPools[enemyPrefab.GetInstanceID()].GetObject();
 
         if (poolableObject != null)
         {
@@ -98,15 +118,18 @@ public class EnemyWaveSpawner : MonoBehaviour
         }
         else
         {
-            Debug.LogError($"Unable to fetch enemy of type {spawnIndex} from object pool. Out of objects?");
+            Debug.LogError($"Unable to fetch enemy prefab {enemyPrefab.name} from object pool. Out of objects?");
         }
     }
 
-    public void StartEnemySpawning()
+    private void StartNextWave()
     {
-        StartCoroutine(SpawnEnemies());  // Start spawning enemies
+        if (currentWaveIndex < waves.Length)
+        {
+            StartCoroutine(SpawnEnemies(waves[currentWaveIndex]));
+            currentWaveIndex++;
+        }
     }
-
 
     public enum SpawnMethod
     {

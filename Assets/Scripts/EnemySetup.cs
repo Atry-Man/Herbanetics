@@ -13,6 +13,7 @@ public class EnemySetup : PoolableObject, IDamagable
     private Coroutine LookCorutine;  // Coroutine for rotating the enemy towards a target
     [SerializeField] GameObject damageEffects;
     [SerializeField] Transform hitSpawn;
+    
     private void OnEnable()
     {
         SetupAgentConfiguration();  // Setup agent configuration when the enemy is enabled
