@@ -33,7 +33,7 @@ public class PlayerDamage : MonoBehaviour,IDamagable
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
-        healthSlider.value = ((float)currentHealth / maxHealth);
+        healthSlider.value = currentHealth;
         //Instantiate(hitEffect, hitSpawn.position, quaternion.identity);
         //playerAnim.SetTrigger(hurtStr);
 
@@ -45,7 +45,7 @@ public class PlayerDamage : MonoBehaviour,IDamagable
     private void Die()
     {  
       gameOverPanel.SetActive(true);
-        StopAttacking?.Invoke();
+      StopAttacking?.Invoke();
       Time.timeScale = 0f;
       Destroy(gameObject);
     }

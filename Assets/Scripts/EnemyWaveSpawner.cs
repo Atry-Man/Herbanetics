@@ -5,6 +5,16 @@ using UnityEngine.AI;
 
 public class EnemyWaveSpawner : MonoBehaviour
 {
+
+    [System.Serializable]
+    public class Wave
+    {
+        public string name;
+        public List<GameObject> enemyPrefabs;
+        public float spawnInterval;
+    }
+
+    public Wave[] Waves;
     [SerializeField] Transform player;  // Reference to the player's transform
     [SerializeField] int numberOfEnemiesToSpawn;  // Number of enemies to spawn
     [SerializeField] float spawnDelay;  // Delay between enemy spawns
@@ -13,7 +23,6 @@ public class EnemyWaveSpawner : MonoBehaviour
     [SerializeField] GameObject spawnEffect;
     private NavMeshTriangulation triangulation;  // NavMesh triangulation data
     private Dictionary<int, ObjectPool> EnemyObjectPools = new Dictionary<int, ObjectPool>();  // Dictionary of enemy object pools
-
 
     private void Awake()
     {
@@ -27,7 +36,7 @@ public class EnemyWaveSpawner : MonoBehaviour
     private void Start()
     {
         triangulation = NavMesh.CalculateTriangulation();  // Calculate NavMesh triangulation data
-        StartCoroutine(SpawnEnemies());  // Start spawning enemies
+        Invoke(nameof(StartEnemySpawning), 2f);
     }
 
     private IEnumerator SpawnEnemies()
@@ -93,6 +102,10 @@ public class EnemyWaveSpawner : MonoBehaviour
         }
     }
 
+    public void StartEnemySpawning()
+    {
+        StartCoroutine(SpawnEnemies());  // Start spawning enemies
+    }
 
 
     public enum SpawnMethod

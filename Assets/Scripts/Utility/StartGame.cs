@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour
 {
-   
-    void Start()
+    private void Awake()
     {
         Time.timeScale = 0f;
     }
@@ -14,6 +11,11 @@ public class StartGame : MonoBehaviour
     public void StartGamePlay()
     {
         Time.timeScale = 1f;
+    }
+
+    public void StopGamePlay()
+    {
+        Time.timeScale = 0f;
     }
 
     public void RestartScene()
