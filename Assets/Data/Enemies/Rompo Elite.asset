@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rompo Elite
   m_EditorClassIdentifier: 
   health: 20
-  attackDelay: 1
+  attackDelay: 0.5
   Damage: 5
   attackRadius: 1.5
   isRanged: 0
@@ -21,10 +21,10 @@ MonoBehaviour:
   baseOffset: -0.9
   acceleration: 8
   Movspeed: 3
-  angularSpeed: 120
+  angularSpeed: 360
   areaMask: -1
   avoidancePriority: 50
   avoidanceHeight: 2
   obstacleAvoidanceType: 1
   avoidanceRadius: 2
-  stoppingDistance: 0.5
+  stoppingDistance: 0

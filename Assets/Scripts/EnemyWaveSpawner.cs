@@ -20,22 +20,30 @@ public class EnemyWaveSpawner : MonoBehaviour
     [SerializeField] PlayerDamage playerDamage;
     [SerializeField] Transform[] spawnPoints;
     [SerializeField] GameObject[] waveText;
+    [SerializeField] GameObject enemySpawnEffect;
     private int currentWaveIndex;
     private int enemiesRemaining;
     private float waveTimer;
     EnemyMovement enemyMovement;
-  
 
+    private void OnEnable()
+    {
+        EnemySetup.EnemyDestroyed += EnemyDefeated;
+    }
+
+    private void OnDisable()
+    {
+        EnemySetup.EnemyDestroyed -= EnemyDefeated;
+    }
     void Start()
     {
         StartCoroutine(SpawnWaves(startDelay));
     }
 
-
     IEnumerator SpawnWaves(float startDelay)
-    {
-        yield return new WaitForSeconds(startDelay);
-
+    {    
+            yield return new WaitForSeconds(startDelay);
+        
         while (currentWaveIndex < totalWaves)
         {
 
@@ -47,8 +55,12 @@ public class EnemyWaveSpawner : MonoBehaviour
 
                 GameObject enemyPrefab = currentWave.enemyPrefabs[i];
                 Transform spawnPoint = spawnPoints[i % spawnPoints.Length];
-                Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
-                enemyMovement = enemyPrefab.GetComponent<EnemyMovement>();
+                Instantiate(enemySpawnEffect, spawnPoint.position, enemySpawnEffect.transform.rotation);
+                yield return new WaitForSeconds(0.5f);
+
+                GameObject newEnemy =  Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+                newEnemy.SetActive(true);
+                enemyMovement = newEnemy.GetComponent<EnemyMovement>();
                 enemyMovement.StartChasing();
                 enemiesRemaining++;
 
@@ -72,6 +84,7 @@ public class EnemyWaveSpawner : MonoBehaviour
             yield return new WaitForSeconds(timeBtnWaves);
         }
 
+        //Spawn Level complete Text
         waveText[totalWaves].SetActive(true);
         Debug.Log("All Waves completed");
     }

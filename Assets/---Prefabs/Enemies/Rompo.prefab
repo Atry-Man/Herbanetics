@@ -225,7 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf4fb03745cec764097592d5e7e1d4ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   updateRate: 0
   enemyScriptableObject: {fileID: 11400000, guid: bb1be5f6c45f10a4ab17a6cbe97066af,
     type: 2}

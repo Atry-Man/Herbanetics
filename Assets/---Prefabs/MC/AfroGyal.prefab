@@ -1349,7 +1349,7 @@ GameObject:
   - component: {fileID: 3528625394229513542}
   - component: {fileID: 3447079256247651157}
   - component: {fileID: 3385027230938157416}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AfroGyal
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3637,20 +3637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed074bb50fb81ef40b3852370bc279c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comboTimer: 1.25
-  comboAttack:
-  - LeftPunch
-  - RightPunch
-  - Clap
   playerAnim: {fileID: 8775677170303451856}
-  handsAnim: {fileID: 6940746606043834049}
-  DefaultimeBeforeMovement: 1
-  lastAttackDelay: 1.75
-  hands: {fileID: 4465741499206739457}
-  playerController: {fileID: 3528625394229513542}
-  ComboColliders:
-  - {fileID: 6189089516511647510}
-  - {fileID: 6189089517113500315}
 --- !u!114 &2302900363575762130
 MonoBehaviour:
   m_ObjectHideFlags: 0

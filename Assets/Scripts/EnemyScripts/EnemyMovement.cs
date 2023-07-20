@@ -20,16 +20,13 @@ public class EnemyMovement : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         enemyAnim = GetComponent<Animator>();
-      
-    }
-
-    private void Start()
-    {
         FindPlayer();
     }
 
+   
     public void StartChasing()
     {
+      
         if (followCoroutine == null)
         {
             followCoroutine = StartCoroutine(FollowTarget());

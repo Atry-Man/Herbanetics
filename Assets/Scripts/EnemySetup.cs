@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using System;
 
 public class EnemySetup : PoolableObject, IDamagable
 {
@@ -13,6 +14,7 @@ public class EnemySetup : PoolableObject, IDamagable
     private Coroutine LookCorutine;  // Coroutine for rotating the enemy towards a target
     [SerializeField] GameObject damageEffects;
     [SerializeField] Transform hitSpawn;
+    public static event Action EnemyDestroyed;
     
     private void OnEnable()
     {
@@ -53,8 +55,8 @@ public class EnemySetup : PoolableObject, IDamagable
 
     public override void OnDisable()
     {
-        base.OnDisable();
-        agent.enabled = false;  // Disable the NavMeshAgent component when the enemy is disabled
+        //base.OnDisable();
+       // agent.enabled = false;  // Disable the NavMeshAgent component when the enemy is disabled
     }
 
     public virtual void SetupAgentConfiguration()
@@ -104,6 +106,8 @@ public class EnemySetup : PoolableObject, IDamagable
     public void RemoveEnemy()
     {
         gameObject.SetActive(false);  // Disable the game object of the enemy
+        EnemyDestroyed?.Invoke();
+
     }
 
     /*void ApplyKnockBack()

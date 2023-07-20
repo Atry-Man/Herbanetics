@@ -20,8 +20,8 @@ MonoBehaviour:
   aiUpdateIntervals: 0.1
   baseOffset: 0.5
   acceleration: 8
-  Movspeed: 3
-  angularSpeed: 120
+  Movspeed: 8
+  angularSpeed: 360
   areaMask: -1
   avoidancePriority: 50
   avoidanceHeight: 2
