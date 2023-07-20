@@ -54,7 +54,6 @@ public class EnemySetup : PoolableObject, IDamagable
     public override void OnDisable()
     {
         base.OnDisable();
-
         agent.enabled = false;  // Disable the NavMeshAgent component when the enemy is disabled
     }
 

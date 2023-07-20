@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
     [Header("Enemy Movement Variables")]
     private Animator enemyAnim;
     private NavMeshAgent agent;
-    public Transform target;
+    Transform target;
     public float updateRate;
     private Coroutine followCoroutine;
     [SerializeField] EnemyScriptableObject enemyScriptableObject;
@@ -20,7 +20,12 @@ public class EnemyMovement : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         enemyAnim = GetComponent<Animator>();
-       
+      
+    }
+
+    private void Start()
+    {
+        FindPlayer();
     }
 
     public void StartChasing()
