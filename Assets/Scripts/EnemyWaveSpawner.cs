@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyWaveSpawner : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class EnemyWaveSpawner : MonoBehaviour
     private int enemiesRemaining;
     private float waveTimer;
     EnemyMovement enemyMovement;
-
+    [SerializeField] UnityEvent levelCompleteEvent;
     private void OnEnable()
     {
         EnemySetup.EnemyDestroyed += EnemyDefeated;
@@ -42,7 +43,7 @@ public class EnemyWaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWaves(float startDelay)
     {    
-            yield return new WaitForSeconds(startDelay);
+        yield return new WaitForSeconds(startDelay);
         
         while (currentWaveIndex < totalWaves)
         {
@@ -54,7 +55,7 @@ public class EnemyWaveSpawner : MonoBehaviour
             {
 
                 GameObject enemyPrefab = currentWave.enemyPrefabs[i];
-                Transform spawnPoint = spawnPoints[i % spawnPoints.Length];
+                Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
                 Instantiate(enemySpawnEffect, spawnPoint.position, enemySpawnEffect.transform.rotation);
                 yield return new WaitForSeconds(0.5f);
 
@@ -84,9 +85,12 @@ public class EnemyWaveSpawner : MonoBehaviour
             yield return new WaitForSeconds(timeBtnWaves);
         }
 
-        //Spawn Level complete Text
+       
         waveText[totalWaves].SetActive(true);
-        Debug.Log("All Waves completed");
+        //Debug.Log("All Waves completed");
+
+        yield return new WaitForSeconds(1f);
+        levelCompleteEvent?.Invoke();
     }
 
     public void EnemyDefeated()

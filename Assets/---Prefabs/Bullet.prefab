@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d84223689f939f45b452268d851b333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boltDamage: 3
+  SmolBoltsSO: {fileID: 11400000, guid: 197cb0094c4889141acbe868bfd6f2c1, type: 2}
 --- !u!1001 &4898831305536155978
 PrefabInstance:
   m_ObjectHideFlags: 0

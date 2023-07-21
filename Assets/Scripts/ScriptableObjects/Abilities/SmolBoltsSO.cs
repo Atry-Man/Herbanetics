@@ -7,4 +7,5 @@ public class SmolBoltsSO : ScriptableObject
     public GameObject boltPrefab;
     public float fireForce;
     public float fireRate;
+    public int boltDamage;
 }

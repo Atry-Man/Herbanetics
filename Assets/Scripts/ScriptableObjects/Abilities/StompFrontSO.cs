@@ -5,5 +5,5 @@ public class StompFrontSO : Abilities
 {
     public float stompDesiredSize;
     public float stompSpeed;
-    
+    public int stompDamage;
 }

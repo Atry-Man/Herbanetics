@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class StompDamage : MonoBehaviour
 {
-    [SerializeField] int stompDamage;
+    [SerializeField] StompFrontSO stompFrontSO;
     
     private void OnTriggerEnter(Collider other)
     {   
         if (other.TryGetComponent<IDamagable>(out var damagable))
         {
-            damagable.TakeDamage(stompDamage);
+            damagable.TakeDamage(stompFrontSO.stompDamage);
         }
     }
 }

@@ -16,3 +16,4 @@ MonoBehaviour:
     type: 3}
   fireForce: 20
   fireRate: 0.5
+  boltDamage: 5

@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class Bolt : MonoBehaviour
 {
-   
-    [SerializeField] int boltDamage;
+
+    [SerializeField] SmolBoltsSO SmolBoltsSO;
 
     private void OnTriggerEnter(Collider other)
     {  
         if(other.TryGetComponent<IDamagable>(out var damagable))
         {
-            damagable.TakeDamage(boltDamage);
+            damagable.TakeDamage(SmolBoltsSO.boltDamage);
             Destroy(gameObject);
         }
 
