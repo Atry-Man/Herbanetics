@@ -6,7 +6,7 @@ public class PlayerAttackController : MonoBehaviour
 {
     [Header("Attack Combo Variables")]
     [SerializeField] Animator playerAnim;
-    private const string punchStr = "";
+    private const string punchStr = "Punch";
  
     public void OnBigPunch(InputAction.CallbackContext context)
     {

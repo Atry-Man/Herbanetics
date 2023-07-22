@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Triple Whammy",
+                    "name": "Punch",
                     "type": "Button",
                     "id": "32ed7d24-4da2-4818-8731-e733372c3ee1",
                     "expectedControlType": "Button",
@@ -125,7 +125,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Triple Whammy",
+                    "action": "Punch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
