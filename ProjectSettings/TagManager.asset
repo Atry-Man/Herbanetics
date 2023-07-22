@@ -12,6 +12,9 @@ TagManager:
   - Bat
   - Tank
   - Standard
+  - Boss
+  - Barrier
+  - Wave
   layers:
   - Default
   - TransparentFX
