@@ -2707,8 +2707,8 @@ MonoBehaviour:
   - {fileID: 1936940093}
   - {fileID: 278340742}
   - {fileID: 1008673056}
-  timeBetweenWaveAttacks: 2
-  attackWaveForce: 30
+  timeBetweenWaveAttacks: 1.5
+  attackWaveForce: 45
   numberOfAttacks: 8
 --- !u!4 &7594848775542241497
 Transform:
