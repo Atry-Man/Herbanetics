@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using System;
+using UnityEngine.UI;
 
 public class EnemySetup : PoolableObject, IDamagable
 {
@@ -15,6 +16,7 @@ public class EnemySetup : PoolableObject, IDamagable
     [SerializeField] GameObject damageEffects;
     [SerializeField] Transform hitSpawn;
     public static event Action EnemyDestroyed;
+    [SerializeField] Image healthBar;
     
     private void OnEnable()
     {
@@ -25,6 +27,7 @@ public class EnemySetup : PoolableObject, IDamagable
     private void Awake()
     {
         attackRadius.onAttack += OnAttack;  // Subscribe to the onAttack event of the attack radius component
+        healthBar.fillAmount = (enemyScriptableObject.health/enemyScriptableObject.health);
     }
 
     private void OnAttack(IDamagable target)
@@ -83,6 +86,7 @@ public class EnemySetup : PoolableObject, IDamagable
     public void TakeDamage(int damage)
     {
         health -= damage;  // Decrease the enemy's health by the specified damage amount
+        healthBar.fillAmount -= (float)damage/enemyScriptableObject.health;
         //enemyAnimantionHandler.PlayDamageTakenAnim();  // Play the damage taken animation
         Instantiate(damageEffects, hitSpawn.position, hitSpawn.transform.rotation);
 

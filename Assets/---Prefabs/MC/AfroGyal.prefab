@@ -1397,9 +1397,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6189089516644566734}
   - {fileID: 8094573005561782488}
   - {fileID: 2786263940190648221}
+  - {fileID: 6189089516644566734}
   m_Father: {fileID: 3398347657860389034}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3710,7 +3710,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2680945627185810265}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6189089517408699484
 GameObject:
@@ -4600,7 +4600,7 @@ GameObject:
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2786263940190648221
 Transform:
   m_ObjectHideFlags: 0
@@ -4614,7 +4614,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2680945627185810265}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7971111778176755281
 GameObject:
@@ -5317,7 +5317,7 @@ GameObject:
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8094573005561782488
 Transform:
   m_ObjectHideFlags: 0
@@ -5331,7 +5331,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2680945627185810265}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &457298729315806163
 PrefabInstance:
@@ -5399,6 +5399,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lava Wave
+      objectReference: {fileID: 0}
+    - target: {fileID: 5325020017696017701, guid: 2996dd8f261e7a54ea87c3a583191a9e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2996dd8f261e7a54ea87c3a583191a9e, type: 3}
@@ -5494,6 +5499,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Storm Burst
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452129851481334634, guid: 413bb105df534174b8866e2d3db021e0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7147788718206881814, guid: 413bb105df534174b8866e2d3db021e0,
         type: 3}
@@ -5786,6 +5796,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punch - Lava
       objectReference: {fileID: 0}
+    - target: {fileID: 5696574002138513899, guid: 609f6b6e9ce6b204396fd700c7f44d9f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 609f6b6e9ce6b204396fd700c7f44d9f, type: 3}
 --- !u!4 &6277170741997840560 stripped
@@ -5805,6 +5820,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Water Wave
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766274614879546285, guid: 18223ca3fd75d1d43a9e3e3499b8a64e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4544042286459597079, guid: 18223ca3fd75d1d43a9e3e3499b8a64e,
         type: 3}
@@ -5935,6 +5955,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Punch - Water
+      objectReference: {fileID: 0}
+    - target: {fileID: 5676971499922904224, guid: edf1227b9ffb5bc449c83bbdb05a302f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edf1227b9ffb5bc449c83bbdb05a302f, type: 3}

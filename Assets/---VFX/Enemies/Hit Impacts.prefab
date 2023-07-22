@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3594268691329827831}
   - component: {fileID: 4460650921572843222}
   m_Layer: 0
-  m_Name: Impacts
+  m_Name: Hit Impacts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7297757046258931675}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 6.24, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8042187350347546320}
@@ -133,6 +133,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Punch Impact
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700226217671306495, guid: 10d972711a678c14b94c7be0aa81bd45,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700226217671306495, guid: 10d972711a678c14b94c7be0aa81bd45,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9139304158470067169, guid: 10d972711a678c14b94c7be0aa81bd45,
         type: 3}
