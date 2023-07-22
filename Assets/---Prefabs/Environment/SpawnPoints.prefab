@@ -304,19 +304,25 @@ MonoBehaviour:
   - name: Wave 1
     enemyPrefabs:
     - {fileID: 1690245984185135336, guid: 4c0a82b13f786104ba982cc9000fcecc, type: 3}
-    - {fileID: 1919371277141781285, guid: c9b8a96dca594f743a6a7787d7dd4c5b, type: 3}
+    - {fileID: 8091577973132003042, guid: d5d6f54f21f9f4a479156db923a24dc0, type: 3}
+    - {fileID: 1690245984185135336, guid: 4c0a82b13f786104ba982cc9000fcecc, type: 3}
+    - {fileID: 8091577973132003042, guid: d5d6f54f21f9f4a479156db923a24dc0, type: 3}
+    - {fileID: 1690245984185135336, guid: 4c0a82b13f786104ba982cc9000fcecc, type: 3}
     spawnInterval: 3
   - name: Wave2
     enemyPrefabs:
     - {fileID: 1919371277141781285, guid: c9b8a96dca594f743a6a7787d7dd4c5b, type: 3}
-    - {fileID: 1690245984185135336, guid: 4c0a82b13f786104ba982cc9000fcecc, type: 3}
-    - {fileID: 1134763700780727118, guid: ba099f36513c8254a937845462fba32c, type: 3}
+    - {fileID: 8091577973132003042, guid: d5d6f54f21f9f4a479156db923a24dc0, type: 3}
+    - {fileID: 1919371277141781285, guid: c9b8a96dca594f743a6a7787d7dd4c5b, type: 3}
+    - {fileID: 1919371277141781285, guid: c9b8a96dca594f743a6a7787d7dd4c5b, type: 3}
     spawnInterval: 2
   - name: Wave 3
     enemyPrefabs:
     - {fileID: 1690245984185135336, guid: 4c0a82b13f786104ba982cc9000fcecc, type: 3}
-    - {fileID: 1919371277141781285, guid: c9b8a96dca594f743a6a7787d7dd4c5b, type: 3}
     - {fileID: 1134763700780727118, guid: ba099f36513c8254a937845462fba32c, type: 3}
+    - {fileID: 1919371277141781285, guid: c9b8a96dca594f743a6a7787d7dd4c5b, type: 3}
+    - {fileID: 1919371277141781285, guid: c9b8a96dca594f743a6a7787d7dd4c5b, type: 3}
+    - {fileID: 1919371277141781285, guid: c9b8a96dca594f743a6a7787d7dd4c5b, type: 3}
     - {fileID: 1919371277141781285, guid: c9b8a96dca594f743a6a7787d7dd4c5b, type: 3}
     spawnInterval: 2.5
   - name: Wave 4
@@ -326,6 +332,9 @@ MonoBehaviour:
     - {fileID: 1690245984185135336, guid: 4c0a82b13f786104ba982cc9000fcecc, type: 3}
     - {fileID: 8091577973132003042, guid: d5d6f54f21f9f4a479156db923a24dc0, type: 3}
     - {fileID: 1134763700780727118, guid: ba099f36513c8254a937845462fba32c, type: 3}
+    - {fileID: 1919371277141781285, guid: c9b8a96dca594f743a6a7787d7dd4c5b, type: 3}
+    - {fileID: 1919371277141781285, guid: c9b8a96dca594f743a6a7787d7dd4c5b, type: 3}
+    - {fileID: 1919371277141781285, guid: c9b8a96dca594f743a6a7787d7dd4c5b, type: 3}
     spawnInterval: 2
   - name: Wave 5
     enemyPrefabs:
@@ -333,8 +342,9 @@ MonoBehaviour:
     - {fileID: 1134763700780727118, guid: ba099f36513c8254a937845462fba32c, type: 3}
     - {fileID: 8091577973132003042, guid: d5d6f54f21f9f4a479156db923a24dc0, type: 3}
     - {fileID: 8091577973132003042, guid: d5d6f54f21f9f4a479156db923a24dc0, type: 3}
-    - {fileID: 1690245984185135336, guid: 4c0a82b13f786104ba982cc9000fcecc, type: 3}
-    - {fileID: 1690245984185135336, guid: 4c0a82b13f786104ba982cc9000fcecc, type: 3}
+    - {fileID: 1919371277141781285, guid: c9b8a96dca594f743a6a7787d7dd4c5b, type: 3}
+    - {fileID: 1919371277141781285, guid: c9b8a96dca594f743a6a7787d7dd4c5b, type: 3}
+    - {fileID: 1919371277141781285, guid: c9b8a96dca594f743a6a7787d7dd4c5b, type: 3}
     spawnInterval: 1.5
   - name: Wave 6
     enemyPrefabs:
@@ -345,10 +355,11 @@ MonoBehaviour:
     - {fileID: 8091577973132003042, guid: d5d6f54f21f9f4a479156db923a24dc0, type: 3}
     - {fileID: 1919371277141781285, guid: c9b8a96dca594f743a6a7787d7dd4c5b, type: 3}
     - {fileID: 1919371277141781285, guid: c9b8a96dca594f743a6a7787d7dd4c5b, type: 3}
+    - {fileID: 1919371277141781285, guid: c9b8a96dca594f743a6a7787d7dd4c5b, type: 3}
     spawnInterval: 1
-  totalWaves: 5
+  totalWaves: 6
   timeBtnWaves: 2
-  startDelay: 3
+  startDelay: 2
   playerDamage: {fileID: 0}
   spawnPoints:
   - {fileID: 1366050544}
@@ -366,8 +377,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  enemySpawnEffect: {fileID: 1999715483303943544, guid: 71878ec3f63c377468c33fe899f9fb04,
+  enemySpawnEffect: {fileID: 9205817217804273266, guid: 0ba296f9a2ad3bf4d94cb7866edaad03,
     type: 3}
   levelCompleteEvent:
     m_PersistentCalls:
