@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   movementSpeed: 10
-  movementSpeedPen: 0.1
-  dashSpeed: 8
+  movementSpeedPen: 0
+  dashSpeed: 10
   dashDuration: 0.35
   dashCooldown: 0.2

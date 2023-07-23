@@ -107,26 +107,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.06482628, y: 0.022381065, z: 0.04682223}
-  m_Center: {x: 0, y: 0.0044237883, z: 0.015301537}
---- !u!114 &4071874500074096344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2522571298731851044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e114d61862556be479bc838677cc3dfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  warningIndicators: []
-  bossWaveAttacks: []
-  waveAttackSpots: []
-  timeBetweenWaveAttacks: 0
-  attackWaveForce: 0
-  numberOfAttacks: 0
+  m_Size: {x: 3.2162256, y: 2.5342283, z: 3.5445862}
+  m_Center: {x: 0.0022997856, y: 0.63894105, z: 1.0789509}
 --- !u!114 &7671401433620558542
 MonoBehaviour:
   m_ObjectHideFlags: 0

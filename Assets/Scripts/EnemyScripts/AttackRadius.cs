@@ -13,7 +13,7 @@ public class AttackRadius : MonoBehaviour
     protected Coroutine AttackRoutine;  // Coroutine for the attack routine
     public float attackDelay;  // Delay between attacks
     private bool canAttack;
-
+ 
     protected virtual void Awake()
     {
         collider = GetComponent<SphereCollider>();  // Get the SphereCollider component
@@ -90,8 +90,11 @@ public class AttackRadius : MonoBehaviour
             closestDistance = float.MaxValue;
 
             yield return wait;
+          
+            
             damagables.RemoveAll(DisabledDamagables);  // Remove disabled damagable objects from the list
         }
+
 
         AttackRoutine = null;
     }

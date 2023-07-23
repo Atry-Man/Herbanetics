@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc9dbde1a2ea3d44b0f57d674dfde5d, type: 3}
   m_Name: Popobawa
   m_EditorClassIdentifier: 
-  health: 20
-  attackDelay: 1
-  Damage: 5
-  attackRadius: 1.5
-  isRanged: 0
+  health: 15
+  attackDelay: 0.75
+  Damage: 3
+  attackRadius: 8
+  isRanged: 1
   aiUpdateIntervals: 0.1
   baseOffset: 0.5
-  acceleration: 8
-  Movspeed: 8
+  acceleration: 15
+  Movspeed: 15
   angularSpeed: 360
   areaMask: -1
   avoidancePriority: 50
   avoidanceHeight: 2
   obstacleAvoidanceType: 1
   avoidanceRadius: 2
-  stoppingDistance: 0.5
+  stoppingDistance: 10

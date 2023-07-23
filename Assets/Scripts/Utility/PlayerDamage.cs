@@ -7,6 +7,8 @@ public class PlayerDamage : MonoBehaviour,IDamagable
     [SerializeField] Slider healthSlider;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] PlayerConfig playerConfig;
+    [SerializeField] GameObject hitEffect;
+    [SerializeField] Transform hitSpawn;
     public static event Action StopAttacking;
     private int maxHealth;
     private int currentHealth;
@@ -34,7 +36,7 @@ public class PlayerDamage : MonoBehaviour,IDamagable
     {
         currentHealth -= amount;
         healthSlider.value = currentHealth;
-        //Instantiate(hitEffect, hitSpawn.position, quaternion.identity);
+        Instantiate(hitEffect, hitSpawn.position, Quaternion.identity);
         //playerAnim.SetTrigger(hurtStr);
 
         if (currentHealth <= 0)
