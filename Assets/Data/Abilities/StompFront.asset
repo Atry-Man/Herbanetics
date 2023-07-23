@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9307425116e822c49b3960b7c7ba264c, type: 3}
   m_Name: StompFront
   m_EditorClassIdentifier: 
-  abilityPrefab: {fileID: 5485162162285436477, guid: 6a75cc7a44829744da379bcc28454773,
+  abilityPrefab: {fileID: 3766274614879546285, guid: 18223ca3fd75d1d43a9e3e3499b8a64e,
     type: 3}
   abilityDuration: 2
   abilityCooldown: 1
