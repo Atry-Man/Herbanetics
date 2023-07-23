@@ -26,7 +26,7 @@ public class StompFront : MonoBehaviour
         }
     }
 
-   private  IEnumerator StompAttack(GameObject stompObject)
+    private  IEnumerator StompAttack(GameObject stompObject)
     {
         float elapsedTime = 0f;
         

@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     [Header("Enemy Movement Variables")]
-    private Animator enemyAnim;
+    [SerializeField] Animator enemyAnim;
     private NavMeshAgent agent;
     Transform target;
     public float updateRate;
@@ -19,11 +19,8 @@ public class EnemyMovement : MonoBehaviour
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
-        enemyAnim = GetComponent<Animator>();
         FindPlayer();
     }
-
-   
     public void StartChasing()
     {
       
@@ -37,7 +34,6 @@ public class EnemyMovement : MonoBehaviour
         }
 
     }
-
 
     private void Update()
     {
@@ -68,6 +64,7 @@ public class EnemyMovement : MonoBehaviour
     public void RemoveEnemyMoveSpeedPen()
     {
         agent.speed = enemyScriptableObject.Movspeed;
+        Debug.Log(agent.speed);
     }
 
 }

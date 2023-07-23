@@ -11,7 +11,7 @@ public class EnemySetup : PoolableObject, IDamagable
     public int health;  // Current health of the enemy
     public AttackRadius attackRadius;  // Reference to the attack radius component
     [SerializeField] private EnemyScriptableObject enemyScriptableObject;  // ScriptableObject containing enemy configuration
-    //[SerializeField] EnemyAnimantionHandler enemyAnimantionHandler;  // Reference to the enemy animation handler component
+    [SerializeField] EnemyAnimationHandler enemyAnimantionHandler;  // Reference to the enemy animation handler component
     private Coroutine LookCorutine;  // Coroutine for rotating the enemy towards a target
     [SerializeField] GameObject damageEffects;
     [SerializeField] Transform hitSpawn;
@@ -32,7 +32,8 @@ public class EnemySetup : PoolableObject, IDamagable
 
     private void OnAttack(IDamagable target)
     {
-        //enemyAnimantionHandler.PlayAttackAnim();  // Play the attack animation
+        
+        enemyAnimantionHandler.PlayAttackAnim();  // Play the attack animation
 
         if (LookCorutine != null)
         {
@@ -95,10 +96,6 @@ public class EnemySetup : PoolableObject, IDamagable
             //enemyAnimantionHandler.PlayDeathAnim();  // Play the death animation if the health is below zero
             RemoveEnemy();
         }
-        /*else
-        {
-            ApplyKnockBack();
-        }*/
 
     }
 
@@ -109,17 +106,8 @@ public class EnemySetup : PoolableObject, IDamagable
 
     public void RemoveEnemy()
     {
-        gameObject.SetActive(false);  // Disable the game object of the enemy
+        Destroy(gameObject);  // Disable the game object of the enemy
         EnemyDestroyed?.Invoke();
 
     }
-
-    /*void ApplyKnockBack()
-    {
-        Vector3 knockbackDirection = -transform.forward;
-        Vector3 knockbackVector = knockbackDirection * enemyScriptableObject.knockBackForce;
-        transform.position += knockbackVector;
-    }*/
-
-
 }

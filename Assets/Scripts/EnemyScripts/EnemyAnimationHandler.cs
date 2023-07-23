@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class EnemyAnimationHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] Animator anim;
+    private const string attackStr = "Attack";
 
-    // Update is called once per frame
-    void Update()
+   
+    public void PlayAttackAnim()
     {
-        
+        anim.SetTrigger(attackStr);
     }
 }

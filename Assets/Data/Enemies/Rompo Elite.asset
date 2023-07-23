@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   attackDelay: 0.5
-  Damage: 5
-  attackRadius: 1.5
+  Damage: 7
+  attackRadius: 1
   isRanged: 0
   aiUpdateIntervals: 0.1
-  baseOffset: -0.9
-  acceleration: 8
-  Movspeed: 3
+  baseOffset: -0.7
+  acceleration: 10
+  Movspeed: 10
   angularSpeed: 360
   areaMask: -1
   avoidancePriority: 50
-  avoidanceHeight: 2
+  avoidanceHeight: 1
   obstacleAvoidanceType: 1
-  avoidanceRadius: 2
+  avoidanceRadius: 1.1
   stoppingDistance: 0

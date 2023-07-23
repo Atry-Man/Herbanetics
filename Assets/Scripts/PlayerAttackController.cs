@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,12 +11,14 @@ public class PlayerAttackController : MonoBehaviour
     [SerializeField] Transform punchPos;
     [SerializeField] GameObject punchObj;
     [SerializeField] float punchForce;
+    public static Action StartPunchActiveCooldown;
     public void OnBigPunch(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
             playerAnim.SetTrigger(punchStr);
             ActivatePunch();
+            StartPunchActiveCooldown?.Invoke();
         }
     }  
     
