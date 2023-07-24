@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2949385523977667200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.52, y: 0, z: 7.63}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d84223689f939f45b452268d851b333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boltDamage: 3
+  SmolBoltsSO: {fileID: 0}
 --- !u!1001 &6955731918732571249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -258,6 +258,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b764ab4ad0388974c9dac1e27e7b92bb, type: 2}
+    - target: {fileID: 8746175702277395753, guid: 872287fe57c950c40ba8857e38690125,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8746175702277395753, guid: 872287fe57c950c40ba8857e38690125,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 0.74113095
+      objectReference: {fileID: 0}
+    - target: {fileID: 8746175702277395753, guid: 872287fe57c950c40ba8857e38690125,
+        type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 872287fe57c950c40ba8857e38690125, type: 3}
 --- !u!4 &1735336955978448586 stripped

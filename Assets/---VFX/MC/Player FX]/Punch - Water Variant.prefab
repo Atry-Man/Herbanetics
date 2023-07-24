@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1201094125923756951, guid: 674742ca251d404408a4185956c3bc6e,
         type: 3}
       propertyPath: m_Name
-      value: Punch - Water
+      value: Punch - Water Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6196787873157347964, guid: 674742ca251d404408a4185956c3bc6e,
         type: 3}
@@ -67,5 +67,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7268412721563185913, guid: 674742ca251d404408a4185956c3bc6e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7d01c06b5ed882448968dd0f158b1948, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 674742ca251d404408a4185956c3bc6e, type: 3}
