@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossHealth : MonoBehaviour,IDamagable
 {
@@ -6,29 +7,41 @@ public class BossHealth : MonoBehaviour,IDamagable
     [SerializeField] int healthThreshold = 50;
     [SerializeField] BossWaveAttacks waveAttacks;
     public bool isBossDefeated;
-
+    [SerializeField] GameObject bossDamageEffect;
+    [SerializeField] Transform bossHitSpawn;
+    [SerializeField] Image bossHealthSlider;
     private int currentHealth;
+    public bool isInSecondPhase;
+
+    [Header("Second Phase Variables")]
+    [SerializeField] float newWaveForce;
+    [SerializeField] float newTimeForWarnings;
 
     private void Start()
     {
         currentHealth = maxHealth;
+        bossHealthSlider.fillAmount = currentHealth;
+        isInSecondPhase = false;
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        Instantiate(bossDamageEffect, bossHitSpawn.position, Quaternion.identity);
+        bossHealthSlider.fillAmount -= (float)damage/maxHealth;
 
-        // Check if the boss's health reaches the threshold
+       
         if (currentHealth <= healthThreshold)
         {
-            // Change boss behavior to spawn two waves at a faster interval
-            waveAttacks.timeBetweenWaveAttacks = 1f;
-        }
+            isInSecondPhase = true;
+            
+            waveAttacks.attackWaveForce = newWaveForce;
+            waveAttacks.warningDelay = newTimeForWarnings;
 
-        // Check if the boss's health reaches zero
+        }  
         if (currentHealth <= 0)
         {    isBossDefeated = true;
-            // Boss defeated, add any additional behavior or end the game as needed
+            
         }
     }
 

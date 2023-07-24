@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Punch - Water Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3363465488956722858, guid: 674742ca251d404408a4185956c3bc6e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6196787873157347964, guid: 674742ca251d404408a4185956c3bc6e,
         type: 3}
       propertyPath: m_RootOrder
