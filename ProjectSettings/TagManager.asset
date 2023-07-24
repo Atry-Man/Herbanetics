@@ -15,6 +15,7 @@ TagManager:
   - Boss
   - Barrier
   - Wave
+  - BossBarrier
   layers:
   - Default
   - TransparentFX
