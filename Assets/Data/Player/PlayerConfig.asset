@@ -16,5 +16,5 @@ MonoBehaviour:
   movementSpeed: 10
   movementSpeedPen: 0
   dashSpeed: 10
-  dashDuration: 0.35
-  dashCooldown: 0.2
+  dashDuration: 0.3
+  dashCooldown: 0.3

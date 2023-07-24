@@ -8,26 +8,38 @@ public class PlayerAttackController : MonoBehaviour
     [SerializeField] Animator playerAnim;
     private const string punchStr = "Punch";
 
+    [SerializeField] BigPunchSO bigPunchSO;
     [SerializeField] Transform punchPos;
-    [SerializeField] GameObject punchObj;
-    [SerializeField] float punchForce;
     public static Action StartPunchActiveCooldown;
+    private bool canPunch;
+    private float fireRateTimer;
+
+    private void Awake()
+    {
+        canPunch = true;
+    }
     public void OnBigPunch(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && canPunch)
         {
             playerAnim.SetTrigger(punchStr);
-            ActivatePunch();
-            StartPunchActiveCooldown?.Invoke();
+            GameObject punch = Instantiate(bigPunchSO.punchPrefab, punchPos.position, Quaternion.identity);
+            punch.GetComponent<Rigidbody>().AddForce(punchPos.forward * bigPunchSO.fireForce, ForceMode.Impulse);
+            Vector3 movDir = punchPos.forward.normalized;
+            punch.transform.rotation = Quaternion.LookRotation(movDir);
+            fireRateTimer = 0f;
+            canPunch = false;
+            //StartPunchActiveCooldown?.Invoke();
         }
     }  
-    
-
-    public void ActivatePunch()
+   
+    private void Update()
     {
-        GameObject punch = Instantiate(punchObj, punchPos.position, Quaternion.identity);
-        punch.GetComponent<Rigidbody>().AddForce(punchPos.forward * punchForce, ForceMode.Impulse);
-        Vector3 movDir = punchPos.forward.normalized;
-        punch.transform.rotation = Quaternion.LookRotation(movDir);
+        fireRateTimer += Time.deltaTime;
+
+        if (fireRateTimer > bigPunchSO.fireRate)
+        {
+            canPunch = true;
+        }
     }
 }

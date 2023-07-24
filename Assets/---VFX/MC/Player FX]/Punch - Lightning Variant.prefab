@@ -118,4 +118,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 965d891108f6afe4c972c6e60474a07b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  punchDamage: 8
+  bigPunchSO: {fileID: 11400000, guid: 3a2cf882afaa6a645ad080d2dba9c0fe, type: 2}
+--- !u!114 &8186352108586139222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8997430817227041845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7cc0196e4855eb4696a54277f574959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destructTime: 0.25
