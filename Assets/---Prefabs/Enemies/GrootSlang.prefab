@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356347296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.32, z: -0}
+  m_LocalPosition: {x: -0.29, y: 1.811, z: 0.558}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,8 +44,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3
-  m_Center: {x: 0, y: -0.13232994, z: 0}
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6337882247505683555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,7 +76,6 @@ GameObject:
   - component: {fileID: 1179119940}
   - component: {fileID: 1179119943}
   - component: {fileID: 4492963337771882215}
-  - component: {fileID: 4842143655857582054}
   m_Layer: 6
   m_Name: GrootSlang
   m_TagString: Enemy
@@ -128,16 +127,16 @@ NavMeshAgent:
   m_GameObject: {fileID: 1134763700780727118}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 4
+  m_Radius: 1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 360
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 3
   m_BaseOffset: -0.2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -159,7 +158,7 @@ MonoBehaviour:
   attackRadius: {fileID: 6337882247505683555}
   enemyScriptableObject: {fileID: 11400000, guid: 7648289839e885c428c1ff0a278d0838,
     type: 2}
-  enemyAnimantionHandler: {fileID: 0}
+  enemyAnimantionHandler: {fileID: 1179119943}
   damageEffects: {fileID: 7297757046258931675, guid: a5b8a4b999d70d742a662b053dd17389,
     type: 3}
   hitSpawn: {fileID: 4706918892014398723}
@@ -176,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf4fb03745cec764097592d5e7e1d4ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyAnim: {fileID: 0}
+  enemyAnim: {fileID: 2298700327303688852}
   updateRate: 0
   enemyScriptableObject: {fileID: 11400000, guid: 7648289839e885c428c1ff0a278d0838,
     type: 2}
@@ -192,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a2a974cb5bccc4fa6f0732453316c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  anim: {fileID: 2298700327303688852}
 --- !u!136 &4492963337771882215
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -203,31 +202,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.7879596
-  m_Height: 13.378311
+  m_Radius: 1.2695384
+  m_Height: 8.066608
   m_Direction: 2
-  m_Center: {x: 0, y: 0.6978421, z: -5.4535837}
---- !u!95 &4842143655857582054
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1134763700780727118}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_Center: {x: 0, y: 1.7812469, z: -3.1116838}
 --- !u!1 &5105858598884237004
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +326,12 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 8446b45e59d9c2d4c8615e87a5660986, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a813b97a8fdf97e48a3b9b730dea2388, type: 3}
+--- !u!95 &2298700327303688852 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: a813b97a8fdf97e48a3b9b730dea2388,
+    type: 3}
+  m_PrefabInstance: {fileID: 5659910296001711877}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5262090097062275310 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a813b97a8fdf97e48a3b9b730dea2388,
@@ -444,12 +428,12 @@ PrefabInstance:
     - target: {fileID: 1865465252044298931, guid: fea4c95258491ef4b9760aeb2c940f74,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -0.41
       objectReference: {fileID: 0}
     - target: {fileID: 1865465252044298931, guid: fea4c95258491ef4b9760aeb2c940f74,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 1.81
       objectReference: {fileID: 0}
     - target: {fileID: 1865465252044298931, guid: fea4c95258491ef4b9760aeb2c940f74,
         type: 3}

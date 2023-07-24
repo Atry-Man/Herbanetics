@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityPrefab: {fileID: 3766274614879546285, guid: 18223ca3fd75d1d43a9e3e3499b8a64e,
     type: 3}
-  abilityDuration: 1.5
+  abilityDuration: 2
   abilityCooldown: 1
-  stompDesiredSize: 4
+  stompDesiredSize: 2.5
   stompSpeed: 5
   stompDamage: 7

@@ -1,18 +1,20 @@
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class PlayerDamage : MonoBehaviour,IDamagable
 {
     [SerializeField] Slider healthSlider;
-    [SerializeField] GameObject gameOverPanel;
     [SerializeField] PlayerConfig playerConfig;
     [SerializeField] GameObject hitEffect;
     [SerializeField] Transform hitSpawn;
+    [SerializeField] Animator playerAnim;
     public static event Action StopAttacking;
     private int maxHealth;
     private int currentHealth;
-
+    private const string deathStr = "Death";
+    [SerializeField] UnityEvent gameOverUI;
     public int MaxHealth
     {
         get { return maxHealth; }
@@ -52,13 +54,19 @@ public class PlayerDamage : MonoBehaviour,IDamagable
         currentHealth += calculatedHealth;
     }
     private void Die()
-    {  
-      gameOverPanel.SetActive(true);
+    {
+
+      playerAnim.SetTrigger(deathStr);
       StopAttacking?.Invoke();
-      Time.timeScale = 0f;
-      Destroy(gameObject);
+     
     }
 
+    public void DeathScreenStuff()
+    {
+      gameOverUI.Invoke();
+        Time.timeScale = 0f;
+        gameObject.SetActive(false);
+    }
     public Transform GetTransform()
     {
         return transform;

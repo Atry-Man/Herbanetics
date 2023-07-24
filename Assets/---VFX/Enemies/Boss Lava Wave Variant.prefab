@@ -10,27 +10,12 @@ PrefabInstance:
     - target: {fileID: 84750900147251430, guid: 54dfae4938bd08046b94b4858e4126c5,
         type: 3}
       propertyPath: m_Name
-      value: Boss Lava Wave (3)
+      value: Boss Lava Wave Variant
       objectReference: {fileID: 0}
     - target: {fileID: 749507193264124508, guid: 54dfae4938bd08046b94b4858e4126c5,
         type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 749507193264124508, guid: 54dfae4938bd08046b94b4858e4126c5,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 749507193264124508, guid: 54dfae4938bd08046b94b4858e4126c5,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 749507193264124508, guid: 54dfae4938bd08046b94b4858e4126c5,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 749507193264124508, guid: 54dfae4938bd08046b94b4858e4126c5,
         type: 3}
