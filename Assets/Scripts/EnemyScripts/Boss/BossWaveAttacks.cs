@@ -9,12 +9,18 @@ public class BossWaveAttacks : MonoBehaviour
     public float timeBetweenWaveAttacks;
     [SerializeField] float attackWaveForce;
     [SerializeField] float numberOfAttacks;
+    [SerializeField] Animator bossAnim;
+    private const string attackStr = "Attack";
+
     public IEnumerator BossWaveAttackRoutine()
     {
+
+       
         float tempNumOfAttacks = numberOfAttacks;
 
         while (tempNumOfAttacks > 0)
         {
+            bossAnim.SetTrigger(attackStr);
             // Choose a random set of warning indicators and wave attack from the enemy wave spawner
             int randomWaveSetIndex = Random.Range(0, warningIndicators.Length);
             warningIndicators[randomWaveSetIndex].SetActive(true);

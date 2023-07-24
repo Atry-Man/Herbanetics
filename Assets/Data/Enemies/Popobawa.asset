@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Popobawa
   m_EditorClassIdentifier: 
   health: 15
-  attackDelay: 0.75
+  attackDelay: 1
   Damage: 3
-  attackRadius: 8
+  attackRadius: 12
   isRanged: 1
   aiUpdateIntervals: 0.1
   baseOffset: 0.5
@@ -27,4 +27,4 @@ MonoBehaviour:
   avoidanceHeight: 2
   obstacleAvoidanceType: 1
   avoidanceRadius: 2
-  stoppingDistance: 10
+  stoppingDistance: 12

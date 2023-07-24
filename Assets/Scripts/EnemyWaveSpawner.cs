@@ -27,6 +27,7 @@ public class EnemyWaveSpawner : MonoBehaviour
     private float waveTimer;
     EnemyMovement enemyMovement;
     [SerializeField] UnityEvent levelCompleteEvent;
+    [SerializeField] int healthIncreasePercentage;
     private void OnEnable()
     {
         EnemySetup.EnemyDestroyed += EnemyDefeated;
@@ -79,17 +80,15 @@ public class EnemyWaveSpawner : MonoBehaviour
 
             currentWaveIndex++;
             waveTimer = timeBtnWaves;
-
-            Debug.Log("Wave " + currentWave.name + "Completed. Proceeding to the next wave");
+            playerDamage.IncreaseHealth(healthIncreasePercentage);
+            //Debug.Log("Wave " + currentWave.name + "Completed. Proceeding to the next wave");
 
             yield return new WaitForSeconds(timeBtnWaves);
         }
 
        
         waveText[totalWaves].SetActive(true);
-        //Debug.Log("All Waves completed");
-
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         levelCompleteEvent?.Invoke();
     }
 

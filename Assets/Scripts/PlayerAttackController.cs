@@ -27,5 +27,7 @@ public class PlayerAttackController : MonoBehaviour
     {
         GameObject punch = Instantiate(punchObj, punchPos.position, Quaternion.identity);
         punch.GetComponent<Rigidbody>().AddForce(punchPos.forward * punchForce, ForceMode.Impulse);
+        Vector3 movDir = punchPos.forward.normalized;
+        punch.transform.rotation = Quaternion.LookRotation(movDir);
     }
 }

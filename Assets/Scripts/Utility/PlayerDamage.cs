@@ -44,6 +44,13 @@ public class PlayerDamage : MonoBehaviour,IDamagable
             Die();
         }
     }
+
+   public void IncreaseHealth(int healthIncreasePercent)
+    {  
+        int calculatedHealth = (healthIncreasePercent/100) * maxHealth;
+
+        currentHealth += calculatedHealth;
+    }
     private void Die()
     {  
       gameOverPanel.SetActive(true);

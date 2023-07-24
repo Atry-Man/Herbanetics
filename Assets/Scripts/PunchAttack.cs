@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class PunchAttack : MonoBehaviour
 {
-    [SerializeField] int maxCollisions;
     [SerializeField] int punchDamage;
-    
 
     private void OnTriggerEnter(Collider other)
-    {  
-        if(other.gameObject.CompareTag("Enemy"))
+    {
+        if (other.TryGetComponent<IDamagable>(out var damagable))
         {
-            EnemyStats enemyStats = other.gameObject.GetComponent<EnemyStats>();
-            enemyStats.TakeDamage(punchDamage);
-            
+            damagable.TakeDamage(punchDamage);
+            Destroy(gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Obstacle"))
+        {
+            Destroy(gameObject);
         }
     }
 
-    
+
 
 }
