@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Glove_
+    second: {fileID: 2100000, guid: c98f8d7cebb882742bd46278034a5475, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: outline
     second: {fileID: 2100000, guid: b5640fdb305aba5488ad26359104f7d9, type: 2}
   materials:
