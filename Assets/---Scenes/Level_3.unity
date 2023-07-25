@@ -7643,6 +7643,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4312646946752049284, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 291243649}
+    - target: {fileID: 4312646946752049284, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: StopGamePlay
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
 --- !u!1 &2036109011 stripped

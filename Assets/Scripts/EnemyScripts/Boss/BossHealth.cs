@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class BossHealth : MonoBehaviour,IDamagable
@@ -11,6 +12,7 @@ public class BossHealth : MonoBehaviour,IDamagable
     [SerializeField] Transform bossHitSpawn;
     [SerializeField] Image bossHealthSlider;
     [SerializeField] Animator bossAnim;
+    [SerializeField] UnityEvent levelCompleteEvent;
     private int currentHealth;
     public bool isInSecondPhase;
 
@@ -18,6 +20,8 @@ public class BossHealth : MonoBehaviour,IDamagable
     [SerializeField] float newWaveForce;
     [SerializeField] float newTimeForWarnings;
     private const string deathStr = "Death";
+    private const string isBossStunned = "isStunned";
+    private const string bossAttackStr = "isAttacking";
     private void Start()
     {
         currentHealth = maxHealth;
@@ -42,12 +46,19 @@ public class BossHealth : MonoBehaviour,IDamagable
         }  
         if (currentHealth <= 0)
         {    isBossDefeated = true;
-            bossAnim.SetTrigger(deathStr);
+             bossAnim.SetTrigger(deathStr);
+            bossAnim.SetBool(isBossStunned, false);
+            bossAnim.SetBool(bossAttackStr, false);
         }
     }
 
     public Transform GetTransform()
     {
        return transform;
+    }
+
+    public void BossCompletedUI()
+    {
+        levelCompleteEvent?.Invoke();
     }
 }
