@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
         {
             playerAnim.SetBool(isDashingStr, true);
             dashEffect.SetActive(true);
-            Vector3 dashDirection = transform.TransformDirection(Vector3.forward);
+            Vector3 dashDirection = transform.forward;
             dashTarget = transform.position + dashDirection * dashSpeed;
 
             RaycastHit hit;
@@ -109,7 +109,6 @@ public class PlayerController : MonoBehaviour
     private IEnumerator Dash()
     {
         isDashing = true;
-
         float elapsedTime = 0f;
         Vector3 startPosition = transform.position;
 
@@ -127,7 +126,6 @@ public class PlayerController : MonoBehaviour
         transform.position = dashTarget;
         playerAnim.SetBool(isDashingStr, false);
         dashEffect.SetActive(false);
-        yield return new WaitForSeconds(dashCooldown);
         isDashing = false;
     }
 
@@ -154,7 +152,6 @@ public class PlayerController : MonoBehaviour
         movSpeedPen = playerConfig.movementSpeedPen;
         dashSpeed = playerConfig.dashSpeed;
         dashDuration = playerConfig.dashDuration;
-        dashCooldown = playerConfig.dashCooldown;
         defaultMovSpeed = playerConfig.movementSpeed;
     }
 }

@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/---Scenes/Level_5-Mermaid.unity
     guid: 9329cd582fb3c2641b004b2394462fc1
+  - enabled: 1
+    path: Assets/---Scenes/Level_5.1-Groot.unity
+    guid: 38fbc292a6d4388498a4b14bc3f26253
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: 30069ce2d880ce64fa981e5a9139fd70, type: 2}

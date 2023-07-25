@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07411be9419057b4ea7eb6333a721a85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossDefeatUI:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1102 &-7383269679172344252
 AnimatorState:
   serializedVersion: 6
@@ -20,7 +23,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Mer_attack
-  m_Speed: 1
+  m_Speed: 0.75
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 5237530241563071793}
@@ -80,8 +83,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0432d26ceb3884e4296873fc223f6cfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stunDuration: 4
-  secondPhaseStunDuration: 2.5
+  stunDuration: 2.5
+  secondPhaseStunDuration: 1.5
 --- !u!1102 &-3775144399397435759
 AnimatorState:
   serializedVersion: 6
@@ -124,11 +127,11 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 1
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.1
   m_TransitionOffset: 0
-  m_ExitTime: 0.75
+  m_ExitTime: 0.9
   m_HasExitTime: 1
-  m_HasFixedDuration: 1
+  m_HasFixedDuration: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1

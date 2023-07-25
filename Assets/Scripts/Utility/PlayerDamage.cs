@@ -10,11 +10,13 @@ public class PlayerDamage : MonoBehaviour,IDamagable
     [SerializeField] GameObject hitEffect;
     [SerializeField] Transform hitSpawn;
     [SerializeField] Animator playerAnim;
+    [SerializeField] PlayerController playerController;
     public static event Action StopAttacking;
     private int maxHealth;
     private int currentHealth;
     private const string deathStr = "Death";
     [SerializeField] UnityEvent gameOverUI;
+    private bool canTakeDamage;
     public int MaxHealth
     {
         get { return maxHealth; }
@@ -32,19 +34,24 @@ public class PlayerDamage : MonoBehaviour,IDamagable
         maxHealth = playerConfig.maxHealth;
         currentHealth = maxHealth;
         healthSlider.value = currentHealth;
+        canTakeDamage = true;
     }
 
     public void TakeDamage(int amount)
-    {
-        currentHealth -= amount;
-        healthSlider.value = currentHealth;
-        Instantiate(hitEffect, hitSpawn.position, Quaternion.identity);
-        //playerAnim.SetTrigger(hurtStr);
-
-        if (currentHealth <= 0)
+    {   
+        if(canTakeDamage)
         {
-            Die();
+            currentHealth -= amount;
+            healthSlider.value = currentHealth;
+            Instantiate(hitEffect, hitSpawn.position, Quaternion.identity);
+            //playerAnim.SetTrigger(hurtStr);
+
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
         }
+       
     }
 
    public void IncreaseHealth(int healthIncreasePercent)
@@ -55,7 +62,8 @@ public class PlayerDamage : MonoBehaviour,IDamagable
     }
     private void Die()
     {
-
+      canTakeDamage = false;
+      playerController.CanMove = false;
       playerAnim.SetTrigger(deathStr);
       StopAttacking?.Invoke();
      
@@ -63,7 +71,7 @@ public class PlayerDamage : MonoBehaviour,IDamagable
 
     public void DeathScreenStuff()
     {
-      gameOverUI.Invoke();
+       gameOverUI.Invoke();
         Time.timeScale = 0f;
         gameObject.SetActive(false);
     }

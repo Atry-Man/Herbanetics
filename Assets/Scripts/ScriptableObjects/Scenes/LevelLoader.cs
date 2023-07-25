@@ -4,48 +4,52 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "LevelLoader", menuName = "Custom/LevelLoader")]
 public class LevelLoader : ScriptableObject
 {
-    public LevelData[] levels;
-    public string[] bossScenes;
+
+    public LevelData[] baseLevels; // Levels that are not boss levels
+    public string[] bossScenes;    // Boss scenes
+
     private int currentLevelIndex = -1;
     private int[] levelIndices;
 
-    public void LoadRandomLevel()
+    public void LoadNextLevel()
     {
-        if (levelIndices == null || levelIndices.Length == 0)
-        {
-            GenerateRandomLevelIndices();
-        }
-
         currentLevelIndex++;
-        if (currentLevelIndex >= levelIndices.Length)
+        if (currentLevelIndex >= baseLevels.Length)
         {
+            // If all base levels are completed, load a random boss scene
             int randomBossIndex = Random.Range(0, bossScenes.Length);
             SceneManager.LoadScene(bossScenes[randomBossIndex]);
         }
         else
         {
             int levelIndex = levelIndices[currentLevelIndex];
-            SceneManager.LoadScene(levels[levelIndex].sceneName);
+            SceneManager.LoadScene(baseLevels[levelIndex].sceneName);
         }
     }
 
     public void LevelCompleted()
     {
-        LoadRandomLevel();
+        LoadNextLevel();
+    }
+
+    public void StartGame()
+    {
+        GenerateRandomLevelIndices();
+        LoadNextLevel();
     }
 
     private void GenerateRandomLevelIndices()
     {
-        levelIndices = new int[levels.Length];
-        for (int i = 0; i < levels.Length; i++)
+        levelIndices = new int[baseLevels.Length];
+        for (int i = 0; i < baseLevels.Length; i++)
         {
             levelIndices[i] = i;
         }
 
         // Shuffle the level indices using Fisher-Yates algorithm
-        for (int i = 0; i < levels.Length - 1; i++)
+        for (int i = 0; i < baseLevels.Length - 1; i++)
         {
-            int randomIndex = Random.Range(i, levels.Length);
+            int randomIndex = Random.Range(i, baseLevels.Length);
             int temp = levelIndices[i];
             levelIndices[i] = levelIndices[randomIndex];
             levelIndices[randomIndex] = temp;

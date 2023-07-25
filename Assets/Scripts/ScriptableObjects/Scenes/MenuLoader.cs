@@ -13,6 +13,6 @@ public class MenuLoader : ScriptableObject
 
     public void PlayButtonPressed()
     {
-        levelLoader.LoadRandomLevel();
+        levelLoader.StartGame();
     }
 }

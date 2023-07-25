@@ -43,7 +43,6 @@ public class BossHealth : MonoBehaviour,IDamagable
         if (currentHealth <= 0)
         {    isBossDefeated = true;
             bossAnim.SetTrigger(deathStr);
-            Destroy(gameObject);
         }
     }
 

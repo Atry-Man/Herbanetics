@@ -343,6 +343,21 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4312646945270779774, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312646945270779774, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 291243649}
+    - target: {fileID: 4312646945270779774, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartScene
+      objectReference: {fileID: 0}
     - target: {fileID: 4312646945419386671, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -475,6 +490,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PlanetSpeed>k__BackingField: 0.2
+--- !u!65 &219228672
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 219228665}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.36930758, y: 0.06918609, z: 0.2447314}
+  m_Center: {x: -0.015342664, y: 0.01773893, z: 0.056190327}
 --- !u!1 &278340741
 GameObject:
   m_ObjectHideFlags: 0
@@ -1283,6 +1311,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water  BG
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d2dfffd7c48f48047b98d380209bd78a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d2dfffd7c48f48047b98d380209bd78a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2dfffd7c48f48047b98d380209bd78a, type: 3}
 --- !u!4 &1089380311 stripped
@@ -1310,6 +1348,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PlanetSpeed>k__BackingField: 0.2
+--- !u!65 &1089380316
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089380312}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.36930764, y: 0.06702984, z: 0.24473141}
+  m_Center: {x: -0.015342657, y: 0.018460942, z: 0.056190245}
 --- !u!1001 &1114977410
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1402,6 +1453,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: DRY MountainFace 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d2dfffd7c48f48047b98d380209bd78a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d2dfffd7c48f48047b98d380209bd78a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2dfffd7c48f48047b98d380209bd78a, type: 3}
 --- !u!1 &1144910821
@@ -1447,6 +1508,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce48f4741149d714aa1e283506787987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1201701583 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3841838527252771182, guid: 1e2451abd990edb48b0839010188e13d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6811135174066112775}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1204160083
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,6 +1845,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PlanetSpeed>k__BackingField: -0.2
+--- !u!65 &1752779945
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752779938}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.36930758, y: 0.09106099, z: 0.24473135}
+  m_Center: {x: -0.015342676, y: 0.0127289565, z: 0.056190252}
 --- !u!1 &1799739915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1953,6 +2033,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Arena Ring
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f53f85d75f97d124ab98303b58cf577b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f53f85d75f97d124ab98303b58cf577b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f53f85d75f97d124ab98303b58cf577b, type: 3}
@@ -2381,6 +2471,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: DRY MountainFace 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d2dfffd7c48f48047b98d380209bd78a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d2dfffd7c48f48047b98d380209bd78a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2dfffd7c48f48047b98d380209bd78a, type: 3}
 --- !u!4 &168953184457577681
@@ -2433,21 +2533,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 817121989799858007, guid: 287a9b24b26d4b34bb68da57295b52ac,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1251470139819928487, guid: 287a9b24b26d4b34bb68da57295b52ac,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2509877816480888276, guid: 287a9b24b26d4b34bb68da57295b52ac,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2621811435495014928, guid: 287a9b24b26d4b34bb68da57295b52ac,
         type: 3}
       propertyPath: m_Name
@@ -2458,31 +2543,6 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 1518794706}
-    - target: {fileID: 3385027230938157416, guid: 287a9b24b26d4b34bb68da57295b52ac,
-        type: 3}
-      propertyPath: gameOverPanel
-      value: 
-      objectReference: {fileID: 466052898}
-    - target: {fileID: 3385027230938157416, guid: 287a9b24b26d4b34bb68da57295b52ac,
-        type: 3}
-      propertyPath: gameOverUI.m_PersistentCalls.m_Calls.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385027230938157416, guid: 287a9b24b26d4b34bb68da57295b52ac,
-        type: 3}
-      propertyPath: gameOverUI.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385027230938157416, guid: 287a9b24b26d4b34bb68da57295b52ac,
-        type: 3}
-      propertyPath: gameOverUI.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385027230938157416, guid: 287a9b24b26d4b34bb68da57295b52ac,
-        type: 3}
-      propertyPath: gameOverUI.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3385027230938157416, guid: 287a9b24b26d4b34bb68da57295b52ac,
         type: 3}
       propertyPath: gameOverUI.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2498,66 +2558,6 @@ PrefabInstance:
       propertyPath: gameOverUI.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 466052898}
-    - target: {fileID: 3385027230938157416, guid: 287a9b24b26d4b34bb68da57295b52ac,
-        type: 3}
-      propertyPath: gameOverUI.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385027230938157416, guid: 287a9b24b26d4b34bb68da57295b52ac,
-        type: 3}
-      propertyPath: gameOverUI.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385027230938157416, guid: 287a9b24b26d4b34bb68da57295b52ac,
-        type: 3}
-      propertyPath: gameOverUI.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StopGamePlay
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385027230938157416, guid: 287a9b24b26d4b34bb68da57295b52ac,
-        type: 3}
-      propertyPath: gameOverUI.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385027230938157416, guid: 287a9b24b26d4b34bb68da57295b52ac,
-        type: 3}
-      propertyPath: gameOverUI.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385027230938157416, guid: 287a9b24b26d4b34bb68da57295b52ac,
-        type: 3}
-      propertyPath: gameOverUI.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: StartGame, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385027230938157416, guid: 287a9b24b26d4b34bb68da57295b52ac,
-        type: 3}
-      propertyPath: gameOverUI.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385027230938157416, guid: 287a9b24b26d4b34bb68da57295b52ac,
-        type: 3}
-      propertyPath: gameOverUI.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385027230938157416, guid: 287a9b24b26d4b34bb68da57295b52ac,
-        type: 3}
-      propertyPath: gameOverUI.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385027230938157416, guid: 287a9b24b26d4b34bb68da57295b52ac,
-        type: 3}
-      propertyPath: gameOverUI.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385027230938157416, guid: 287a9b24b26d4b34bb68da57295b52ac,
-        type: 3}
-      propertyPath: gameOverUI.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3385027230938157416, guid: 287a9b24b26d4b34bb68da57295b52ac,
-        type: 3}
-      propertyPath: gameOverUI.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 3398347657860389034, guid: 287a9b24b26d4b34bb68da57295b52ac,
         type: 3}
       propertyPath: m_RootOrder
@@ -2613,16 +2613,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4556516196123415095, guid: 287a9b24b26d4b34bb68da57295b52ac,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6324463030883411109, guid: 287a9b24b26d4b34bb68da57295b52ac,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 287a9b24b26d4b34bb68da57295b52ac, type: 3}
 --- !u!1001 &6811135174066112775
@@ -2646,22 +2636,22 @@ PrefabInstance:
     - target: {fileID: 402411423705452967, guid: 1e2451abd990edb48b0839010188e13d,
         type: 3}
       propertyPath: warningDelay
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 402411423705452967, guid: 1e2451abd990edb48b0839010188e13d,
         type: 3}
       propertyPath: attackWaveForce
-      value: 50
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 402411423705452967, guid: 1e2451abd990edb48b0839010188e13d,
         type: 3}
       propertyPath: numberOfAttacks
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 402411423705452967, guid: 1e2451abd990edb48b0839010188e13d,
         type: 3}
       propertyPath: timeBetweenWaveAttacks
-      value: 1
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 402411423705452967, guid: 1e2451abd990edb48b0839010188e13d,
         type: 3}
@@ -2770,8 +2760,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8689244318546629368, guid: 1e2451abd990edb48b0839010188e13d,
         type: 3}
+      propertyPath: bossAnim
+      value: 
+      objectReference: {fileID: 1201701583}
+    - target: {fileID: 8689244318546629368, guid: 1e2451abd990edb48b0839010188e13d,
+        type: 3}
       propertyPath: newWaveForce
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 8689244318546629368, guid: 1e2451abd990edb48b0839010188e13d,
+        type: 3}
+      propertyPath: healthThreshold
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 8689244318546629368, guid: 1e2451abd990edb48b0839010188e13d,
+        type: 3}
+      propertyPath: newTimeForWarnings
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e2451abd990edb48b0839010188e13d, type: 3}
