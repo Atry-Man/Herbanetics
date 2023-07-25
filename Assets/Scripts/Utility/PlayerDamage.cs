@@ -59,6 +59,7 @@ public class PlayerDamage : MonoBehaviour,IDamagable
         int calculatedHealth = (healthIncreasePercent/100) * maxHealth;
 
         currentHealth += calculatedHealth;
+        healthSlider.value = currentHealth;
     }
     private void Die()
     {
