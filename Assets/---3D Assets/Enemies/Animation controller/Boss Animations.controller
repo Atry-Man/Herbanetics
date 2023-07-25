@@ -83,8 +83,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0432d26ceb3884e4296873fc223f6cfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stunDuration: 2.5
-  secondPhaseStunDuration: 1.5
+  stunDuration: 4
+  secondPhaseStunDuration: 3
 --- !u!1102 &-3775144399397435759
 AnimatorState:
   serializedVersion: 6

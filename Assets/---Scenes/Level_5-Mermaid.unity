@@ -2765,13 +2765,18 @@ PrefabInstance:
       objectReference: {fileID: 1201701583}
     - target: {fileID: 8689244318546629368, guid: 1e2451abd990edb48b0839010188e13d,
         type: 3}
+      propertyPath: maxHealth
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8689244318546629368, guid: 1e2451abd990edb48b0839010188e13d,
+        type: 3}
       propertyPath: newWaveForce
       value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 8689244318546629368, guid: 1e2451abd990edb48b0839010188e13d,
         type: 3}
       propertyPath: healthThreshold
-      value: 60
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8689244318546629368, guid: 1e2451abd990edb48b0839010188e13d,
         type: 3}

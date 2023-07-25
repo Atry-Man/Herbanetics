@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   autoDestroyTime: 4
-  movSpeed: 25
+  movSpeed: 15
   damage: 3
   projectileRigidbody: {fileID: 2204230773503318561}
 --- !u!136 &3444232480370567328
