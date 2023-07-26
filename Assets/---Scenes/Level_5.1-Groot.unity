@@ -572,7 +572,7 @@ GameObject:
   - component: {fileID: 242041407}
   m_Layer: 0
   m_Name: Camera block
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -588,8 +588,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 57.64372, y: 6.17862, z: 8.814682}
-  m_Center: {x: 1.1876926, y: 2.5893095, z: -26.55315}
+  m_Size: {x: 57.64372, y: 27.888803, z: 8.814682}
+  m_Center: {x: 1.1876926, y: -8.265782, z: -26.55315}
 --- !u!4 &242041408
 Transform:
   m_ObjectHideFlags: 0
