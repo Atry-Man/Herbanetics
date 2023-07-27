@@ -370,7 +370,7 @@ MonoBehaviour:
   obstacleLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  rayDistance: 6
+  rayDistance: 10
   playerConfig: {fileID: 11400000, guid: 49f071c7fb2cd8240a85e616b582173a, type: 2}
 --- !u!114 &3447079256247651157
 MonoBehaviour:
