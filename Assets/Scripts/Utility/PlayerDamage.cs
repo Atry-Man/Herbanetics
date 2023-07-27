@@ -44,7 +44,6 @@ public class PlayerDamage : MonoBehaviour,IDamagable
             currentHealth -= amount;
             healthSlider.value = currentHealth;
             Instantiate(hitEffect, hitSpawn.position, Quaternion.identity);
-            //playerAnim.SetTrigger(hurtStr);
 
             if (currentHealth <= 0)
             {
@@ -54,12 +53,15 @@ public class PlayerDamage : MonoBehaviour,IDamagable
        
     }
 
-   public void IncreaseHealth(int healthIncreasePercent)
-    {  
-        int calculatedHealth = (healthIncreasePercent/100) * maxHealth;
-
-        currentHealth += calculatedHealth;
-        healthSlider.value = currentHealth;
+   public void IncreaseHealth(float healthIncreasePercent)
+    {   
+        float increase = (healthIncreasePercent / 100) * (float)maxHealth;
+        int calculatedHealth = (int)increase;
+        if (currentHealth <= maxHealth)
+        {
+            currentHealth += calculatedHealth;  
+            healthSlider.value = currentHealth;
+        }
     }
     private void Die()
     {

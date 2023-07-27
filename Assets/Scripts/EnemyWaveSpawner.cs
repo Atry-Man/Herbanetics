@@ -27,7 +27,7 @@ public class EnemyWaveSpawner : MonoBehaviour
     private float waveTimer;
     EnemyMovement enemyMovement;
     [SerializeField] UnityEvent levelCompleteEvent;
-    [SerializeField] int healthIncreasePercentage;
+    [SerializeField] float healthIncreasePercentage;
     private void OnEnable()
     {
         EnemySetup.EnemyDestroyed += EnemyDefeated;
