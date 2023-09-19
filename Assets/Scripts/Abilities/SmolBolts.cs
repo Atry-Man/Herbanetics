@@ -11,7 +11,7 @@ public class SmolBolts : MonoBehaviour
     private bool canShoot;
     private const string isShootingStr = "isShooting";
     [SerializeField] Transform playerPos;
-   
+    Vector3 shootingDirection;
 
     private void Awake()
     {
@@ -23,14 +23,19 @@ public class SmolBolts : MonoBehaviour
         {
             playerAnim.SetBool(isShootingStr, true);
 
-            Vector3 shootingDirection;
+           
 
             if (ctx.control.device is Mouse)
             {
-
-                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-                shootingDirection = (mousePos - playerPos.position).normalized;
-                Debug.Log(shootingDirection);
+                Vector3 mousePos;
+                Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+                if(Physics.Raycast(ray, out RaycastHit hitInfo))
+                {
+                    mousePos = new Vector3( hitInfo.point.x, 0, hitInfo.point.z);
+                    Debug.DrawLine(playerPos.position, mousePos);
+                    shootingDirection = (mousePos - playerPos.position).normalized;
+                } 
+                
             }
             else
             {
