@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
     [Header("Dash Variables")]
     private float dashSpeed;
     private float dashDuration;
-    private float dashCooldown;
     [SerializeField] private GameObject dashEffect;
     private Vector3 dashTarget;
     private bool isDashing;
@@ -35,9 +34,7 @@ public class PlayerController : MonoBehaviour
     private const string isRunning = "isRunning";
     private const string isDashingStr = "isDashing";
 
-    [Header("Collision Variables")]
-    [SerializeField] LayerMask obstacleLayerMask;
-    [SerializeField] float rayDistance;
+    
 
     [Header("Player Config")]
     [SerializeField] PlayerConfig playerConfig;
@@ -52,10 +49,9 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext ctx)
     {   
-        if(CanMove && !isDashing) {
+        if(CanMove && !isDashing){
 
-
-            if (ctx.action.triggered)
+            if (ctx.performed)
             {
                 movementVector = ctx.ReadValue<Vector3>();
                 movementDir = movementVector.normalized;
@@ -64,7 +60,6 @@ public class PlayerController : MonoBehaviour
             }
             else if (ctx.canceled)
             {
-
                 movementVector = Vector3.zero;
             }
 
@@ -94,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
             RaycastHit hit;
 
-            if(Physics.Raycast(transform.position, dashDirection, out hit, rayDistance, obstacleLayerMask))
+            if(Physics.Raycast(transform.position, dashDirection, out hit, playerConfig.rayDistance, playerConfig.obstacleLayerMask))
             {
                 playerAnim.SetBool(isDashingStr, false);
                 dashEffect.SetActive(false);
@@ -127,6 +122,8 @@ public class PlayerController : MonoBehaviour
         playerAnim.SetBool(isDashingStr, false);
         dashEffect.SetActive(false);
         isDashing = false;
+
+        
     }
 
     private void FixedUpdate()

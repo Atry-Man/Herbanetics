@@ -10,6 +10,7 @@ public class SmolBolts : MonoBehaviour
     private float fireRateTimer;
     private bool canShoot;
     private const string isShootingStr = "isShooting";
+    [SerializeField] Transform playerPos;
    
 
     private void Awake()
@@ -17,14 +18,34 @@ public class SmolBolts : MonoBehaviour
         canShoot = true;
     }
     public void ShootBolts(InputAction.CallbackContext ctx)
-    {   
-        if(ctx.action.triggered && canShoot)
-        {   
+    {
+        if (ctx.action.triggered && canShoot)
+        {
             playerAnim.SetBool(isShootingStr, true);
-            GameObject bolt = Instantiate(SmolBoltsSO.boltPrefab, firePoint.position, firePoint.rotation);
-            bolt.GetComponent<Rigidbody>().AddForce(firePoint.forward * SmolBoltsSO.fireForce, ForceMode.Impulse);
+
+            Vector3 shootingDirection;
+
+            if (ctx.control.device is Mouse)
+            {
+
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+                shootingDirection = (mousePos - playerPos.position).normalized;
+                Debug.Log(shootingDirection);
+            }
+            else
+            {
+               
+                shootingDirection = transform.forward;
+            }
+
+            GameObject bolt = Instantiate(SmolBoltsSO.boltPrefab, firePoint.position, Quaternion.identity);
+
+            
+            bolt.transform.forward = shootingDirection;
+
+            bolt.GetComponent<Rigidbody>().AddForce(shootingDirection * SmolBoltsSO.fireForce, ForceMode.Impulse);
             fireRateTimer = 0f;
-            canShoot=false;
+            canShoot = false;
         }
         else
         {
