@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60bd13d20e08e1c42a99645f3403155e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSkillLevel: 2
-  punchSkillLevel: 2
-  waveSkillLevel: 2
-  dashLevel: 2
+  projectileSkillLevel: 0
+  punchSkillLevel: 0
+  waveSkillLevel: 0
+  dashLevel: 0
