@@ -48,11 +48,7 @@ public class EnemyWaveSpawner : EnemyWaveBasic
     protected override void Update()
     {
         base.Update();
-        if(currentWaveIndex == totalWaves && enemiesRemaining <= 0)
-        {
-            completeTitle.SetActive(true);
-            skyTime[1].transform.position = Vector3.MoveTowards(skyTime[1].transform.position, sunPoints[sunPoints.Length -1].position, 1f * Time.deltaTime);
-        }
+       
         SwitchTimeZone(currentWaveIndex);
     }
 
@@ -99,6 +95,11 @@ public class EnemyWaveSpawner : EnemyWaveBasic
 
         //waveText[totalWaves].SetActive(true);
         yield return new WaitForSeconds(1.5f);
+        if (currentWaveIndex == totalWaves && enemiesRemaining <= 0)
+        {
+            //completeTitle.SetActive(true);
+            skyTime[1].transform.position = Vector3.MoveTowards(skyTime[1].transform.position, sunPoints[sunPoints.Length - 1].position, 1f * Time.deltaTime);
+        }
         levelCompleteEvent?.Invoke();
     }
 
