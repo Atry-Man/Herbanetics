@@ -22,6 +22,7 @@ public class EnemyWaveSpawner : EnemyWaveBasic
     [SerializeField] private GameObject completeTitle;
     [Header("Sun and moon")]
     [SerializeField] private GameObject[] skyTime;
+    [SerializeField] private Transform[] sunPoints;
     
 
     private void OnEnable()
@@ -50,6 +51,7 @@ public class EnemyWaveSpawner : EnemyWaveBasic
         if(currentWaveIndex == totalWaves && enemiesRemaining <= 0)
         {
             completeTitle.SetActive(true);
+            skyTime[1].transform.position = Vector3.MoveTowards(skyTime[1].transform.position, sunPoints[sunPoints.Length -1].position, 1f * Time.deltaTime);
         }
         SwitchTimeZone(currentWaveIndex);
     }
@@ -120,14 +122,41 @@ public class EnemyWaveSpawner : EnemyWaveBasic
         {
             case 0:
                 Debug.Log("test log 1");
+                //Vector3.Lerp(skyTime[0].gameObject.transform.position, sunPoints[1].position, 2f);
                 TimeMovement(skyTime[_index], null);
+                
+
+
                 break;
             case 1:
                 Debug.Log("test log 2");
-                TimeMovement(skyTime[_index], skyTime[_index - 1]);
+                skyTime[0].transform.position = Vector3.MoveTowards(skyTime[0].transform.position, sunPoints[_index].position, 1f * Time.deltaTime);
+                //TimeMovement(skyTime[_index], skyTime[_index - 1]);
+                break;
+            case 2:
+                Debug.Log("test log 3");
+                skyTime[0].transform.position = Vector3.MoveTowards(skyTime[0].transform.position, sunPoints[_index].position, 1f * Time.deltaTime);
+                //TimeMovement(skyTime[_index], skyTime[_index - 1]);
+                break;
+            case 3:
+                TimeMovement(skyTime[1], skyTime[0]);
+                Debug.Log("test log 4");
+                skyTime[1].transform.position = Vector3.MoveTowards(skyTime[0].transform.position, sunPoints[_index + 1].position, 1f * Time.deltaTime);
+                //TimeMovement(skyTime[_index], skyTime[_index - 1]);
+                break;
+            case 4:
+                Debug.Log("test log 4");
+                skyTime[1].transform.position = Vector3.MoveTowards(skyTime[1].transform.position, sunPoints[_index +1].position, 1f * Time.deltaTime);
+                //TimeMovement(skyTime[_index], skyTime[_index - 1]);
+                break;
+            case 5:
+                Debug.Log("test log 5");
+                skyTime[1].transform.position = Vector3.MoveTowards(skyTime[1].transform.position, sunPoints[_index +1].position, 1f * Time.deltaTime);
+                //TimeMovement(skyTime[_index], skyTime[_index - 1]);
                 break;
             default:
                 Debug.Log("default");
+                
                 break;
         }
     }
@@ -139,6 +168,8 @@ public class EnemyWaveSpawner : EnemyWaveBasic
 
 
         _sunOrMoon.SetActive(true);
+        
+
     }
 }
 
