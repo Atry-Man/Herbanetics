@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     private float dashDuration;
     
     [SerializeField] private GameObject dashEffect;
+    [SerializeField] private GameObject stormBurstEffect;
     private Vector3 dashTarget;
     private bool isDashing;
 
@@ -85,9 +86,15 @@ public class PlayerController : MonoBehaviour
     public void OnDash(InputAction.CallbackContext ctx)
     {
         if(ctx.action.triggered && !isDashing)
-        {
+        { 
             playerAnim.SetBool(isDashingStr, true);
             dashEffect.SetActive(true);
+
+            if(SkillManager.instance.dashLevel > 0)
+            {
+                stormBurstEffect.SetActive(true);
+                StartCoroutine(TurnOffStormBurst());
+            }
             Vector3 dashDirection = transform.forward;
             dashTarget = transform.position + dashDirection * dashSpeed;
 
@@ -95,8 +102,10 @@ public class PlayerController : MonoBehaviour
 
             if(Physics.Raycast(transform.position, dashDirection, out hit, playerConfig.rayDistance, playerConfig.obstacleLayerMask))
             {
+               
                 playerAnim.SetBool(isDashingStr, false);
                 dashEffect.SetActive(false);
+                
                 return;
                
             }
@@ -105,6 +114,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private IEnumerator TurnOffStormBurst()
+    {
+       
+        yield return new WaitForSeconds(.5f);
+        stormBurstEffect.SetActive(false);
+    }
     private IEnumerator Dash()
     {
         isDashing = true;
