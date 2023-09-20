@@ -23,23 +23,28 @@ public class StompFront : MonoBehaviour
         {
             canStomp = true;
             playerAnim.SetTrigger(StompTrigger);
-            int numStomps = SkillManager.instance.waveSkillLevel + 1;
+            
+        }
+    }
 
-            for (int i = 0; i < numStomps; i++)
+    public void StompAttack()
+    {
+        int numStomps = SkillManager.instance.waveSkillLevel + 1;
+
+        for (int i = 0; i < numStomps; i++)
+        {
+            switch (i)
             {
-                switch (i)
-                {
-                    case 0:
-                        SpawnStomp(stompPos);
-                        break;
-                    case 1:
-                        SpawnStomp(stompPos2);
-                        break;
-                    case 2:
-                        SpawnStomp(stompPos3);
-                        break;
-                        
-                }
+                case 0:
+                    SpawnStomp(stompPos);
+                    break;
+                case 1:
+                    SpawnStomp(stompPos2);
+                    break;
+                case 2:
+                    SpawnStomp(stompPos3);
+                    break;
+
             }
         }
     }

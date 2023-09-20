@@ -25,24 +25,7 @@ public class SmolBolts : MonoBehaviour
         {
             playerAnim.SetBool(isShootingStr, true);
 
-            int numBolts = SkillManager.instance.projectileSkillLevel + 1;
-
-            for (int i = 0; i < numBolts; i++)
-            {
-                switch (i)
-                {
-                    case 0:
-                        SpawnBolt(firePoint);
-                        break;
-                    case 1:
-                        SpawnBolt(firePoint2);
-                        break;
-                    case 2:
-                        SpawnBolt(firePoint3);
-                        break;
-                        
-                }
-            }
+            //ProjectileSpawner();
 
             fireRateTimer = 0f;
             canShoot = false;
@@ -53,13 +36,41 @@ public class SmolBolts : MonoBehaviour
         }
     }
 
-   
+    public void ProjectileSpawner()
+    {
+        int numBolts = SkillManager.instance.projectileSkillLevel + 1;
+
+
+        for (int i = 0; i < numBolts; i++)
+        {
+            switch (i)
+            {
+                case 0:
+                    SpawnBolt(firePoint);
+                    break;
+                case 1:
+                    SpawnBolt(firePoint2);
+                    break;
+                case 2:
+                    SpawnBolt(firePoint3);
+                    break;
+
+            }
+        }
+    }
+
+
+
 
     private void SpawnBolt(Transform firePoint)
     {
         GameObject bolt = Instantiate(SmolBoltsSO.boltPrefab, firePoint.position, firePoint.rotation);
         bolt.GetComponent<Rigidbody>().AddForce(firePoint.forward * SmolBoltsSO.fireForce, ForceMode.Impulse);
     }
+     
+
+
+
     private void Update()
     {
         fireRateTimer += Time.deltaTime;

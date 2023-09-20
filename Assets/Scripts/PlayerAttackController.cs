@@ -28,17 +28,22 @@ public class PlayerAttackController : MonoBehaviour
         {
             playerAnim.SetTrigger(punchStr);
 
-            int numPunches = SkillManager.instance.punchSkillLevel + 1;
-
-            for (int i = 0; i < numPunches; i++)
-            {
-                Transform punchPosition = GetPunchPosition(i);
-                SpawnPunch(punchPosition);
-            }
+          
 
             fireRateTimer = 0f;
             canPunch = false;
             //StartPunchActiveCooldown?.Invoke();
+        }
+    }
+
+    public void Punch()
+    {
+        int numPunches = SkillManager.instance.punchSkillLevel + 1;
+
+        for (int i = 0; i < numPunches; i++)
+        {
+            Transform punchPosition = GetPunchPosition(i);
+            SpawnPunch(punchPosition);
         }
     }
     private Transform GetPunchPosition(int punchIndex)
