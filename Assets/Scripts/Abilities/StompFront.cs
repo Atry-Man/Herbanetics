@@ -6,6 +6,9 @@ public class StompFront : MonoBehaviour
 {
     [Header("Stomp Variables")]
     [SerializeField] Transform stompPos;
+    [SerializeField] Transform stompPos2;
+    [SerializeField] Transform stompPos3;
+
     private bool canStomp;
 
     [Header("External Variables")]
@@ -20,9 +23,24 @@ public class StompFront : MonoBehaviour
         {
             canStomp = true;
             playerAnim.SetTrigger(StompTrigger);
-            GameObject stomp = Instantiate(stompFrontSO.abilityPrefab, stompPos.position, stompPos.rotation);
-            stomp.transform.localScale = Vector3.zero;
-            StartCoroutine(StompAttack(stomp));
+            int numStomps = SkillManager.instance.waveSkillLevel + 1;
+
+            for (int i = 0; i < numStomps; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        SpawnStomp(stompPos);
+                        break;
+                    case 1:
+                        SpawnStomp(stompPos2);
+                        break;
+                    case 2:
+                        SpawnStomp(stompPos3);
+                        break;
+                        
+                }
+            }
         }
     }
 
@@ -51,5 +69,10 @@ public class StompFront : MonoBehaviour
         canStomp = false;
     }
 
-
+    private void SpawnStomp(Transform stompPosition)
+    {
+        GameObject stomp = Instantiate(stompFrontSO.abilityPrefab, stompPosition.position, stompPosition.rotation);
+        stomp.transform.localScale = Vector3.zero;
+        StartCoroutine(StompAttack(stomp));
+    }
 }

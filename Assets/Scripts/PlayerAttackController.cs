@@ -10,6 +10,10 @@ public class PlayerAttackController : MonoBehaviour
 
     [SerializeField] BigPunchSO bigPunchSO;
     [SerializeField] Transform punchPos;
+    [SerializeField] Transform punchPos2;
+    [SerializeField] Transform punchPos3;
+
+
     public static Action StartPunchActiveCooldown;
     private bool canPunch;
     private float fireRateTimer;
@@ -23,16 +27,44 @@ public class PlayerAttackController : MonoBehaviour
         if (context.performed && canPunch)
         {
             playerAnim.SetTrigger(punchStr);
-            GameObject punch = Instantiate(bigPunchSO.punchPrefab, punchPos.position, Quaternion.identity);
-            punch.GetComponent<Rigidbody>().AddForce(punchPos.forward * bigPunchSO.fireForce, ForceMode.Impulse);
-            Vector3 movDir = punchPos.forward.normalized;
-            punch.transform.rotation = Quaternion.LookRotation(movDir);
+
+            int numPunches = SkillManager.instance.punchSkillLevel + 1;
+
+            for (int i = 0; i < numPunches; i++)
+            {
+                Transform punchPosition = GetPunchPosition(i);
+                SpawnPunch(punchPosition);
+            }
+
             fireRateTimer = 0f;
             canPunch = false;
             //StartPunchActiveCooldown?.Invoke();
         }
-    }  
-   
+    }
+    private Transform GetPunchPosition(int punchIndex)
+    {
+        switch (punchIndex)
+        {
+            case 0:
+                return punchPos;
+            case 1:
+                return punchPos2;
+            case 2:
+                return punchPos3;
+           
+            default:
+                return punchPos; 
+        }
+    }
+
+    private void SpawnPunch(Transform punchPosition)
+    {
+        GameObject punch = Instantiate(bigPunchSO.punchPrefab, punchPosition.position, Quaternion.identity);
+        punch.GetComponent<Rigidbody>().AddForce(punchPosition.forward * bigPunchSO.fireForce, ForceMode.Impulse);
+        Vector3 movDir = punchPosition.forward.normalized;
+        punch.transform.rotation = Quaternion.LookRotation(movDir);
+    }
+
     private void Update()
     {
         fireRateTimer += Time.deltaTime;
