@@ -31,6 +31,9 @@ public class StompFront : MonoBehaviour
     {
         int numStomps = SkillManager.instance.waveSkillLevel + 1;
 
+        if (SkillManager.instance.waveSkillLevel >= 2)
+            numStomps = 3;
+
         for (int i = 0; i < numStomps; i++)
         {
             switch (i)

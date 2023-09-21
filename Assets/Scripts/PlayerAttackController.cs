@@ -40,6 +40,9 @@ public class PlayerAttackController : MonoBehaviour
     {
         int numPunches = SkillManager.instance.punchSkillLevel + 1;
 
+        if (SkillManager.instance.punchSkillLevel >= 2)
+            numPunches = 3;
+
         for (int i = 0; i < numPunches; i++)
         {
             Transform punchPosition = GetPunchPosition(i);
