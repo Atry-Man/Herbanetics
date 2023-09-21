@@ -30,5 +30,9 @@ EditorBuildSettings:
     path: Assets/---Scenes/Level_5.1-Groot.unity
     guid: 38fbc292a6d4388498a4b14bc3f26253
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: f706efb28a18146de8228fe18b860dae,
+      type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: 30069ce2d880ce64fa981e5a9139fd70, type: 2}
+    com.unity.input.settings: {fileID: 11400000, guid: 45d47fbde3ff243079a9ed872eb51a89,
+      type: 2}

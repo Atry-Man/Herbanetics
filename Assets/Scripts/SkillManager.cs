@@ -7,41 +7,63 @@ public class SkillManager : MonoBehaviour
     public static SkillManager instance;
 
     [Header("Projectile Skill")]
-    public int projectileSkillLevel;
+    public int projectileSkillLevel = 0;
 
     [Header("Punch Skill")]
-    public int punchSkillLevel;
+    public int punchSkillLevel = 0;
 
     [Header("Wave Skill")]
-    public int waveSkillLevel;
+    public int waveSkillLevel = 0;
 
     [Header("Dash Skill")]
-    public int dashLevel;
+    public int dashLevel = 0;
    
    
 
     private void Awake()
     {
+
         if (instance != null)
             Destroy(instance.gameObject);
         else
             instance = this;
+
+       
+    }
+
+    private void Start()
+    {
+        int projectileLvl = PlayerPrefs.GetInt("ProjectileLvl");
+        projectileSkillLevel = Mathf.RoundToInt(projectileLvl);
+
+        int punchSkill = PlayerPrefs.GetInt("PunchSkill");
+        punchSkillLevel = Mathf.RoundToInt(punchSkill);
+
+        int waveSkill = PlayerPrefs.GetInt("WaveSkill");
+        waveSkillLevel = Mathf.RoundToInt(waveSkill);
+
+        int dashSkill = PlayerPrefs.GetInt("DashSkill");
+        dashLevel = Mathf.RoundToInt(dashSkill);
     }
 
     public void LevelUpProjectile()
     {
-        projectileSkillLevel++;
+        PlayerPrefs.SetInt("StompSkill", projectileSkillLevel + 1); 
+
     }
 
     public  void LevelUpWave()
     {
-        waveSkillLevel++;
+        PlayerPrefs.SetInt("WaveSkill", waveSkillLevel + 1);
     }
 
     public void  LevelUpPunch()
     {
-        punchSkillLevel++;
+        PlayerPrefs.SetInt("PunchSkill", punchSkillLevel + 1);
     }
 
-
+    public void LevelUpDash()
+    {
+        PlayerPrefs.SetInt("DashSkill", dashLevel + 1);
+    }
 }
