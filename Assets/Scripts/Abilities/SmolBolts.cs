@@ -19,6 +19,9 @@ public class SmolBolts : MonoBehaviour
     {
         canShoot = true;
     }
+
+
+  
     public void ShootBolts(InputAction.CallbackContext ctx)
     {
         if (ctx.action.triggered && canShoot)
@@ -38,10 +41,14 @@ public class SmolBolts : MonoBehaviour
 
     public void ProjectileSpawner()
     {
+        
         int numBolts = SkillManager.instance.projectileSkillLevel + 1;
 
+        if (SkillManager.instance.projectileSkillLevel >= 2)
+            numBolts = 3;
 
-        for (int i = 0; i < numBolts; i++)
+
+            for (int i = 0; i < numBolts; i++)
         {
             switch (i)
             {

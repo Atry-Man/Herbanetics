@@ -13,6 +13,7 @@ public class LevelLoader : ScriptableObject
 
     public void LoadNextLevel()
     {
+        //TestLevelLoad();
         currentLevelIndex++;
         if (currentLevelIndex >= baseLevels.Length)
         {
@@ -30,6 +31,11 @@ public class LevelLoader : ScriptableObject
     public void LevelCompleted()
     {
         LoadNextLevel();
+    }
+
+    public void TestLevelLoad()
+    {
+        SceneManager.LoadScene("Level_2");
     }
 
     public void StartGame()
