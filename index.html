@@ -57,11 +57,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/ComicConBuildUiFixes.loader.js";
+      var loaderUrl = buildUrl + "/ComicConBuildLatestBuild.loader.js";
       var config = {
-        dataUrl: buildUrl + "/ComicConBuildUiFixes.data",
-        frameworkUrl: buildUrl + "/ComicConBuildUiFixes.framework.js",
-        codeUrl: buildUrl + "/ComicConBuildUiFixes.wasm",
+        dataUrl: buildUrl + "/ComicConBuildLatestBuild.data",
+        frameworkUrl: buildUrl + "/ComicConBuildLatestBuild.framework.js",
+        codeUrl: buildUrl + "/ComicConBuildLatestBuild.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Herbantics-AyobaGameJam",
@@ -69,7 +69,7 @@
         showBanner: unityShowBanner,
       };
 
-      // By default Unity keeps WebGL canvas render target size matched with
+      // By default, Unity keeps WebGL canvas render target size matched with
       // the DOM size of the canvas element (scaled by window.devicePixelRatio)
       // Set this to false if you want to decouple this synchronization from
       // happening inside the engine, and you would instead like to size up
