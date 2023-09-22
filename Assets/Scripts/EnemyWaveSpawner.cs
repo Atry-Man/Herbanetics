@@ -92,13 +92,18 @@ public class EnemyWaveSpawner : EnemyWaveBasic
             yield return new WaitForSeconds(timeBtnWaves);
         }
 
-
-        //waveText[totalWaves].SetActive(true);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         if (currentWaveIndex == totalWaves && enemiesRemaining <= 0)
         {
             completeTitle.SetActive(true);
             skyTime[1].transform.position = Vector3.MoveTowards(skyTime[1].transform.position, sunPoints[sunPoints.Length - 1].position, 1f * Time.deltaTime);
+        }
+        //waveText[totalWaves].SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        if (currentWaveIndex == totalWaves && enemiesRemaining <= 0)
+        {
+            waveTextInfo.gameObject.SetActive(false);
+            completeTitle.SetActive(false);
         }
         levelCompleteEvent?.Invoke();
     }
