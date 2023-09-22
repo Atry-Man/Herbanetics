@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SkillManager : MonoBehaviour
 {
@@ -66,4 +67,14 @@ public class SkillManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("DashSkill", dashLevel + 1);
     }
+
+    public void BackHome()
+    {
+        PlayerPrefs.SetInt("StompSkill", 0);
+        PlayerPrefs.SetInt("WaveSkill", 0);
+        PlayerPrefs.SetInt("PunchSkill", 0);
+        PlayerPrefs.SetInt("DashSkill", 0);
+        SceneManager.LoadScene("MainMenu");
+    }
+
 }
