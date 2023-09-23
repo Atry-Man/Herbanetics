@@ -8,7 +8,7 @@ public class StompFront : MonoBehaviour
     [SerializeField] Transform stompPos;
     [SerializeField] Transform stompPos2;
     [SerializeField] Transform stompPos3;
-
+    [SerializeField] float maxDistance;
     private bool canStomp;
 
     [Header("External Variables")]
@@ -16,6 +16,7 @@ public class StompFront : MonoBehaviour
     private const string StompTrigger = "Stomp";
     [SerializeField] StompFrontSO stompFrontSO;
     [SerializeField] Animator playerAnim;
+    [SerializeField] GameObject reticle;
 
     public void StartStomp(InputAction.CallbackContext callbackContext)
     {
@@ -52,35 +53,72 @@ public class StompFront : MonoBehaviour
         }
     }
 
-    private  IEnumerator StompAttack(GameObject stompObject)
+    private IEnumerator StompAttack(GameObject stompObject, Transform targetEnemy)
     {
         float elapsedTime = 0f;
-        
 
         while (elapsedTime < stompFrontSO.abilityDuration)
         {
             float t = elapsedTime / stompFrontSO.abilityDuration;
-
             float currentWaveSize = Mathf.Lerp(0f, stompFrontSO.stompDesiredSize, t);
-           
-           
-            stompObject.transform.position += stompFrontSO.stompSpeed * Time.deltaTime * stompObject.transform.forward;
+
+            if (targetEnemy != null)
+            {
+                Vector3 directionToTarget = (targetEnemy.position - stompObject.transform.position).normalized;
+                reticle.transform.position = targetEnemy.transform.position + directionToTarget;
+                stompObject.transform.position += directionToTarget * stompFrontSO.stompSpeed * Time.deltaTime;
+            }
+            else
+            {
+                stompObject.transform.position += stompFrontSO.stompSpeed * Time.deltaTime * stompObject.transform.forward;
+            }
 
             stompObject.transform.localScale = Vector3.one * currentWaveSize;
 
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+
         Destroy(stompObject);
-       
+
         yield return new WaitForSeconds(stompFrontSO.abilityCooldown);
         canStomp = false;
+    }
+
+    private bool FindClosestEnemy(Vector3 position, out Transform target)
+    {
+        target = null;
+        float closestDistance = maxDistance;
+
+       
+        EnemySetup[] enemies = FindObjectsOfType<EnemySetup>();
+
+        foreach (EnemySetup enemy in enemies)
+        {
+            float distance = Vector3.Distance(position, enemy.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                target = enemy.transform;
+            }
+        }
+
+        return target != null;
     }
 
     private void SpawnStomp(Transform stompPosition)
     {
         GameObject stomp = Instantiate(stompFrontSO.abilityPrefab, stompPosition.position, stompPosition.rotation);
         stomp.transform.localScale = Vector3.zero;
-        StartCoroutine(StompAttack(stomp));
+
+        if (FindClosestEnemy(stompPosition.position, out Transform targetEnemy))
+        {   
+
+            StartCoroutine(StompAttack(stomp, targetEnemy));
+        }
+        else
+        {
+            StartCoroutine(StompAttack(stomp, null));
+        }
     }
 }

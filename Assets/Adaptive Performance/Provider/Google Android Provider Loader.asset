@@ -2,18 +2,13 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abb4e121a66f45847b662a74f1bc7759, type: 3}
-  m_Name: SmolBolts
+  m_Script: {fileID: 11500000, guid: 7f64f689317e344bd94dad777079b3bb, type: 3}
+  m_Name: Google Android Provider Loader
   m_EditorClassIdentifier: 
-  boltPrefab: {fileID: 4550550186441084939, guid: 742060735c680a44da9cea7ec572dc05,
-    type: 3}
-  fireForce: 25
-  fireRate: 0.35
-  boltDamage: 6

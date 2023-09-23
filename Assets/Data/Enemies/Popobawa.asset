@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc9dbde1a2ea3d44b0f57d674dfde5d, type: 3}
   m_Name: Popobawa
   m_EditorClassIdentifier: 
-  health: 15
+  health: 5
   attackDelay: 1
   Damage: 2
   attackRadius: 12

@@ -7,13 +7,13 @@ public class SmolBolts : MonoBehaviour
     [SerializeField] Transform firePoint;
     [SerializeField] Transform firePoint2;
     [SerializeField] Transform firePoint3;
-
+    [SerializeField] float maxDistance;
     [SerializeField] Animator playerAnim;
     [SerializeField] SmolBoltsSO SmolBoltsSO;
     private float fireRateTimer;
     private bool canShoot;
     private const string isShootingStr = "isShooting";
-   
+    [SerializeField] GameObject reticle;
 
     private void Awake()
     {
@@ -67,14 +67,43 @@ public class SmolBolts : MonoBehaviour
     }
 
 
+    private bool FindClosestEnemy(Vector3 position, out Transform target)
+    {
+        target = null;
+        float closestDistance = maxDistance;
 
+        // Find all enemies in the scene (you might want to change this to a more efficient method)
+        EnemySetup[] enemies = FindObjectsOfType<EnemySetup>();
+
+        foreach (EnemySetup enemy in enemies)
+        {
+            float distance = Vector3.Distance(position, enemy.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                target = enemy.transform;
+            }
+        }
+
+        return target != null;
+    }
 
     private void SpawnBolt(Transform firePoint)
     {
         GameObject bolt = Instantiate(SmolBoltsSO.boltPrefab, firePoint.position, firePoint.rotation);
-        bolt.GetComponent<Rigidbody>().AddForce(firePoint.forward * SmolBoltsSO.fireForce, ForceMode.Impulse);
+        if (FindClosestEnemy(firePoint.position, out Transform targetEnemy))
+        {
+            Vector3 directionToTarget = (targetEnemy.position - bolt.transform.position).normalized;
+            reticle.transform.position = targetEnemy.transform.position + directionToTarget;
+            bolt.GetComponent<Rigidbody>().velocity = directionToTarget * SmolBoltsSO.fireForce;
+        }
+        else
+        {
+            // No enemy in range, use the original behavior
+            bolt.GetComponent<Rigidbody>().AddForce(firePoint.forward * SmolBoltsSO.fireForce, ForceMode.Impulse);
+        }
     }
-     
+
 
 
 

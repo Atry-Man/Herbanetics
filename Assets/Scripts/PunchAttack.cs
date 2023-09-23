@@ -3,10 +3,10 @@ using UnityEngine;
 public class PunchAttack : MonoBehaviour
 {
     [SerializeField] BigPunchSO bigPunchSO;
-
+    private const string playerStr = "Player";
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<IDamagable>(out var damagable))
+        if (other.TryGetComponent<IDamagable>(out var damagable) &&  !other.gameObject.CompareTag(playerStr))
         {
             damagable.TakeDamage(bigPunchSO.bigPunchDamage);
             Destroy(gameObject);

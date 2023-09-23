@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class PlayerAttackController : MonoBehaviour
 {
@@ -12,8 +13,8 @@ public class PlayerAttackController : MonoBehaviour
     [SerializeField] Transform punchPos;
     [SerializeField] Transform punchPos2;
     [SerializeField] Transform punchPos3;
-
-
+    [SerializeField] float maxDistance;
+    [SerializeField] GameObject reticle;
     public static Action StartPunchActiveCooldown;
     private bool canPunch;
     private float fireRateTimer;
@@ -68,9 +69,42 @@ public class PlayerAttackController : MonoBehaviour
     private void SpawnPunch(Transform punchPosition)
     {
         GameObject punch = Instantiate(bigPunchSO.punchPrefab, punchPosition.position, Quaternion.identity);
-        punch.GetComponent<Rigidbody>().AddForce(punchPosition.forward * bigPunchSO.fireForce, ForceMode.Impulse);
+
+        if (FindClosestEnemy(punchPosition.position, out Transform targetEnemy))
+        {
+            Vector3 directionToTarget = (targetEnemy.position - punch.transform.position).normalized;
+            reticle.transform.position = targetEnemy.transform.position + directionToTarget;
+            punch.GetComponent<Rigidbody>().velocity = directionToTarget * bigPunchSO.fireForce;
+        }
+        else
+        {
+           
+            punch.GetComponent<Rigidbody>().AddForce(punchPosition.forward * bigPunchSO.fireForce, ForceMode.Impulse);
+        }
+
         Vector3 movDir = punchPosition.forward.normalized;
         punch.transform.rotation = Quaternion.LookRotation(movDir);
+    }
+
+    private bool FindClosestEnemy(Vector3 position, out Transform target)
+    {
+        target = null;
+        float closestDistance = maxDistance;
+
+       
+        EnemySetup[] enemies = FindObjectsOfType<EnemySetup>();
+
+        foreach (EnemySetup enemy in enemies)
+        {
+            float distance = Vector3.Distance(position, enemy.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                target = enemy.transform;
+            }
+        }
+
+        return target != null;
     }
 
     private void Update()

@@ -75,8 +75,8 @@ public class PlayerDamage : MonoBehaviour,IDamagable
     public void DeathScreenStuff()
     {
        gameOverUI.Invoke();
-        Time.timeScale = 0f;
-        gameObject.SetActive(false);
+       Time.timeScale = 0f;
+       gameObject.SetActive(false);
     }
     public Transform GetTransform()
     {

@@ -9,6 +9,7 @@ public class RingProjectile : PoolableObject
     public Rigidbody projectileRigidbody;
 
     private const string DisableMethodName = "Disable";
+  
 
     private void Awake()
     {

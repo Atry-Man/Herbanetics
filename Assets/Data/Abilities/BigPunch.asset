@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   punchPrefab: {fileID: 5676971499922904224, guid: edf1227b9ffb5bc449c83bbdb05a302f,
     type: 3}
-  fireForce: 20
+  fireForce: 25
   fireRate: 0.5
   bigPunchDamage: 8

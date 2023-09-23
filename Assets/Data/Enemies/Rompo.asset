@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc9dbde1a2ea3d44b0f57d674dfde5d, type: 3}
   m_Name: Rompo
   m_EditorClassIdentifier: 
-  health: 10
+  health: 5
   attackDelay: 1
   Damage: 3
   attackRadius: 1
   isRanged: 0
   aiUpdateIntervals: 0.1
   baseOffset: -0.9
-  acceleration: 12
-  Movspeed: 15
+  acceleration: 16
+  Movspeed: 18
   angularSpeed: 360
   areaMask: -1
   avoidancePriority: 50
