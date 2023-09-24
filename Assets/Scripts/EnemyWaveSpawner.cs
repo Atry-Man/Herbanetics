@@ -86,7 +86,7 @@ public class EnemyWaveSpawner : EnemyWaveBasic
 
             currentWaveIndex++;
             waveTimer = timeBtnWaves;
-            playerDamage.IncreaseHealth(healthIncreasePercentage);
+            //playerDamage.IncreaseHealth(healthIncreasePercentage);
             //Debug.Log("Wave " + currentWave.name + "Completed. Proceeding to the next wave");
 
             yield return new WaitForSeconds(timeBtnWaves);

@@ -75,6 +75,7 @@ public class PlayerAttackController : MonoBehaviour
             Vector3 directionToTarget = (targetEnemy.position - punch.transform.position).normalized;
             reticle.transform.position = targetEnemy.transform.position + directionToTarget;
             punch.GetComponent<Rigidbody>().velocity = directionToTarget * bigPunchSO.fireForce;
+            punch.transform.rotation = Quaternion.LookRotation(directionToTarget);
         }
         else
         {

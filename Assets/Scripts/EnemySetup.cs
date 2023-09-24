@@ -17,6 +17,7 @@ public class EnemySetup : PoolableObject, IDamagable
     [SerializeField] Transform hitSpawn;
     public static event Action EnemyDestroyed;
     [SerializeField] Image healthBar;
+    [SerializeField] GameObject healthpickup;
     
     private void OnEnable()
     {
@@ -94,6 +95,7 @@ public class EnemySetup : PoolableObject, IDamagable
         if (health <= 0)
         {
             //enemyAnimantionHandler.PlayDeathAnim();  // Play the death animation if the health is below zero
+            Instantiate(healthpickup, transform.position + new Vector3(0, 2,0), transform.rotation);
             RemoveEnemy();
         }
 

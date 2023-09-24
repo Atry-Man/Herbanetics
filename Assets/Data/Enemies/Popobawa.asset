@@ -15,7 +15,7 @@ MonoBehaviour:
   health: 5
   attackDelay: 1
   Damage: 2
-  attackRadius: 12
+  attackRadius: 25
   isRanged: 1
   aiUpdateIntervals: 0.1
   baseOffset: 0.5
@@ -27,4 +27,4 @@ MonoBehaviour:
   avoidanceHeight: 2
   obstacleAvoidanceType: 1
   avoidanceRadius: 2
-  stoppingDistance: 12
+  stoppingDistance: 20
