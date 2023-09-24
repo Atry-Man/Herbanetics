@@ -67,6 +67,7 @@ public class StompFront : MonoBehaviour
                 Vector3 directionToTarget = (targetEnemy.position - stompObject.transform.position).normalized;
                 reticle.transform.position = targetEnemy.transform.position + directionToTarget;
                 stompObject.transform.position += directionToTarget * stompFrontSO.stompSpeed * Time.deltaTime;
+
             }
             else
             {

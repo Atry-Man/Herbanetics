@@ -28,7 +28,7 @@ public class SmolBolts : MonoBehaviour
         {
             playerAnim.SetBool(isShootingStr, true);
 
-            //ProjectileSpawner();
+            ProjectileSpawner();
 
             fireRateTimer = 0f;
             canShoot = false;
@@ -72,7 +72,7 @@ public class SmolBolts : MonoBehaviour
         target = null;
         float closestDistance = maxDistance;
 
-        // Find all enemies in the scene (you might want to change this to a more efficient method)
+      
         EnemySetup[] enemies = FindObjectsOfType<EnemySetup>();
 
         foreach (EnemySetup enemy in enemies)
@@ -96,10 +96,11 @@ public class SmolBolts : MonoBehaviour
             Vector3 directionToTarget = (targetEnemy.position - bolt.transform.position).normalized;
             reticle.transform.position = targetEnemy.transform.position + directionToTarget;
             bolt.GetComponent<Rigidbody>().velocity = directionToTarget * SmolBoltsSO.fireForce;
+            bolt.transform.rotation = Quaternion.LookRotation(directionToTarget);
         }
         else
         {
-            // No enemy in range, use the original behavior
+           
             bolt.GetComponent<Rigidbody>().AddForce(firePoint.forward * SmolBoltsSO.fireForce, ForceMode.Impulse);
         }
     }
