@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: GrootSlang
   m_EditorClassIdentifier: 
   health: 16
-  attackDelay: 1
+  attackDelay: 0.8
   Damage: 7
   attackRadius: 1.5
   isRanged: 0
   aiUpdateIntervals: 0.1
   baseOffset: -0.2
-  acceleration: 12
-  Movspeed: 14
+  acceleration: 13
+  Movspeed: 15
   angularSpeed: 360
   areaMask: -1
   avoidancePriority: 50

@@ -27,4 +27,4 @@ MonoBehaviour:
   avoidanceHeight: 2
   obstacleAvoidanceType: 1
   avoidanceRadius: 2
-  stoppingDistance: 20
+  stoppingDistance: 21
