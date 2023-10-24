@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 public class OpenLink : MonoBehaviour
 {
    
-    /*public static void OpenPage (string url)
+    public static void OpenPage (string url)
     {
         #if !UNITY_EDITOR && UNITY_WEBGL
         OpenTab(url); 
@@ -14,5 +14,5 @@ public class OpenLink : MonoBehaviour
     }
 
     [DllImport("__Internal")]
-    private static extern void OpenTab(string url);*/
+    private static extern void OpenTab(string url);
 }

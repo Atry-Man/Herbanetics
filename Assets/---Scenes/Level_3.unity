@@ -5465,6 +5465,24 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &311904620 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4312646944966303642, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 2036109010}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &311904621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311904620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93a566942045a84b8e1a1b644d0866b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &365503436
 GameObject:
   m_ObjectHideFlags: 0
@@ -7765,7 +7783,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 311904621}
     - target: {fileID: 1939376441096441244, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
