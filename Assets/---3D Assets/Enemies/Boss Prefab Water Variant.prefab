@@ -75,7 +75,7 @@ PrefabInstance:
     - target: {fileID: 5659390975045788909, guid: 013a3cc2b841b7d40851a1cd907d9a35,
         type: 3}
       propertyPath: m_Name
-      value: Boss Prefab Water
+      value: Boss Prefab Water Variant
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2883447923603674971, guid: 013a3cc2b841b7d40851a1cd907d9a35, type: 3}
