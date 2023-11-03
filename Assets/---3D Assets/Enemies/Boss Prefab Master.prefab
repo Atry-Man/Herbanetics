@@ -428,13 +428,7 @@ MonoBehaviour:
     type: 3}
   bossHitSpawn: {fileID: 300553284}
   bossHealthSlider: {fileID: 4923795581970699339}
-  bossAnim: {fileID: 0}
-  levelCompleteEvent:
-    m_PersistentCalls:
-      m_Calls: []
   isInSecondPhase: 0
-  newWaveForce: 0
-  newTimeForWarnings: 0
 --- !u!114 &6044655783094448352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,9 +459,7 @@ MonoBehaviour:
   timeBetweenWaveAttacks: 1.5
   attackWaveForce: 45
   numberOfAttacks: 8
-  warningDelay: 0
   bossAnim: {fileID: 7144884596542312489}
-  bossHealth: {fileID: 0}
 --- !u!95 &7144884596542312489 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 7cc72a448690f644d935abb556195865,
@@ -485,11 +477,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Boss Health Bar
-      objectReference: {fileID: 0}
-    - target: {fileID: 3539184485824259012, guid: 922931b4c260be3439fefe993fea29a2,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5094256097882201179, guid: 922931b4c260be3439fefe993fea29a2,
         type: 3}
