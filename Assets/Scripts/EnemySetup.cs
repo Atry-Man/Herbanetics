@@ -41,7 +41,7 @@ public class EnemySetup : PoolableObject, IDamagable
             StopCoroutine(LookCorutine);  // Stop the previous look coroutine if it's running
         }
 
-        LookCorutine = StartCoroutine(LookAt(target.GetTransform()));  // Start the coroutine to rotate the enemy towards the target
+        //LookCorutine = StartCoroutine(LookAt(target.GetTransform()));  // Start the coroutine to rotate the enemy towards the target
     }
 
     private IEnumerator LookAt(Transform target)

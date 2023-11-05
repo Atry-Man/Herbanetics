@@ -15,11 +15,13 @@ public class SmolBolts : MonoBehaviour
     private const string isShootingStr = "isShooting";
     [SerializeField] GameObject reticle;
 
+   
+
+
     private void Awake()
     {
         canShoot = true;
     }
-
 
   
     public void ShootBolts(InputAction.CallbackContext ctx)
@@ -28,7 +30,7 @@ public class SmolBolts : MonoBehaviour
         {
             playerAnim.SetBool(isShootingStr, true);
 
-            ProjectileSpawner();
+          
 
             fireRateTimer = 0f;
             canShoot = false;
@@ -53,13 +55,13 @@ public class SmolBolts : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    SpawnBolt(firePoint);
+                    SpawnBolt(firePoint, SmolBoltsSO.boltPrefab);
                     break;
                 case 1:
-                    SpawnBolt(firePoint2);
+                    SpawnBolt(firePoint2, SmolBoltsSO.boltPrefab2);
                     break;
                 case 2:
-                    SpawnBolt(firePoint3);
+                    SpawnBolt(firePoint3, SmolBoltsSO.boltPrefab3);
                     break;
 
             }
@@ -88,15 +90,18 @@ public class SmolBolts : MonoBehaviour
         return target != null;
     }
 
-    private void SpawnBolt(Transform firePoint)
+    private void SpawnBolt(Transform firePoint, GameObject bolt)
     {
-        GameObject bolt = Instantiate(SmolBoltsSO.boltPrefab, firePoint.position, firePoint.rotation);
+        bolt = Instantiate(bolt, firePoint.position, firePoint.rotation);
+
         if (FindClosestEnemy(firePoint.position, out Transform targetEnemy))
         {
+            reticle.SetActive(true);
             Vector3 directionToTarget = (targetEnemy.position - bolt.transform.position).normalized;
             reticle.transform.position = targetEnemy.transform.position + directionToTarget;
             bolt.GetComponent<Rigidbody>().velocity = directionToTarget * SmolBoltsSO.fireForce;
             bolt.transform.rotation = Quaternion.LookRotation(directionToTarget);
+            Invoke(nameof(TurnOffReticle), 0.5f);
         }
         else
         {
@@ -105,7 +110,10 @@ public class SmolBolts : MonoBehaviour
         }
     }
 
-
+    void TurnOffReticle()
+    {
+        reticle.SetActive(false);
+    }
 
 
     private void Update()

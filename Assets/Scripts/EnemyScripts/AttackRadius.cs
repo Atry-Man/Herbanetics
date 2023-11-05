@@ -36,10 +36,7 @@ public class AttackRadius : MonoBehaviour
         {
             damagables.Add(damagable);  // Add the IDamagable object to the list
 
-            if (AttackRoutine == null)
-            {
-                AttackRoutine = StartCoroutine(Attack());  // Start the attack routine coroutine
-            }
+            AttackRoutine ??= StartCoroutine(Attack());  // Start the attack routine coroutine
         }
     }
 

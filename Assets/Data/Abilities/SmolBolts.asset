@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boltPrefab: {fileID: 4550550186441084939, guid: 742060735c680a44da9cea7ec572dc05,
     type: 3}
+  boltPrefab2: {fileID: 4270883074521207924, guid: 76428781880801f408c51b3ace163d78,
+    type: 3}
+  boltPrefab3: {fileID: 2949385523977667200, guid: be3fb3b9ccc1f294aac54847a6bbd9e3,
+    type: 3}
   fireForce: 25
   fireRate: 0.35
   boltDamage: 6

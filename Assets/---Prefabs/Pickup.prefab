@@ -463,7 +463,7 @@ GameObject:
   - component: {fileID: 9223037465127255436}
   - component: {fileID: -1282431098682596633}
   m_Layer: 0
-  m_Name: HealthPickup
+  m_Name: Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -514,6 +514,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPercentage: 10
+  pickupEffect: {fileID: 6532181114449735433, guid: 7d4405d2524a2ba40a7cb17aa71cb10d,
+    type: 3}
 --- !u!114 &-1282431098682596633
 MonoBehaviour:
   m_ObjectHideFlags: 0

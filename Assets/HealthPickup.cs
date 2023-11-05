@@ -4,18 +4,16 @@ using UnityEngine;
 
 public class HealthPickup : MonoBehaviour
 {
-     PlayerDamage playerDamage;
+    PlayerDamage playerDamage;
     [SerializeField] float healthPercentage;
+    [SerializeField] GameObject pickupEffect;
 
-    private void Start()
-    {
-        playerDamage = GameObject.FindObjectOfType<PlayerDamage>();
-    }
+    
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         {
-            playerDamage.IncreaseHealth(healthPercentage);
+            Instantiate(pickupEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

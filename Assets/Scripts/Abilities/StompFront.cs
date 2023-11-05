@@ -40,13 +40,13 @@ public class StompFront : MonoBehaviour
             switch (i)
             {
                 case 0:
-                    SpawnStomp(stompPos);
+                    SpawnStomp(stompPos, stompFrontSO.abilityPrefab);
                     break;
                 case 1:
-                    SpawnStomp(stompPos2);
+                    SpawnStomp(stompPos2, stompFrontSO.abilityPrefab2);
                     break;
                 case 2:
-                    SpawnStomp(stompPos3);
+                    SpawnStomp(stompPos3, stompFrontSO.abilityPrefab3);
                     break;
 
             }
@@ -107,19 +107,25 @@ public class StompFront : MonoBehaviour
         return target != null;
     }
 
-    private void SpawnStomp(Transform stompPosition)
+    private void SpawnStomp(Transform stompPosition, GameObject stomp)
     {
-        GameObject stomp = Instantiate(stompFrontSO.abilityPrefab, stompPosition.position, stompPosition.rotation);
+        stomp = Instantiate(stomp, stompPosition.position, stompPosition.rotation);
         stomp.transform.localScale = Vector3.zero;
 
         if (FindClosestEnemy(stompPosition.position, out Transform targetEnemy))
-        {   
-
+        {
+            reticle.SetActive(true);
             StartCoroutine(StompAttack(stomp, targetEnemy));
+            Invoke(nameof(TurnOffReticle), 0.5f);
         }
         else
         {
             StartCoroutine(StompAttack(stomp, null));
         }
+    }
+
+    void TurnOffReticle()
+    {
+        reticle.SetActive(false);
     }
 }

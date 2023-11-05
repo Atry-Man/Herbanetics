@@ -47,7 +47,7 @@ public class PlayerAttackController : MonoBehaviour
         for (int i = 0; i < numPunches; i++)
         {
             Transform punchPosition = GetPunchPosition(i);
-            SpawnPunch(punchPosition);
+            SpawnPunch(punchPosition, i);
         }
     }
     private Transform GetPunchPosition(int punchIndex)
@@ -66,16 +66,37 @@ public class PlayerAttackController : MonoBehaviour
         }
     }
 
-    private void SpawnPunch(Transform punchPosition)
+    private void SpawnPunch(Transform punchPosition, int punchIndex)
     {
-        GameObject punch = Instantiate(bigPunchSO.punchPrefab, punchPosition.position, Quaternion.identity);
+        GameObject punch;
+
+        if(punchIndex == 0)
+        {
+             punch = Instantiate(bigPunchSO.punchPrefab, punchPosition.position, Quaternion.identity);
+
+        }else if(punchIndex == 1)
+        {
+            punch = Instantiate(bigPunchSO.punchPrefab2, punchPosition.position, Quaternion.identity);
+        }
+        else if(punchIndex == 2)
+        {
+             punch = Instantiate(bigPunchSO.punchPrefab3, punchPosition.position, Quaternion.identity);
+        }
+        else
+        {
+            punch = Instantiate(bigPunchSO.punchPrefab, punchPosition.position, Quaternion.identity);
+        }
+
+       
 
         if (FindClosestEnemy(punchPosition.position, out Transform targetEnemy))
-        {
+        {   
+            reticle.SetActive(true);
             Vector3 directionToTarget = (targetEnemy.position - punch.transform.position).normalized;
             reticle.transform.position = targetEnemy.transform.position + directionToTarget;
             punch.GetComponent<Rigidbody>().velocity = directionToTarget * bigPunchSO.fireForce;
             punch.transform.rotation = Quaternion.LookRotation(directionToTarget);
+            Invoke(nameof(TurnOffReticle), 0.5f);
         }
         else
         {
@@ -83,6 +104,7 @@ public class PlayerAttackController : MonoBehaviour
             punch.GetComponent<Rigidbody>().AddForce(punchPosition.forward * bigPunchSO.fireForce, ForceMode.Impulse);
         }
 
+       
         Vector3 movDir = punchPosition.forward.normalized;
         punch.transform.rotation = Quaternion.LookRotation(movDir);
     }
@@ -106,6 +128,11 @@ public class PlayerAttackController : MonoBehaviour
         }
 
         return target != null;
+    }
+
+    void TurnOffReticle()
+    {
+        reticle.SetActive(false);
     }
 
     private void Update()

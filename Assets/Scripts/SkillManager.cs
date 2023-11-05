@@ -49,7 +49,7 @@ public class SkillManager : MonoBehaviour
 
     public void LevelUpProjectile()
     {
-        PlayerPrefs.SetInt("StompSkill", projectileSkillLevel + 1); 
+        PlayerPrefs.SetInt("ProjectileLvl", projectileSkillLevel + 1); 
 
     }
 
@@ -70,7 +70,7 @@ public class SkillManager : MonoBehaviour
 
     public void BackHome()
     {
-        PlayerPrefs.SetInt("StompSkill", 0);
+        PlayerPrefs.SetInt("ProjectileLvl", 0);
         PlayerPrefs.SetInt("WaveSkill", 0);
         PlayerPrefs.SetInt("PunchSkill", 0);
         PlayerPrefs.SetInt("DashSkill", 0);

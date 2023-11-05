@@ -19,8 +19,8 @@ MonoBehaviour:
   isRanged: 0
   aiUpdateIntervals: 0.1
   baseOffset: -0.9
-  acceleration: 13
-  Movspeed: 16
+  acceleration: 10
+  Movspeed: 12
   angularSpeed: 360
   areaMask: -1
   avoidancePriority: 50

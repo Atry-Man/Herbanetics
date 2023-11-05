@@ -4655,8 +4655,8 @@ GameObject:
   - component: {fileID: 168953184457577681}
   - component: {fileID: 1658936541748304225}
   - component: {fileID: 8347914639682038305}
-  - component: {fileID: 8653552987020169872}
   - component: {fileID: 8653552987020169873}
+  - component: {fileID: 8653552987020169874}
   m_Layer: 0
   m_Name: Arena Floor
   m_TagString: Untagged
@@ -4679,10 +4679,40 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2015154277372830038, guid: 287a9b24b26d4b34bb68da57295b52ac,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015154277372830038, guid: 287a9b24b26d4b34bb68da57295b52ac,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.9038887
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015154277372830038, guid: 287a9b24b26d4b34bb68da57295b52ac,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2621811435495014928, guid: 287a9b24b26d4b34bb68da57295b52ac,
         type: 3}
       propertyPath: m_Name
       value: AfroGyal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3030657034098095696, guid: 287a9b24b26d4b34bb68da57295b52ac,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3030657034098095696, guid: 287a9b24b26d4b34bb68da57295b52ac,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.9038887
+      objectReference: {fileID: 0}
+    - target: {fileID: 3030657034098095696, guid: 287a9b24b26d4b34bb68da57295b52ac,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3385027230938157416, guid: 287a9b24b26d4b34bb68da57295b52ac,
         type: 3}
@@ -4722,7 +4752,7 @@ PrefabInstance:
     - target: {fileID: 3398347657860389034, guid: 287a9b24b26d4b34bb68da57295b52ac,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.52
+      value: 0.19
       objectReference: {fileID: 0}
     - target: {fileID: 3398347657860389034, guid: 287a9b24b26d4b34bb68da57295b52ac,
         type: 3}
@@ -5177,19 +5207,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8653552987020169872
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 826713503490424143}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8653552987020169873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5206,6 +5223,19 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!65 &8653552987020169874
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826713503490424143}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.9999999}
+  m_Center: {x: 1.7462298e-10, y: 0, z: 0}
 --- !u!1001 &8811604098793910060
 PrefabInstance:
   m_ObjectHideFlags: 0

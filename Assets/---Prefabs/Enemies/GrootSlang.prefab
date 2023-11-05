@@ -116,10 +116,10 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!195 &1179119941
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -209,7 +209,7 @@ CapsuleCollider:
   m_Radius: 1.2695384
   m_Height: 8.066608
   m_Direction: 2
-  m_Center: {x: 0, y: 1.7812469, z: -3.1116838}
+  m_Center: {x: 0, y: 1.42, z: -3.1116838}
 --- !u!1 &5105858598884237004
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,17 +501,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a813b97a8fdf97e48a3b9b730dea2388,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.20712478
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a813b97a8fdf97e48a3b9b730dea2388,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.47
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a813b97a8fdf97e48a3b9b730dea2388,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.20082188
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a813b97a8fdf97e48a3b9b730dea2388,
         type: 3}
@@ -732,6 +732,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &3206290042175803345 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6564172977846294280, guid: fea4c95258491ef4b9760aeb2c940f74,
+    type: 3}
+  m_PrefabInstance: {fileID: 8604029528957638873}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5199776860774833681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3206290042175803345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f388f29fc91cc4a9d391c917193345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &7963720416274580074 stripped
