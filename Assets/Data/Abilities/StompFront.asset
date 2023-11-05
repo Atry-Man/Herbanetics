@@ -22,4 +22,4 @@ MonoBehaviour:
   abilityCooldown: 0.5
   stompDesiredSize: 3
   stompSpeed: 10
-  stompDamage: 8
+  stompDamage: 4

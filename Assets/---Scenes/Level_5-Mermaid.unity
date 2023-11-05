@@ -3446,12 +3446,12 @@ PrefabInstance:
     - target: {fileID: 402411423705452967, guid: 1e2451abd990edb48b0839010188e13d,
         type: 3}
       propertyPath: warningDelay
-      value: 0.75
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 402411423705452967, guid: 1e2451abd990edb48b0839010188e13d,
         type: 3}
       propertyPath: attackWaveForce
-      value: 55
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 402411423705452967, guid: 1e2451abd990edb48b0839010188e13d,
         type: 3}
@@ -3886,7 +3886,7 @@ PrefabInstance:
     - target: {fileID: 8689244318546629368, guid: 1e2451abd990edb48b0839010188e13d,
         type: 3}
       propertyPath: newWaveForce
-      value: 65
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 8689244318546629368, guid: 1e2451abd990edb48b0839010188e13d,
         type: 3}

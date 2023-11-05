@@ -19,5 +19,5 @@ MonoBehaviour:
   boltPrefab3: {fileID: 2949385523977667200, guid: be3fb3b9ccc1f294aac54847a6bbd9e3,
     type: 3}
   fireForce: 25
-  fireRate: 0.35
-  boltDamage: 6
+  fireRate: 0.5
+  boltDamage: 1
