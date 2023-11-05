@@ -1107,7 +1107,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2a39be53f3d71a540aac43fc8080390a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 760cf68afea4ebe43826de5282681d4a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3199,6 +3199,8 @@ GameObject:
   - component: {fileID: 4312646944966303647}
   - component: {fileID: 4312646944966303644}
   - component: {fileID: 4312646944966303645}
+  - component: {fileID: 1523516211}
+  - component: {fileID: 1709581311}
   m_Layer: 5
   m_Name: -New Canvas-
   m_TagString: Untagged
@@ -3292,6 +3294,30 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1523516211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4312646944966303642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93a566942045a84b8e1a1b644d0866b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1709581311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4312646944966303642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93a566942045a84b8e1a1b644d0866b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4312646945095011808
 GameObject:
   m_ObjectHideFlags: 0
@@ -4384,14 +4410,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 0.80784315}
+  m_Color: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 0.48235294}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 97e4d973b2da0d4479fd82d8bdc4516a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 760cf68afea4ebe43826de5282681d4a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5502,7 +5528,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bcd9da692aa6d674eb41d2c2ffdefed5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 760cf68afea4ebe43826de5282681d4a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6575,7 +6601,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1709581311}
         m_TargetAssemblyTypeName: OpenLink, Assembly-CSharp
         m_MethodName: OpenPage
         m_Mode: 5
