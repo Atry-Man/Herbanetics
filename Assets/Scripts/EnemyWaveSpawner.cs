@@ -127,7 +127,7 @@ public class EnemyWaveSpawner : EnemyWaveBasic
         switch (_index)
         {
             case 0:
-                Debug.Log("test log 1");
+               //Debug.Log("test log 1");
                 //Vector3.Lerp(skyTime[0].gameObject.transform.position, sunPoints[1].position, 2f);
                 TimeMovement(skyTime[_index], null);
                 
@@ -135,33 +135,33 @@ public class EnemyWaveSpawner : EnemyWaveBasic
 
                 break;
             case 1:
-                Debug.Log("test log 2");
+                //Debug.Log("test log 2");
                 skyTime[0].transform.position = Vector3.MoveTowards(skyTime[0].transform.position, sunPoints[_index].position, 1f * Time.deltaTime);
                 //TimeMovement(skyTime[_index], skyTime[_index - 1]);
                 break;
             case 2:
-                Debug.Log("test log 3");
+                //Debug.Log("test log 3");
                 skyTime[0].transform.position = Vector3.MoveTowards(skyTime[0].transform.position, sunPoints[_index].position, 1f * Time.deltaTime);
                 //TimeMovement(skyTime[_index], skyTime[_index - 1]);
                 break;
             case 3:
                 TimeMovement(skyTime[1], skyTime[0]);
-                Debug.Log("test log 4");
+                //Debug.Log("test log 4");
                 skyTime[1].transform.position = Vector3.MoveTowards(skyTime[0].transform.position, sunPoints[_index + 1].position, 1f * Time.deltaTime);
                 //TimeMovement(skyTime[_index], skyTime[_index - 1]);
                 break;
             case 4:
-                Debug.Log("test log 4");
+                //Debug.Log("test log 4");
                 skyTime[1].transform.position = Vector3.MoveTowards(skyTime[1].transform.position, sunPoints[_index +1].position, 1f * Time.deltaTime);
                 //TimeMovement(skyTime[_index], skyTime[_index - 1]);
                 break;
             case 5:
-                Debug.Log("test log 5");
+                //Debug.Log("test log 5");
                 skyTime[1].transform.position = Vector3.MoveTowards(skyTime[1].transform.position, sunPoints[_index +1].position, 1f * Time.deltaTime);
                 //TimeMovement(skyTime[_index], skyTime[_index - 1]);
                 break;
             default:
-                Debug.Log("default");
+                //Debug.Log("default");
                 
                 break;
         }
