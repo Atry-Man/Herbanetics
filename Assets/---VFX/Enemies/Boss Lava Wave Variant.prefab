@@ -183,7 +183,7 @@ PrefabInstance:
     - target: {fileID: 684430035108547175, guid: 54dfae4938bd08046b94b4858e4126c5,
         type: 3}
       propertyPath: waveDamage
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 749507193264124508, guid: 54dfae4938bd08046b94b4858e4126c5,
         type: 3}
