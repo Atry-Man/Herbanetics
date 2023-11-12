@@ -140,6 +140,9 @@ public class PlayerController : MonoBehaviour
         transform.position = dashTarget;
         playerAnim.SetBool(isDashingStr, false);
         dashEffect.SetActive(false);
+
+        yield return new WaitForSeconds(playerConfig.dashCooldown);
+
         isDashing = false;
     }
 

@@ -10,6 +10,7 @@ public class PlayerConfig : ScriptableObject
     public float movementSpeedPen;
     public float dashSpeed;
     public float dashDuration;
+    public float dashCooldown;
 
     [Header("Collision Variables")]
     public LayerMask obstacleLayerMask;
