@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 999934847}
   - component: {fileID: 8822475527380926714}
   - component: {fileID: 2843866228263343906}
+  - component: {fileID: 4032640713642096408}
   m_Layer: 6
   m_Name: Rompo
   m_TagString: Enemy
@@ -208,6 +209,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &4032640713642096408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690245984185135336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ac980ed530ea8248927d1626abb0c0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tickTimers: 
+  StompFrontSO: {fileID: 11400000, guid: f6069f5dc87a84f48a4f5f6c086b9124, type: 2}
 --- !u!1 &3654393467453153785
 GameObject:
   m_ObjectHideFlags: 0

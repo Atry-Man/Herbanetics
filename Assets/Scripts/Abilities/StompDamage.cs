@@ -8,7 +8,8 @@ public class StompDamage : MonoBehaviour
     {   
         if (other.TryGetComponent<IDamagable>(out var damagable) && !other.gameObject.CompareTag(playerStr))
         {
-            damagable.TakeDamage(stompFrontSO.stompDamage);
+            //damagable.TakeDamage(stompFrontSO.stompDamage);
+            other.GetComponent<StatusEffectManager>().ApplyStompTick(stompFrontSO.stompNumberOfTicks);
         }
     }
 }

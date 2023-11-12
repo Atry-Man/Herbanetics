@@ -12,13 +12,14 @@ public class PlayerDamage : MonoBehaviour,IDamagable
     [SerializeField] Transform hitSpawn;
     [SerializeField] Animator playerAnim;
     [SerializeField] PlayerController playerController;
-    [SerializeField] TMP_Text endGameScore;
+   
     public static event Action StopAttacking;
+    public static event Action ScoreUpdate;
     private int maxHealth;
     private int currentHealth;
     private const string deathStr = "Death";
     [SerializeField] UnityEvent gameOverUI;
-    [SerializeField] UIManager uIManager;
+   
     private bool canTakeDamage;
     public int MaxHealth
     {
@@ -78,8 +79,8 @@ public class PlayerDamage : MonoBehaviour,IDamagable
     public void DeathScreenStuff()
     {
        gameOverUI.Invoke();
-       endGameScore.text = uIManager.ScoreCount.ToString();
        Time.timeScale = 0f;
+        ScoreUpdate?.Invoke();
        gameObject.SetActive(false);
     }
     public Transform GetTransform()

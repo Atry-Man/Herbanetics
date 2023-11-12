@@ -15,7 +15,7 @@ public class LevelLoader : ScriptableObject
     {
         //TestLevelLoad();
         currentLevelIndex++;
-        if (currentLevelIndex >= baseLevels.Length)
+        if (currentLevelIndex % 2 == (2-1))
         {
             // If all base levels are completed, load a random boss scene
             int randomBossIndex = Random.Range(0, bossScenes.Length);

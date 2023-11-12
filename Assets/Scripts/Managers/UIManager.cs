@@ -6,16 +6,19 @@ public class UIManager : MonoBehaviour
     [Header("Score Elements")]
     [SerializeField] TMP_Text scoreText;
     [SerializeField] int scoreIncrement;
+    [SerializeField] TMP_Text endGameScore;
     public int ScoreCount { get; set; }
 
     private void OnEnable()
     {
         ScorePickup.AddScore += AddScore;
+        PlayerDamage.ScoreUpdate += UpdateScore;
     }
 
     private void OnDisable()
     {
         ScorePickup.AddScore -= AddScore;
+        PlayerDamage.ScoreUpdate -= UpdateScore;
     }
 
 
@@ -24,6 +27,11 @@ public class UIManager : MonoBehaviour
     {   
         ScoreCount+=scoreIncrement;
         scoreText.text = ScoreCount.ToString();
+    }
+
+    void UpdateScore()
+    {
+        endGameScore.text = ScoreCount.ToString();
     }
 
 

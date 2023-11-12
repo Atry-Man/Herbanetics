@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 1179119940}
   - component: {fileID: 1179119943}
   - component: {fileID: 4492963337771882215}
+  - component: {fileID: 5267454010798651629}
   m_Layer: 6
   m_Name: GrootSlang
   m_TagString: Enemy
@@ -210,6 +211,20 @@ CapsuleCollider:
   m_Height: 8.066608
   m_Direction: 2
   m_Center: {x: 0, y: 1.42, z: -3.1116838}
+--- !u!114 &5267454010798651629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134763700780727118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ac980ed530ea8248927d1626abb0c0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tickTimers: 
+  StompFrontSO: {fileID: 11400000, guid: f6069f5dc87a84f48a4f5f6c086b9124, type: 2}
 --- !u!1 &5105858598884237004
 GameObject:
   m_ObjectHideFlags: 0
