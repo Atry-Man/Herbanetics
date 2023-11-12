@@ -1,9 +1,32 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
+    [Header("Score Elements")]
+    [SerializeField] TMP_Text scoreText;
+    [SerializeField] int scoreIncrement;
+    public int ScoreCount { get; set; }
+
+    private void OnEnable()
+    {
+        ScorePickup.AddScore += AddScore;
+    }
+
+    private void OnDisable()
+    {
+        ScorePickup.AddScore -= AddScore;
+    }
+
+
+
+    void AddScore()
+    {   
+        ScoreCount+=scoreIncrement;
+        scoreText.text = ScoreCount.ToString();
+    }
+
+
     /*[Header("Ability UI")]
     [SerializeField] Image stompFillImage;
     [SerializeField] StompFrontSO stompFrontSO;
