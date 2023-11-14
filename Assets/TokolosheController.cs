@@ -18,8 +18,8 @@ public class TokolosheController : MonoBehaviour,IDamagable
     private int currentHealth;
     public bool isInSecondPhase;
     private const string Death = "Death";
-    private const string isMoving = "isWalking";
-    private const string isAttacking = "IsAttacking";
+    private const string isMoving = "Walk";
+    private const string isAttacking = "Attack";
     private void Awake()
     {
         bossAnim = GetComponent<Animator>();
@@ -53,6 +53,7 @@ public class TokolosheController : MonoBehaviour,IDamagable
             bossAnim.SetBool(isAttacking, false);
         }
     }
+    
 
     public Transform GetTransform()
     {

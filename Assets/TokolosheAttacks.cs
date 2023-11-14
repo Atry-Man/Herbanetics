@@ -24,7 +24,7 @@ public class TokolosheAttacks : MonoBehaviour
     private int attackCounter;
     private bool canGenerateIndex;
     int index;
-
+    [SerializeField] int secondPhaseNumberOfAttacks;
 
     private void Awake()
     {
@@ -78,14 +78,25 @@ public class TokolosheAttacks : MonoBehaviour
         {
             if (!tokolosheController.isInSecondPhase && attackCounter < numOfAttack)
             {
+
+                LobbingProjectile(playerPos.position);
+                attackCounter++;
+
+            }else if(!tokolosheController.isInSecondPhase &&  attackCounter >= numOfAttack)
+            {
                 
+                WalkTransition();
+                attackCounter = 0;
+                canAttack = false;
+
+            }else if(tokolosheController.isInSecondPhase && attackCounter < numOfAttack)
+            {
                 LobbingProjectile(playerPos.position);
                 
                 attackCounter++;
 
-            }else if(!tokolosheController.isInSecondPhase &&  attackCounter >= numOfAttack - 1)
+            }else if(tokolosheController.isInSecondPhase && attackCounter >= numOfAttack)
             {
-                
                 WalkTransition();
                 attackCounter = 0;
                 canAttack = false;
@@ -147,6 +158,16 @@ public class TokolosheAttacks : MonoBehaviour
         if (canAttack)
         {
             LookAtTarget(playerPos.position);
+        }
+
+        if (tokolosheController.isInSecondPhase)
+        {
+            numOfAttack = secondPhaseNumberOfAttacks;
+        }
+
+        if (tokolosheController.isBossDefeated)
+        {
+            canAttack = false;
         }
     }
 

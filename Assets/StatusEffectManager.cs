@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class StatusEffectManager : MonoBehaviour
 {
-    private EnemySetup enemySetup;
+    //private EnemySetup enemySetup;
     public List <int> tickTimers = new List<int>();
     [SerializeField] StompFrontSO StompFrontSO;
-
+    private IDamagable damagable;
 
     private void Awake()
     {
-        enemySetup = GetComponent<EnemySetup>();
+       // enemySetup = GetComponent<EnemySetup>();
+        damagable = GetComponent<IDamagable>();
     }
 
     public void ApplyStompTick(int ticks)
@@ -37,7 +38,9 @@ public class StatusEffectManager : MonoBehaviour
                 tickTimers[i]--;
             }
 
-            enemySetup.TakeDamage(StompFrontSO.stompTickDamage);
+            //enemySetup.TakeDamage(StompFrontSO.stompTickDamage);
+
+            damagable.TakeDamage(StompFrontSO.stompTickDamage);
             tickTimers.RemoveAll(i => i == 0);
             yield return new WaitForSeconds(0.75f);
         }

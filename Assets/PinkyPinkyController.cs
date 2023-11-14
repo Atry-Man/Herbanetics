@@ -1,31 +1,34 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class BossHealth : MonoBehaviour,IDamagable
+public class PinkyPinkyController : MonoBehaviour, IDamagable
 {
+    [Header("Boss Variables")]
     [SerializeField] int maxHealth = 100;
     [SerializeField] int healthThreshold = 50;
-    [SerializeField] BossWaveAttacks waveAttacks;
     public bool isBossDefeated;
+    [SerializeField] Image bossHealthSlider;
     [SerializeField] GameObject bossDamageEffect;
     [SerializeField] Transform bossHitSpawn;
-    [SerializeField] Image bossHealthSlider;
-    [SerializeField] Animator bossAnim;
+    Animator bossAnim;
     [SerializeField] UnityEvent levelCompleteEvent;
     private int currentHealth;
     public bool isInSecondPhase;
-
-    [Header("Second Phase Variables")]
-    [SerializeField] float newWaveForce;
-    [SerializeField] float newTimeForWarnings;
-    private const string deathStr = "Death";
-    private const string isBossStunned = "isStunned";
-    private const string bossAttackStr = "isAttacking";
-    private void Start()
+    private const string Death = "Death";
+    private const string isMoving = "Walk";
+    private const string isAttacking = "Attack";
+    private void Awake()
     {
+        bossAnim = GetComponent<Animator>();
         currentHealth = maxHealth;
         bossHealthSlider.fillAmount = currentHealth;
+    }
+    private void Start()
+    {
+
         isInSecondPhase = false;
     }
 
@@ -33,37 +36,31 @@ public class BossHealth : MonoBehaviour,IDamagable
     {
         currentHealth -= damage;
         Instantiate(bossDamageEffect, bossHitSpawn.position, Quaternion.identity);
-        bossHealthSlider.fillAmount -= (float)damage/maxHealth;
+        bossHealthSlider.fillAmount -= (float)damage / maxHealth;
 
-       
         if (currentHealth <= healthThreshold)
         {
             isInSecondPhase = true;
-            
-            waveAttacks.attackWaveForce = newWaveForce;
-            waveAttacks.warningDelay = newTimeForWarnings;
 
-        }  
+
+
+        }
         if (currentHealth <= 0)
-        {   
+        {
             isBossDefeated = true;
-            bossAnim.SetTrigger(deathStr);
-            bossAnim.SetBool(isBossStunned, false);
-            bossAnim.SetBool(bossAttackStr, false);
+            bossAnim.SetTrigger(Death);
+            bossAnim.SetBool(isMoving, false);
+            bossAnim.SetBool(isAttacking, false);
         }
     }
 
     public Transform GetTransform()
     {
-       return transform;
+        return transform;
     }
 
-   
     public void BossCompletedUI()
     {
         levelCompleteEvent?.Invoke();
-        Destroy(gameObject);
     }
-
-    
 }
