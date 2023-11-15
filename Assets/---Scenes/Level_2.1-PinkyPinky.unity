@@ -153,14 +153,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4984297}
-  m_LocalRotation: {x: -0.07998965, y: 0.01098669, z: 0.59751165, w: 0.797785}
-  m_LocalPosition: {x: 0.24952795, y: -0.071364075, z: 0.029912956}
+  m_LocalRotation: {x: -0.02088213, y: -0.03366199, z: 0.601344, w: 0.7980076}
+  m_LocalPosition: {x: 0.27, y: 0.222, z: 0.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 500683537}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 974787514}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0.41, y: -4.522, z: 73.984}
 --- !u!65 &4984299
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -172,8 +172,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.2688348, y: 0.51356024, z: 0.35276556}
-  m_Center: {x: 0.34135535, y: 0.2428418, z: 0.0023114483}
+  m_Size: {x: 1.4433703, y: 0.7353459, z: 0.35276556}
+  m_Center: {x: 0.2540875, y: 0.22320151, z: 0.0023114544}
 --- !u!4 &6326879 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8811604097745881427, guid: cdc7e4992e7b27745a12363893b16176,
@@ -1531,12 +1531,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &500683537 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8884984920518210719, guid: 3ef0a5571051e5a4fb9bf704f355d320,
-    type: 3}
-  m_PrefabInstance: {fileID: 153636884}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &573831069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2951,6 +2945,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 430952040067965842, guid: 7123cd4f7c632c84dbf89b71c7a45297,
     type: 3}
   m_PrefabInstance: {fileID: 1463997942}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &974787514 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6734931530170869177, guid: 3ef0a5571051e5a4fb9bf704f355d320,
+    type: 3}
+  m_PrefabInstance: {fileID: 153636884}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1095086035 stripped
 MonoBehaviour:
