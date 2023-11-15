@@ -139,13 +139,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4984298}
   - component: {fileID: 4984299}
+  - component: {fileID: 4984300}
   m_Layer: 0
   m_Name: AttackBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4984298
 Transform:
   m_ObjectHideFlags: 0
@@ -169,11 +170,24 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4984297}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4433703, y: 0.7353459, z: 0.35276556}
-  m_Center: {x: 0.2540875, y: 0.22320151, z: 0.0023114544}
+  m_Size: {x: 1.392988, y: 1.0670003, z: 0.5692121}
+  m_Center: {x: -0.08317369, y: 0.24347255, z: -0.105912454}
+--- !u!114 &4984300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4984297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b39d09a681d78c749878fc96f69f868c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pinkypinkyDamage: 5
 --- !u!4 &6326879 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8811604097745881427, guid: cdc7e4992e7b27745a12363893b16176,
@@ -2395,12 +2409,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPos: {fileID: 2302900363575762092}
-  movSpeed: 10
-  minimumDistance: 2
+  movSpeed: 8
+  minimumDistance: 5
   pinkyPinkyController: {fileID: 796814918}
   numOfAttack: 3
   secondPhaseNumberOfAttacks: 5
-  stunDuration: 5
+  stunDuration: 10
+--- !u!114 &796814922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258243777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3df02cbe0cfea747b595f5a9fdc7fb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackTrigger: {fileID: 4984297}
 --- !u!114 &815549756
 MonoBehaviour:
   m_ObjectHideFlags: 0

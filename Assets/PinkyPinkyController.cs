@@ -20,6 +20,7 @@ public class PinkyPinkyController : MonoBehaviour, IDamagable
     private const string Death = "Death";
     private const string isMoving = "Walk";
     private const string isAttacking = "Attack";
+    private const string isStunned = "isStunned";
     private void Awake()
     {
         bossAnim = GetComponent<Animator>();
@@ -51,6 +52,7 @@ public class PinkyPinkyController : MonoBehaviour, IDamagable
             bossAnim.SetTrigger(Death);
             bossAnim.SetBool(isMoving, false);
             bossAnim.SetBool(isAttacking, false);
+            bossAnim.SetBool(isStunned, false);
         }
     }
 

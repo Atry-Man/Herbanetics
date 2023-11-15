@@ -13,34 +13,27 @@ public class PinkyPinkyAttacks : MonoBehaviour
     private const string isMoving = "Walk";
     private const string isAttacking = "Attack";
     private const string isStunned = "isStunned";
-    private bool canAttack;
-    private bool canMove;
     [SerializeField] PinkyPinkyController pinkyPinkyController;
     [SerializeField] int numOfAttack;
     private int attackCounter;
     [SerializeField] int secondPhaseNumberOfAttacks;
     [SerializeField] float stunDuration;
+    private bool canChase;
+    private bool canAttack;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        canAttack = false;
-        canMove = true;
+        canChase = true;
+        canAttack = true;
     }
 
     public void RollToPlayer()
     {
-        if(Vector3.Distance(transform.position, playerPos.position) > minimumDistance)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, playerPos.position, movSpeed * Time.deltaTime);
-            LookAtTarget(playerPos.position);
-        }
-        else
-        {
-            AttackTransition();
-            canMove = false;
-            canAttack = true;
-        }
+        transform.position = Vector3.MoveTowards(transform.position, playerPos.position, movSpeed * Time.deltaTime);
+        LookAtTarget(playerPos.position);
+        animator.SetBool(isMoving, true);
+        animator.SetBool(isAttacking, false);
     }
 
     private void LookAtTarget(Vector3 position)
@@ -53,73 +46,75 @@ public class PinkyPinkyAttacks : MonoBehaviour
 
     void AttackTransition()
     {
+        LookAtTarget(playerPos.position);
         animator.SetBool(isMoving, false);
         animator.SetBool(isAttacking, true);
     }
 
     public void AttackCounter()
     {
-        if (canAttack)
+        if(!pinkyPinkyController.isInSecondPhase && attackCounter < numOfAttack)
         {
-            if(!pinkyPinkyController.isInSecondPhase && attackCounter < numOfAttack)
-            {
-                attackCounter++;
+            attackCounter++;
+           
                 
-            }else if(!pinkyPinkyController.isInSecondPhase && attackCounter >= numOfAttack)
-            {
-                StunTransition();
-                attackCounter = 0;
+        }else if(!pinkyPinkyController.isInSecondPhase && attackCounter >= numOfAttack)
+        {   
+            
+            StunTransition();
+            attackCounter = 0;
 
-            }else if(pinkyPinkyController.isInSecondPhase && attackCounter < numOfAttack)
-            {
-                attackCounter++;
+        }else if(pinkyPinkyController.isInSecondPhase && attackCounter < numOfAttack)
+        {
+            attackCounter++;
 
-            }else if(pinkyPinkyController.isInSecondPhase && attackCounter >= numOfAttack)
-            {
-                StunTransition();
-                attackCounter = 0;
-            }
+        }else if(pinkyPinkyController.isInSecondPhase && attackCounter >= numOfAttack)
+        {
+            StunTransition();
+            attackCounter = 0;
         }
+        
     }
-    void RollTransition()
-    {
-        canMove = true;
-        animator.SetBool(isMoving, true);
-        animator.SetBool(isAttacking, false);
-    }
-
+   
     void StunTransition()
     {
-        canMove = false;
-        canAttack = false;
         animator.SetBool(isMoving, false);
         animator.SetBool(isAttacking,false);
         animator.SetBool(isStunned, true);
+        canChase = false;
+        canAttack = false;
         StartCoroutine(StunCooldown());
     }
 
     IEnumerator StunCooldown()
     {
         yield return new WaitForSeconds(stunDuration);
+
         animator.SetBool(isStunned, false);
-        RollTransition();
+        animator.SetBool(isMoving, true);
+        animator.SetBool(isAttacking, false);
+        canChase = true;
+        canAttack = true;
     }
 
     private void Update()
-    {
-        if (canMove)
+    {       
+        if(Vector3.Distance(playerPos.position, transform.position) > minimumDistance && canChase)
         {
             RollToPlayer();
         }
-
-        if (canAttack)
-        {
-            LookAtTarget(playerPos.position);
+        else if(Vector3.Distance(playerPos.position,transform.position) < minimumDistance && canAttack)
+        {   
+           
+            AttackTransition();
+           
         }
 
+       
         if (pinkyPinkyController.isBossDefeated)
         {
             canAttack = false;
+            canChase= false;
         }
 
         if (pinkyPinkyController.isInSecondPhase)
