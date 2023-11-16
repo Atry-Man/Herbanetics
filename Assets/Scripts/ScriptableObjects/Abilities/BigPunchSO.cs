@@ -10,4 +10,5 @@ public class BigPunchSO : ScriptableObject
     public float fireForce;
     public float fireRate;
     public int bigPunchDamage;
+    public bool canAutoAim;
 }

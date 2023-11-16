@@ -94,6 +94,7 @@ public class StompFront : MonoBehaviour
        
         EnemySetup[] enemies = FindObjectsOfType<EnemySetup>();
 
+
         foreach (EnemySetup enemy in enemies)
         {
             float distance = Vector3.Distance(position, enemy.transform.position);
@@ -112,16 +113,21 @@ public class StompFront : MonoBehaviour
         stomp = Instantiate(stomp, stompPosition.position, stompPosition.rotation);
         stomp.transform.localScale = Vector3.zero;
 
-        if (FindClosestEnemy(stompPosition.position, out Transform targetEnemy))
+        if(stompFrontSO.canAutoAim)
         {
-            reticle.SetActive(true);
-            StartCoroutine(StompAttack(stomp, targetEnemy));
-            Invoke(nameof(TurnOffReticle), 0.5f);
+            if (FindClosestEnemy(stompPosition.position, out Transform targetEnemy))
+            {
+                reticle.SetActive(true);
+                StartCoroutine(StompAttack(stomp, targetEnemy));
+                Invoke(nameof(TurnOffReticle), 0.5f);
+            }
         }
         else
         {
             StartCoroutine(StompAttack(stomp, null));
         }
+
+
     }
 
     void TurnOffReticle()

@@ -13,9 +13,9 @@ public class LevelLoader : ScriptableObject
 
     public void LoadNextLevel()
     {
-        //TestLevelLoad();
+       
         currentLevelIndex++;
-        if (currentLevelIndex % 2 == (2-1))
+        if (currentLevelIndex % 2 == (2-1) + 1)
         {
             // If all base levels are completed, load a random boss scene
             int randomBossIndex = Random.Range(0, bossScenes.Length);
@@ -23,6 +23,7 @@ public class LevelLoader : ScriptableObject
         }
         else
         {
+            
             int levelIndex = levelIndices[currentLevelIndex];
             SceneManager.LoadScene(baseLevels[levelIndex].sceneName);
         }
@@ -33,10 +34,7 @@ public class LevelLoader : ScriptableObject
         LoadNextLevel();
     }
 
-    public void TestLevelLoad()
-    {
-        SceneManager.LoadScene("Level_2");
-    }
+    
 
     public void StartGame()
     {

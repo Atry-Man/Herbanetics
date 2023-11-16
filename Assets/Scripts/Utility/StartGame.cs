@@ -1,9 +1,14 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour
 {
+    private const string ScoreVar = "Score";
+    [SerializeField] TMP_Text score;
+
+
     private void Awake()
     {
         Time.timeScale = 0f;
@@ -14,6 +19,7 @@ public class StartGame : MonoBehaviour
         Time.timeScale = 1f;
         PauseNavMeshAgents(false);
     }
+
 
     public void StopGamePlay()
     {

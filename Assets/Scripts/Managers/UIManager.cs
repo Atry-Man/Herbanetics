@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class UIManager : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_Text scoreText;
     [SerializeField] int scoreIncrement;
     [SerializeField] TMP_Text endGameScore;
+    private const string ScoreVar = "Score";
     public int ScoreCount { get; set; }
 
     private void OnEnable()
@@ -19,6 +21,19 @@ public class UIManager : MonoBehaviour
     {
         ScorePickup.AddScore -= AddScore;
         PlayerDamage.ScoreUpdate -= UpdateScore;
+    }
+
+    private void Awake()
+    {
+        if (!PlayerPrefs.HasKey(ScoreVar))
+        {
+            ScoreCount = 0;
+        }
+        else
+        {
+            LoadScore();
+
+        }
     }
 
 
@@ -34,6 +49,23 @@ public class UIManager : MonoBehaviour
         endGameScore.text = ScoreCount.ToString();
     }
 
+    public void SaveScore()
+    {
+        PlayerPrefs.SetInt(ScoreVar, ScoreCount);
+        PlayerPrefs.Save();
+    }
+
+    public void LoadScore()
+    {
+        int currentScore = PlayerPrefs.GetInt(ScoreVar, 0);
+        scoreText.text = currentScore.ToString();
+        ScoreCount = currentScore;
+    }
+
+    public void RestScore()
+    {
+        PlayerPrefs.SetInt (ScoreVar, 0);
+    }
 
     /*[Header("Ability UI")]
     [SerializeField] Image stompFillImage;

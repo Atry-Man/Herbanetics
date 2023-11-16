@@ -15,15 +15,12 @@ public class SmolBolts : MonoBehaviour
     private const string isShootingStr = "isShooting";
     [SerializeField] GameObject reticle;
 
-   
-
 
     private void Awake()
     {
         canShoot = true;
     }
 
-  
     public void ShootBolts(InputAction.CallbackContext ctx)
     {
         if (ctx.action.triggered && canShoot)
@@ -94,20 +91,29 @@ public class SmolBolts : MonoBehaviour
     {
         bolt = Instantiate(bolt, firePoint.position, firePoint.rotation);
 
-        if (FindClosestEnemy(firePoint.position, out Transform targetEnemy))
+        if(SmolBoltsSO.canAutoAim)
         {
-            reticle.SetActive(true);
-            Vector3 directionToTarget = (targetEnemy.position - bolt.transform.position).normalized;
-            reticle.transform.position = targetEnemy.transform.position + directionToTarget;
-            bolt.GetComponent<Rigidbody>().velocity = directionToTarget * SmolBoltsSO.fireForce;
-            bolt.transform.rotation = Quaternion.LookRotation(directionToTarget);
-            Invoke(nameof(TurnOffReticle), 0.5f);
+            if (FindClosestEnemy(firePoint.position, out Transform targetEnemy))
+            {
+                reticle.SetActive(true);
+                Vector3 directionToTarget = (targetEnemy.position - bolt.transform.position).normalized;
+                reticle.transform.position = targetEnemy.transform.position + directionToTarget;
+                bolt.GetComponent<Rigidbody>().velocity = directionToTarget * SmolBoltsSO.fireForce;
+                bolt.transform.rotation = Quaternion.LookRotation(directionToTarget);
+                Invoke(nameof(TurnOffReticle), 0.5f);
+            }
+            else
+            {
+                bolt.GetComponent<Rigidbody>().AddForce(firePoint.forward * SmolBoltsSO.fireForce, ForceMode.Impulse);
+            }
         }
         else
         {
-           
+
             bolt.GetComponent<Rigidbody>().AddForce(firePoint.forward * SmolBoltsSO.fireForce, ForceMode.Impulse);
         }
+
+
     }
 
     void TurnOffReticle()

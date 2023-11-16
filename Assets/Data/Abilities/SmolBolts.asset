@@ -21,3 +21,4 @@ MonoBehaviour:
   fireForce: 25
   fireRate: 0.5
   boltDamage: 1
+  canAutoAim: 1

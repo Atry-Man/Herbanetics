@@ -25,6 +25,7 @@ public class TokolosheAttacks : MonoBehaviour
     private bool canGenerateIndex;
     int index;
     [SerializeField] int secondPhaseNumberOfAttacks;
+    [SerializeField] GameObject bossShield;
 
     private void Awake()
     {
@@ -109,12 +110,14 @@ public class TokolosheAttacks : MonoBehaviour
 
     void AttackTransition()
     {
+        bossShield.SetActive(false);
         animator.SetBool(isMoving, false);
         animator.SetBool(isAttacking, true);
     }
 
     void WalkTransition()
     {
+        bossShield.SetActive(true);
         canMove = true;
         canGenerateIndex = true;
         animator.SetBool(isMoving, true);

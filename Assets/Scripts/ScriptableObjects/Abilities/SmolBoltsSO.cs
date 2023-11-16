@@ -10,4 +10,5 @@ public class SmolBoltsSO : ScriptableObject
     public float fireForce;
     public float fireRate;
     public int boltDamage;
+    public bool canAutoAim;
 }

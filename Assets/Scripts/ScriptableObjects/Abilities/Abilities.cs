@@ -7,4 +7,5 @@ public class Abilities : ScriptableObject
     public GameObject abilityPrefab3;
     public float abilityDuration;
     public float abilityCooldown;
+    public bool canAutoAim;
 }

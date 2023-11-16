@@ -80,7 +80,7 @@ public class PlayerDamage : MonoBehaviour,IDamagable
     {
        gameOverUI.Invoke();
        Time.timeScale = 0f;
-        ScoreUpdate?.Invoke();
+       ScoreUpdate?.Invoke();
        gameObject.SetActive(false);
     }
     public Transform GetTransform()

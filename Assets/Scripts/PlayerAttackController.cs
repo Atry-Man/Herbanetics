@@ -87,24 +87,32 @@ public class PlayerAttackController : MonoBehaviour
             punch = Instantiate(bigPunchSO.punchPrefab, punchPosition.position, Quaternion.identity);
         }
 
-       
 
-        if (FindClosestEnemy(punchPosition.position, out Transform targetEnemy))
-        {   
-            reticle.SetActive(true);
-            Vector3 directionToTarget = (targetEnemy.position - punch.transform.position).normalized;
-            reticle.transform.position = targetEnemy.transform.position + directionToTarget;
-            punch.GetComponent<Rigidbody>().velocity = directionToTarget * bigPunchSO.fireForce;
-            punch.transform.rotation = Quaternion.LookRotation(directionToTarget);
-            Invoke(nameof(TurnOffReticle), 0.5f);
+        if (bigPunchSO.canAutoAim)
+        {
+            if (FindClosestEnemy(punchPosition.position, out Transform targetEnemy))
+            {
+                reticle.SetActive(true);
+                Vector3 directionToTarget = (targetEnemy.position - punch.transform.position).normalized;
+                reticle.transform.position = targetEnemy.transform.position + directionToTarget;
+                punch.GetComponent<Rigidbody>().velocity = directionToTarget * bigPunchSO.fireForce;
+                punch.transform.rotation = Quaternion.LookRotation(directionToTarget);
+                Invoke(nameof(TurnOffReticle), 0.5f);
+            }
+            else
+            {
+                punch.GetComponent<Rigidbody>().AddForce(punchPosition.forward * bigPunchSO.fireForce, ForceMode.Impulse);
+            }
         }
         else
         {
-           
+
             punch.GetComponent<Rigidbody>().AddForce(punchPosition.forward * bigPunchSO.fireForce, ForceMode.Impulse);
         }
 
-       
+
+
+
         Vector3 movDir = punchPosition.forward.normalized;
         punch.transform.rotation = Quaternion.LookRotation(movDir);
     }

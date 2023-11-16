@@ -21,3 +21,4 @@ MonoBehaviour:
   fireForce: 25
   fireRate: 1
   bigPunchDamage: 5
+  canAutoAim: 0

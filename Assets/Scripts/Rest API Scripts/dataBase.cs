@@ -11,17 +11,12 @@ public class dataBase : MonoBehaviour
     [SerializeField] TMP_InputField username;
     [SerializeField] TMP_Text score;
 
-    // Start is called before the first frame update
+  
     void Start()
     {
         detailsScript = new userDetail();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void SaveData()
     {

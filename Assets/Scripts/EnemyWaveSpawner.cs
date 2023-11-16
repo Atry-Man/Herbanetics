@@ -23,6 +23,7 @@ public class EnemyWaveSpawner : EnemyWaveBasic
     [Header("Sun and moon")]
     [SerializeField] private GameObject[] skyTime;
     [SerializeField] private Transform[] sunPoints;
+   
     
 
     private void OnEnable()
@@ -105,6 +106,7 @@ public class EnemyWaveSpawner : EnemyWaveBasic
             waveTextInfo.gameObject.SetActive(false);
             completeTitle.SetActive(false);
         }
+
         levelCompleteEvent?.Invoke();
     }
 
@@ -177,5 +179,7 @@ public class EnemyWaveSpawner : EnemyWaveBasic
         
 
     }
+
+    
 }
 

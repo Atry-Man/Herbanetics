@@ -20,6 +20,7 @@ public class PinkyPinkyAttacks : MonoBehaviour
     [SerializeField] float stunDuration;
     private bool canChase;
     private bool canAttack;
+    [SerializeField] GameObject bossShield;
 
     private void Awake()
     {
@@ -29,7 +30,8 @@ public class PinkyPinkyAttacks : MonoBehaviour
     }
 
     public void RollToPlayer()
-    {
+    {   
+        bossShield.SetActive(true);
         transform.position = Vector3.MoveTowards(transform.position, playerPos.position, movSpeed * Time.deltaTime);
         LookAtTarget(playerPos.position);
         animator.SetBool(isMoving, true);
@@ -47,6 +49,7 @@ public class PinkyPinkyAttacks : MonoBehaviour
     void AttackTransition()
     {
         LookAtTarget(playerPos.position);
+        bossShield.SetActive(false);
         animator.SetBool(isMoving, false);
         animator.SetBool(isAttacking, true);
     }
