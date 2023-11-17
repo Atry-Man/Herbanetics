@@ -6,7 +6,8 @@ using UnityEngine;
 public class ScorePickup : MonoBehaviour
 {
     [SerializeField] GameObject pickupEffect;
-    public static event Action AddScore;
+    public static event Action<int> AddScore;
+    [SerializeField] int scoreIncremenet;
 
 
     private void OnTriggerEnter(Collider other)
@@ -14,7 +15,7 @@ public class ScorePickup : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Instantiate(pickupEffect, transform.position, Quaternion.identity);
-            AddScore?.Invoke();
+            AddScore?.Invoke(scoreIncremenet);
             Destroy(gameObject);
         }
     }

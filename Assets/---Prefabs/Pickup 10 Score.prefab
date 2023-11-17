@@ -528,6 +528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupEffect: {fileID: 6532181114449735433, guid: 7d4405d2524a2ba40a7cb17aa71cb10d,
     type: 3}
+  scoreIncremenet: 10
 --- !u!1001 &1503559252310428651
 PrefabInstance:
   m_ObjectHideFlags: 0

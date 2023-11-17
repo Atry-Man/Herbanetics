@@ -373,11 +373,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 79579356, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 79579356, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 79579356, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 79579356, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -388,7 +392,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 983929711}
     - target: {fileID: 79579356, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 6025c8e71e8345142a682dbc2f3e85f1,
+        type: 2}
+    - target: {fileID: 79579356, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 79579356, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 79579356, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
@@ -400,12 +413,29 @@ PrefabInstance:
       value: RestScore
       objectReference: {fileID: 0}
     - target: {fileID: 79579356, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: LoadMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 79579356, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: UIManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 79579356, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: MenuLoader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 79579356, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 1dab1d74a6206f74c8b3b3b02004b2d4,
+        type: 2}
+    - target: {fileID: 79579356, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 79579356, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: MenuData, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 463633576, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -704,6 +734,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4312646945095011810, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4312646945095011811, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -763,6 +798,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 317
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312646946301338725, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4312646946752049284, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
         type: 3}
@@ -3335,7 +3375,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 2047600769}
-  scoreIncrement: 10
   endGameScore: {fileID: 544991283}
 --- !u!4 &983929712
 Transform:

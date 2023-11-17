@@ -6,7 +6,6 @@ public class UIManager : MonoBehaviour
 {
     [Header("Score Elements")]
     [SerializeField] TMP_Text scoreText;
-    [SerializeField] int scoreIncrement;
     [SerializeField] TMP_Text endGameScore;
     private const string ScoreVar = "Score";
     public int ScoreCount { get; set; }
@@ -38,9 +37,9 @@ public class UIManager : MonoBehaviour
 
 
 
-    void AddScore()
+    void AddScore(int score)
     {   
-        ScoreCount+=scoreIncrement;
+        ScoreCount+=score;
         scoreText.text = ScoreCount.ToString();
     }
 
