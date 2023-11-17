@@ -463,7 +463,7 @@ GameObject:
   - component: {fileID: -1282431098682596633}
   - component: {fileID: -8896629827201433879}
   m_Layer: 0
-  m_Name: Pickup
+  m_Name: Pickup 100 Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -543,17 +543,17 @@ PrefabInstance:
     - target: {fileID: 128883405947819610, guid: 72bf772311ed042498dd66b69f17bedf,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.19026126
+      value: 0.2508024
       objectReference: {fileID: 0}
     - target: {fileID: 128883405947819610, guid: 72bf772311ed042498dd66b69f17bedf,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.19026126
+      value: 0.2508024
       objectReference: {fileID: 0}
     - target: {fileID: 128883405947819610, guid: 72bf772311ed042498dd66b69f17bedf,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.19026126
+      value: 0.2508024
       objectReference: {fileID: 0}
     - target: {fileID: 128883405947819610, guid: 72bf772311ed042498dd66b69f17bedf,
         type: 3}
@@ -619,7 +619,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e92bad6549788254e8cc59849a9ecdb5, type: 2}
+      objectReference: {fileID: 2100000, guid: 151a65f7048b45249bfbbda659804187, type: 2}
     - target: {fileID: 7871189514609460644, guid: 72bf772311ed042498dd66b69f17bedf,
         type: 3}
       propertyPath: lengthInSec

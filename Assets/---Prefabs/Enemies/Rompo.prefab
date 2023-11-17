@@ -148,7 +148,7 @@ MonoBehaviour:
     type: 3}
   hitSpawn: {fileID: 7730157200238562926}
   healthBar: {fileID: 1424236655919290110}
-  healthpickup: {fileID: 9183280972724182236, guid: ebcbcbab13546ef40a825deebefe4cef,
+  healthpickup: {fileID: 9183280972724182236, guid: 2b8d7e0dfbec8094bbf2c64de3874335,
     type: 3}
 --- !u!114 &999934844
 MonoBehaviour:

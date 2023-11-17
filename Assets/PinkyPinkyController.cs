@@ -21,6 +21,9 @@ public class PinkyPinkyController : MonoBehaviour, IDamagable
     private const string isMoving = "Walk";
     private const string isAttacking = "Attack";
     private const string isStunned = "isStunned";
+
+    [SerializeField] GameObject healthpickup;
+
     private void Awake()
     {
         bossAnim = GetComponent<Animator>();
@@ -48,6 +51,7 @@ public class PinkyPinkyController : MonoBehaviour, IDamagable
         }
         if (currentHealth <= 0)
         {
+            Instantiate(healthpickup, transform.position + new Vector3(0, 2, 0), transform.rotation);
             isBossDefeated = true;
             bossAnim.SetTrigger(Death);
             bossAnim.SetBool(isMoving, false);

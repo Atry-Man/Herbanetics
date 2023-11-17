@@ -20,6 +20,8 @@ public class TokolosheController : MonoBehaviour,IDamagable
     private const string Death = "Death";
     private const string isMoving = "Walk";
     private const string isAttacking = "Attack";
+
+    [SerializeField] GameObject healthpickup;
     private void Awake()
     {
         bossAnim = GetComponent<Animator>();
@@ -47,6 +49,7 @@ public class TokolosheController : MonoBehaviour,IDamagable
         }
         if (currentHealth <= 0)
         {
+            Instantiate(healthpickup, transform.position + new Vector3(0, 2, 0), transform.rotation);
             isBossDefeated = true;
             bossAnim.SetTrigger(Death);
             bossAnim.SetBool(isMoving, false);

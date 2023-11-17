@@ -323,7 +323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 98963485}
   - component: {fileID: 98963484}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Camera block (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -475,6 +475,58 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1139238734, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 622.8571
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139238734, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 161.6359
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139238734, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -507.255
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139238734, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 241.3226
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239831816, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 130.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 1239831816, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -138
+      objectReference: {fileID: 0}
+    - target: {fileID: 1910862549, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 567.2246
+      objectReference: {fileID: 0}
+    - target: {fileID: 1910862549, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 146.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 1910862549, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 37.786
+      objectReference: {fileID: 0}
+    - target: {fileID: 1910862549, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 233.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 1910862550, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 1910862550, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1910862550, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1950806893, guid: 4d14ec5d5cdc4da4780f92830a16f5fd, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 3
@@ -517,6 +569,31 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 927125985}
+    - target: {fileID: 4312646944774031781, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 439.3328
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312646944774031781, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 155.0206
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312646944774031781, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -680.84357
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312646944774031781, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 315.52808
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312646944783184250, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -409
+      objectReference: {fileID: 0}
     - target: {fileID: 4312646944966303642, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
         type: 3}
       propertyPath: m_Name
@@ -642,6 +719,51 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 291243649}
+    - target: {fileID: 4312646945557033120, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312646945557033120, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312646945557033120, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -7.9166
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312646945557033120, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -131
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312646945557033121, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312646945905249032, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 196.431
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312646945905249032, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 196.4321
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312646945905249032, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -832
+      objectReference: {fileID: 0}
+    - target: {fileID: 4312646945905249032, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 317
+      objectReference: {fileID: 0}
     - target: {fileID: 4312646946752049284, guid: 4d14ec5d5cdc4da4780f92830a16f5fd,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -1005,7 +1127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 274725771}
   - component: {fileID: 274725770}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Camera block (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1287,6 +1409,11 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1651810129037248174, guid: 6668b5627dfa8bb46b4ffa9c166911c0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7338937753982131472, guid: 6668b5627dfa8bb46b4ffa9c166911c0,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1347,10 +1474,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 30.082
       objectReference: {fileID: 0}
+    - target: {fileID: 8588157363366368572, guid: 6668b5627dfa8bb46b4ffa9c166911c0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9140575997146528965, guid: 6668b5627dfa8bb46b4ffa9c166911c0,
         type: 3}
       propertyPath: m_Name
       value: Boulder (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9140575997146528965, guid: 6668b5627dfa8bb46b4ffa9c166911c0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6668b5627dfa8bb46b4ffa9c166911c0, type: 3}
@@ -1727,7 +1864,7 @@ GameObject:
   m_Component:
   - component: {fileID: 507663933}
   - component: {fileID: 507663932}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Camera block
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2457,6 +2594,11 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1651810129037248174, guid: 6668b5627dfa8bb46b4ffa9c166911c0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7338937753982131472, guid: 6668b5627dfa8bb46b4ffa9c166911c0,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2517,10 +2659,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -87.39
       objectReference: {fileID: 0}
+    - target: {fileID: 8588157363366368572, guid: 6668b5627dfa8bb46b4ffa9c166911c0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9140575997146528965, guid: 6668b5627dfa8bb46b4ffa9c166911c0,
         type: 3}
       propertyPath: m_Name
       value: Boulder (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9140575997146528965, guid: 6668b5627dfa8bb46b4ffa9c166911c0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6668b5627dfa8bb46b4ffa9c166911c0, type: 3}
@@ -3407,6 +3559,11 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1651810129037248174, guid: 6668b5627dfa8bb46b4ffa9c166911c0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7338937753982131472, guid: 6668b5627dfa8bb46b4ffa9c166911c0,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3472,10 +3629,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8588157363366368572, guid: 6668b5627dfa8bb46b4ffa9c166911c0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9140575997146528965, guid: 6668b5627dfa8bb46b4ffa9c166911c0,
         type: 3}
       propertyPath: m_Name
       value: Boulder
+      objectReference: {fileID: 0}
+    - target: {fileID: 9140575997146528965, guid: 6668b5627dfa8bb46b4ffa9c166911c0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6668b5627dfa8bb46b4ffa9c166911c0, type: 3}
@@ -3712,7 +3879,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1178566668}
   - component: {fileID: 1178566667}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Camera block (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -4940,7 +5107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1616224386}
   - component: {fileID: 1616224385}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Camera block (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -5496,6 +5663,11 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1651810129037248174, guid: 6668b5627dfa8bb46b4ffa9c166911c0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7338937753982131472, guid: 6668b5627dfa8bb46b4ffa9c166911c0,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5561,10 +5733,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8588157363366368572, guid: 6668b5627dfa8bb46b4ffa9c166911c0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9140575997146528965, guid: 6668b5627dfa8bb46b4ffa9c166911c0,
         type: 3}
       propertyPath: m_Name
       value: Boulder (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9140575997146528965, guid: 6668b5627dfa8bb46b4ffa9c166911c0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6668b5627dfa8bb46b4ffa9c166911c0, type: 3}
