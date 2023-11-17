@@ -134,4 +134,5 @@ public class StompFront : MonoBehaviour
     {
         reticle.SetActive(false);
     }
+
 }

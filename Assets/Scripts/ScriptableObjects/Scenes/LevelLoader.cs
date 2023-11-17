@@ -10,12 +10,13 @@ public class LevelLoader : ScriptableObject
 
     private int currentLevelIndex = -1;
     private int[] levelIndices;
+    public int bossAppearcanceIndex;
 
     public void LoadNextLevel()
     {
        
         currentLevelIndex++;
-        if (currentLevelIndex % 2 == (2-1) + 1)
+        if (currentLevelIndex % bossAppearcanceIndex == (bossAppearcanceIndex-1))
         {
             // If all base levels are completed, load a random boss scene
             int randomBossIndex = Random.Range(0, bossScenes.Length);

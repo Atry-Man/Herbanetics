@@ -4,6 +4,7 @@ public class StompDamage : MonoBehaviour
 {
     [SerializeField] StompFrontSO stompFrontSO;
     private const string playerStr = "Player";
+    private const string bossBarrier = "BossBarrier";
 
 
     private void OnTriggerEnter(Collider other)
@@ -15,5 +16,12 @@ public class StompDamage : MonoBehaviour
            
             other.GetComponent<StatusEffectManager>().ApplyStompTick(stompFrontSO.stompNumberOfTicks);
         }
+
+        if (other.CompareTag(bossBarrier))
+        {
+            Destroy(gameObject);
+        }
+
+        
     }
 }
