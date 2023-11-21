@@ -8,7 +8,7 @@ public class dataBase : MonoBehaviour
 {
     public string database_url = "";
     userDetail detailsScript;
-    [SerializeField] TMP_InputField username;
+    [SerializeField] TMP_Text name;
     [SerializeField] TMP_Text score;
 
   
@@ -21,7 +21,7 @@ public class dataBase : MonoBehaviour
     public void SaveData()
     {
         Debug.Log("DataSent");
-        detailsScript.username = username.text;
+        detailsScript.name = name.text;
         detailsScript.score = score.text;
         RestClient.Post(database_url + "/" + "Herbanetic.json", detailsScript);
     }

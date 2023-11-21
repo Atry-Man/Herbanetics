@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class userDetail
 {
-    public string username;
+    public string name;
     public string score;
 }
