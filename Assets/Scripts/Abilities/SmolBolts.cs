@@ -73,6 +73,8 @@ public class SmolBolts : MonoBehaviour
 
       
         EnemySetup[] enemies = FindObjectsOfType<EnemySetup>();
+        BossTag[] bossTags = FindObjectsOfType<BossTag>();
+
 
         foreach (EnemySetup enemy in enemies)
         {
@@ -83,6 +85,18 @@ public class SmolBolts : MonoBehaviour
                 target = enemy.transform;
             }
         }
+
+        foreach (BossTag boss in bossTags)
+        {
+
+            float distance = Vector3.Distance(position, boss.transform.position);
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                target = boss.transform;
+            }
+        }
+
 
         return target != null;
     }

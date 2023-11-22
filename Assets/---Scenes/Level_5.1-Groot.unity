@@ -2352,6 +2352,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tickTimers: 
   StompFrontSO: {fileID: 11400000, guid: f6069f5dc87a84f48a4f5f6c086b9124, type: 2}
+--- !u!114 &509341450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509341443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b4740ce3c86f3a4581315bd11ad3430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &509341456
 MonoBehaviour:
   m_ObjectHideFlags: 0
