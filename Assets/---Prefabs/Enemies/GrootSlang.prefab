@@ -709,6 +709,21 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2807646863318809310, guid: fea4c95258491ef4b9760aeb2c940f74,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2807646863318809310, guid: fea4c95258491ef4b9760aeb2c940f74,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2807646863318809310, guid: fea4c95258491ef4b9760aeb2c940f74,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 6045880446604090436, guid: fea4c95258491ef4b9760aeb2c940f74,
         type: 3}
       propertyPath: m_Sprite
