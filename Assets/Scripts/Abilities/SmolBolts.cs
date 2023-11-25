@@ -14,28 +14,34 @@ public class SmolBolts : MonoBehaviour
     private bool canShoot;
     private const string isShootingStr = "isShooting";
     [SerializeField] GameObject reticle;
+    InputDection inputDection;
 
 
     private void Awake()
     {
         canShoot = true;
+        inputDection = GameObject.FindObjectOfType<InputDection>();
     }
 
     public void ShootBolts(InputAction.CallbackContext ctx)
-    {
-        if (ctx.action.triggered && canShoot)
+    {  
+        if(inputDection.CanUseControls)
         {
-            playerAnim.SetBool(isShootingStr, true);
+            if (ctx.action.triggered && canShoot)
+            {
+                playerAnim.SetBool(isShootingStr, true);
 
-          
 
-            fireRateTimer = 0f;
-            canShoot = false;
+
+                fireRateTimer = 0f;
+                canShoot = false;
+            }
+            else
+            {
+                playerAnim.SetBool(isShootingStr, false);
+            }
         }
-        else
-        {
-            playerAnim.SetBool(isShootingStr, false);
-        }
+        
     }
 
     public void ProjectileSpawner()

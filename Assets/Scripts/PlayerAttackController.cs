@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class PlayerAttackController : MonoBehaviour
 {
@@ -18,23 +17,29 @@ public class PlayerAttackController : MonoBehaviour
     public static Action StartPunchActiveCooldown;
     private bool canPunch;
     private float fireRateTimer;
+    InputDection inputDection;
 
     private void Awake()
     {
         canPunch = true;
+        inputDection = GameObject.FindAnyObjectByType<InputDection>();
     }
     public void OnBigPunch(InputAction.CallbackContext context)
-    {
-        if (context.performed && canPunch)
+    {  
+        if(inputDection.CanUseControls)
         {
-            playerAnim.SetTrigger(punchStr);
+            if (context.performed && canPunch)
+            {
+                playerAnim.SetTrigger(punchStr);
 
-          
 
-            fireRateTimer = 0f;
-            canPunch = false;
-            //StartPunchActiveCooldown?.Invoke();
+
+                fireRateTimer = 0f;
+                canPunch = false;
+                //StartPunchActiveCooldown?.Invoke();
+            }
         }
+        
     }
 
     public void Punch()
@@ -72,19 +77,19 @@ public class PlayerAttackController : MonoBehaviour
 
         if(punchIndex == 0)
         {
-             punch = Instantiate(bigPunchSO.punchPrefab, punchPosition.position, Quaternion.identity);
+             punch = Instantiate(bigPunchSO.punchPrefab, punchPosition.position, bigPunchSO.punchPrefab.transform.rotation);
 
         }else if(punchIndex == 1)
         {
-            punch = Instantiate(bigPunchSO.punchPrefab2, punchPosition.position, Quaternion.identity);
+            punch = Instantiate(bigPunchSO.punchPrefab2, punchPosition.position, bigPunchSO.punchPrefab2.transform.rotation);
         }
         else if(punchIndex == 2)
         {
-             punch = Instantiate(bigPunchSO.punchPrefab3, punchPosition.position, Quaternion.identity);
+             punch = Instantiate(bigPunchSO.punchPrefab3, punchPosition.position, bigPunchSO.punchPrefab3.transform.rotation);
         }
         else
         {
-            punch = Instantiate(bigPunchSO.punchPrefab, punchPosition.position, Quaternion.identity);
+            punch = Instantiate(bigPunchSO.punchPrefab, punchPosition.position, bigPunchSO.punchPrefab.transform.rotation);
         }
 
 
@@ -97,6 +102,7 @@ public class PlayerAttackController : MonoBehaviour
                 reticle.transform.position = targetEnemy.transform.position + directionToTarget;
                 punch.GetComponent<Rigidbody>().velocity = directionToTarget * bigPunchSO.fireForce;
                 punch.transform.rotation = Quaternion.LookRotation(directionToTarget);
+                
                 Invoke(nameof(TurnOffReticle), 0.5f);
             }
             else
@@ -114,7 +120,7 @@ public class PlayerAttackController : MonoBehaviour
 
 
         Vector3 movDir = punchPosition.forward.normalized;
-        punch.transform.rotation = Quaternion.LookRotation(movDir);
+        //punch.transform.rotation = Quaternion.LookRotation(movDir);
     }
 
     private bool FindClosestEnemy(Vector3 position, out Transform target)

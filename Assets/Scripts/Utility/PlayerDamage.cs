@@ -11,7 +11,7 @@ public class PlayerDamage : MonoBehaviour,IDamagable
     [SerializeField] GameObject hitEffect;
     [SerializeField] Transform hitSpawn;
     [SerializeField] Animator playerAnim;
-    [SerializeField] PlayerController playerController;
+    InputDection inputDection;
    
     public static event Action StopAttacking;
     public static event Action ScoreUpdate;
@@ -39,6 +39,7 @@ public class PlayerDamage : MonoBehaviour,IDamagable
         currentHealth = maxHealth;
         healthSlider.value = currentHealth;
         canTakeDamage = true;
+        inputDection = GameObject.FindObjectOfType<InputDection>();
     }
 
     public void TakeDamage(int amount)
@@ -70,7 +71,7 @@ public class PlayerDamage : MonoBehaviour,IDamagable
     private void Die()
     {
       canTakeDamage = false;
-      playerController.CanMove = false;
+      inputDection.CanUseControls = false;
       playerAnim.SetTrigger(deathStr);
       StopAttacking?.Invoke();
      

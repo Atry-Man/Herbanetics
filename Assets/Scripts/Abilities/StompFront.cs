@@ -17,15 +17,25 @@ public class StompFront : MonoBehaviour
     [SerializeField] StompFrontSO stompFrontSO;
     [SerializeField] Animator playerAnim;
     [SerializeField] GameObject reticle;
+    InputDection inputDection;
+
+    private void Awake()
+    {
+        inputDection = GameObject.FindObjectOfType<InputDection>();
+    }
 
     public void StartStomp(InputAction.CallbackContext callbackContext)
-    {
-        if(callbackContext.action.triggered && !canStomp)
+    {   
+        if(inputDection.CanUseControls)
         {
-            canStomp = true;
-            playerAnim.SetTrigger(StompTrigger);
-            
+            if (callbackContext.action.triggered && !canStomp)
+            {
+                canStomp = true;
+                playerAnim.SetTrigger(StompTrigger);
+
+            }
         }
+       
     }
 
     public void StompAttack()

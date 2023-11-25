@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     [Header("Animation Strings")]
     private const string isRunning = "isRunning";
     private const string isDashingStr = "isDashing";
-
+    private InputDection inputDection;
     
 
     [Header("Player Config")]
@@ -47,71 +47,81 @@ public class PlayerController : MonoBehaviour
         InitializeValues();
         playerRb = GetComponent<Rigidbody>();
         CanMove = true;
+        inputDection = GameObject.FindObjectOfType<InputDection>();
     }
 
     public void OnMove(InputAction.CallbackContext ctx)
     {   
-        if(CanMove) {
-
-
-            if (ctx.performed)
-            {
-                movementVector = ctx.ReadValue<Vector3>();
-                movementDir = movementVector.normalized;
-
-                playerAnim.SetBool(isRunning, true);
-
-            }
-            else if (ctx.canceled)
+        if(inputDection.CanUseControls)
+        {
+            if (CanMove)
             {
 
-                movementVector = Vector3.zero;
-            }
 
-            if (movementVector != Vector3.zero)
-            {
-                transform.rotation = Quaternion.LookRotation(movementDir);
-            }
-            else
-            {
-                playerAnim.SetBool(isRunning, false);
-            }
+                if (ctx.performed)
+                {
+                    movementVector = ctx.ReadValue<Vector3>();
+                    movementDir = movementVector.normalized;
+
+                    playerAnim.SetBool(isRunning, true);
+
+                }
+                else if (ctx.canceled)
+                {
+
+                    movementVector = Vector3.zero;
+                }
+
+                if (movementVector != Vector3.zero)
+                {
+                    transform.rotation = Quaternion.LookRotation(movementDir);
+                }
+                else
+                {
+                    playerAnim.SetBool(isRunning, false);
+                }
 
 
+            }
         }
+        
 
         
     }
 
     public void OnDash(InputAction.CallbackContext ctx)
-    {
-        if(ctx.action.triggered && !isDashing)
-        { 
-            playerAnim.SetBool(isDashingStr, true);
-            dashEffect.SetActive(true);
-
-            if(SkillManager.instance.dashLevel > 0)
+    {  
+        if (inputDection.CanUseControls)
+        {
+            if (ctx.action.triggered && !isDashing)
             {
-                stormBurstEffect.SetActive(true);
-                StartCoroutine(TurnOffStormBurst());
+                playerAnim.SetBool(isDashingStr, true);
+                dashEffect.SetActive(true);
+
+                if (SkillManager.instance.dashLevel > 0)
+                {
+                    stormBurstEffect.SetActive(true);
+                    StartCoroutine(TurnOffStormBurst());
+                }
+                Vector3 dashDirection = transform.forward;
+                dashTarget = transform.position + dashDirection * dashSpeed;
+
+                RaycastHit hit;
+
+                if (Physics.Raycast(transform.position, dashDirection, out hit, playerConfig.rayDistance, playerConfig.obstacleLayerMask))
+                {
+
+                    playerAnim.SetBool(isDashingStr, false);
+                    dashEffect.SetActive(false);
+
+                    return;
+
+                }
+
+                StartCoroutine(Dash());
             }
-            Vector3 dashDirection = transform.forward;
-            dashTarget = transform.position + dashDirection * dashSpeed;
-
-            RaycastHit hit;
-
-            if(Physics.Raycast(transform.position, dashDirection, out hit, playerConfig.rayDistance, playerConfig.obstacleLayerMask))
-            {
-               
-                playerAnim.SetBool(isDashingStr, false);
-                dashEffect.SetActive(false);
-                
-                return;
-               
-            }
-
-            StartCoroutine(Dash());
         }
+        
     }
 
     private IEnumerator TurnOffStormBurst()
