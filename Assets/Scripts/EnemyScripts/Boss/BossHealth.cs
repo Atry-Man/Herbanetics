@@ -15,6 +15,11 @@ public class BossHealth : MonoBehaviour,IDamagable
     [SerializeField] UnityEvent levelCompleteEvent;
     private int currentHealth;
     public bool isInSecondPhase;
+    [SerializeField] GameObject bossBarrier;
+    private bool canTakeDamage;
+    [SerializeField] GameObject bossPoints;
+    [SerializeField] Transform bossPointsSpawn;
+
 
     [Header("Second Phase Variables")]
     [SerializeField] float newWaveForce;
@@ -27,30 +32,39 @@ public class BossHealth : MonoBehaviour,IDamagable
         currentHealth = maxHealth;
         bossHealthSlider.fillAmount = currentHealth;
         isInSecondPhase = false;
+        canTakeDamage = true;
     }
 
     public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-        Instantiate(bossDamageEffect, bossHitSpawn.position, Quaternion.identity);
-        bossHealthSlider.fillAmount -= (float)damage/maxHealth;
-
-       
-        if (currentHealth <= healthThreshold)
+    {   
+        if (canTakeDamage)
         {
-            isInSecondPhase = true;
-            
-            waveAttacks.attackWaveForce = newWaveForce;
-            waveAttacks.warningDelay = newTimeForWarnings;
+            currentHealth -= damage;
+            Instantiate(bossDamageEffect, bossHitSpawn.position, Quaternion.identity);
+            bossHealthSlider.fillAmount -= (float)damage / maxHealth;
 
-        }  
-        if (currentHealth <= 0)
-        {   
-            isBossDefeated = true;
-            bossAnim.SetTrigger(deathStr);
-            bossAnim.SetBool(isBossStunned, false);
-            bossAnim.SetBool(bossAttackStr, false);
+
+            if (currentHealth <= healthThreshold)
+            {
+                isInSecondPhase = true;
+
+                waveAttacks.attackWaveForce = newWaveForce;
+                waveAttacks.warningDelay = newTimeForWarnings;
+
+            }
+            if (currentHealth <= 0)
+            {
+                Instantiate(bossPoints, bossPointsSpawn.position, Quaternion.identity);
+                canTakeDamage = false;
+                bossBarrier.SetActive(false);
+                isBossDefeated = true;
+                bossAnim.SetTrigger(deathStr);
+                bossAnim.SetBool(isBossStunned, false);
+                bossAnim.SetBool(bossAttackStr, false);
+                Invoke(nameof(BossCompletedUI), 8f);
+            }
         }
+        
     }
 
     public Transform GetTransform()

@@ -20,6 +20,7 @@ MonoBehaviour:
     type: 3}
   abilityDuration: 2
   abilityCooldown: 0.5
+  canAutoAim: 0
   stompDesiredSize: 3
   stompSpeed: 10
   stompTickDamage: 3

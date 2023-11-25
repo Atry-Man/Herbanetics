@@ -2684,6 +2684,8 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   isInSecondPhase: 0
+  canTakeDamage: 0
+  bossShield: {fileID: 262794182}
   healthpickup: {fileID: 9183280972724182236, guid: c4825ef26a9da1a4fab550e18ddabd7f,
     type: 3}
 --- !u!114 &796814919

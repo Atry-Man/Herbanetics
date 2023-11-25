@@ -21,7 +21,8 @@ public class PinkyPinkyController : MonoBehaviour, IDamagable
     private const string isMoving = "Walk";
     private const string isAttacking = "Attack";
     private const string isStunned = "isStunned";
-
+    public bool canTakeDamage;
+    [SerializeField] GameObject bossShield;
     [SerializeField] GameObject healthpickup;
 
     private void Awake()
@@ -29,6 +30,7 @@ public class PinkyPinkyController : MonoBehaviour, IDamagable
         bossAnim = GetComponent<Animator>();
         currentHealth = maxHealth;
         bossHealthSlider.fillAmount = currentHealth;
+        canTakeDamage = true;
     }
     private void Start()
     {
@@ -37,27 +39,35 @@ public class PinkyPinkyController : MonoBehaviour, IDamagable
     }
 
     public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-        Instantiate(bossDamageEffect, bossHitSpawn.position, Quaternion.identity);
-        bossHealthSlider.fillAmount -= (float)damage / maxHealth;
-
-        if (currentHealth <= healthThreshold)
+    {   
+        if(canTakeDamage)
         {
-            isInSecondPhase = true;
+            currentHealth -= damage;
+            Instantiate(bossDamageEffect, bossHitSpawn.position, Quaternion.identity);
+            bossHealthSlider.fillAmount -= (float)damage / maxHealth;
+
+            if (currentHealth <= healthThreshold)
+            {
+                isInSecondPhase = true;
 
 
 
+            }
+            if (currentHealth <= 0)
+            {   
+                canTakeDamage = false;
+                bossShield.SetActive(false);
+                Instantiate(healthpickup, transform.position + new Vector3(0, 2, 0), transform.rotation);
+                isBossDefeated = true;
+                bossAnim.SetTrigger(Death);
+                bossAnim.SetBool(isMoving, false);
+                bossAnim.SetBool(isAttacking, false);
+                bossAnim.SetBool(isStunned, false);
+                Invoke(nameof(BossCompletedUI), 8f);
+
+            }
         }
-        if (currentHealth <= 0)
-        {
-            Instantiate(healthpickup, transform.position + new Vector3(0, 2, 0), transform.rotation);
-            isBossDefeated = true;
-            bossAnim.SetTrigger(Death);
-            bossAnim.SetBool(isMoving, false);
-            bossAnim.SetBool(isAttacking, false);
-            bossAnim.SetBool(isStunned, false);
-        }
+        
     }
 
     public Transform GetTransform()

@@ -2219,9 +2219,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6336104757567876777, guid: eb7cbd6cefaac0848b4e8f2f800084d0,
         type: 3}
+      propertyPath: bossPoints
+      value: 
+      objectReference: {fileID: 9183280972724182236, guid: c4825ef26a9da1a4fab550e18ddabd7f,
+        type: 3}
+    - target: {fileID: 6336104757567876777, guid: eb7cbd6cefaac0848b4e8f2f800084d0,
+        type: 3}
+      propertyPath: bossBarrier
+      value: 
+      objectReference: {fileID: 509341445}
+    - target: {fileID: 6336104757567876777, guid: eb7cbd6cefaac0848b4e8f2f800084d0,
+        type: 3}
       propertyPath: newWaveForce
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 6336104757567876777, guid: eb7cbd6cefaac0848b4e8f2f800084d0,
+        type: 3}
+      propertyPath: bossPointsSpawn
+      value: 
+      objectReference: {fileID: 1974162402}
     - target: {fileID: 6336104757567876777, guid: eb7cbd6cefaac0848b4e8f2f800084d0,
         type: 3}
       propertyPath: healthThreshold
@@ -4382,6 +4398,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1224006290}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1974162401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1974162402}
+  m_Layer: 0
+  m_Name: BossPickupSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1974162402
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974162401}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.78, y: 0.16, z: 13.64}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1985105081 stripped
 GameObject:

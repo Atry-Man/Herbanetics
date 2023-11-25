@@ -84,6 +84,7 @@ public class PinkyPinkyAttacks : MonoBehaviour
         animator.SetBool(isMoving, false);
         animator.SetBool(isAttacking,false);
         animator.SetBool(isStunned, true);
+        bossShield.SetActive(false);
         canChase = false;
         canAttack = false;
         StartCoroutine(StunCooldown());

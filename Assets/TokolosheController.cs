@@ -20,13 +20,14 @@ public class TokolosheController : MonoBehaviour,IDamagable
     private const string Death = "Death";
     private const string isMoving = "Walk";
     private const string isAttacking = "Attack";
-
+    private bool canTakeDamage;
     [SerializeField] GameObject healthpickup;
     private void Awake()
     {
         bossAnim = GetComponent<Animator>();
         currentHealth = maxHealth;
         bossHealthSlider.fillAmount = currentHealth;
+        canTakeDamage = true;
     }
     private void Start()
     {
@@ -36,25 +37,31 @@ public class TokolosheController : MonoBehaviour,IDamagable
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        Instantiate(bossDamageEffect, bossHitSpawn.position, Quaternion.identity);
-        bossHealthSlider.fillAmount -= (float)damage / maxHealth;
+        if (canTakeDamage)
+        {  
+            currentHealth -= damage;
+            Instantiate(bossDamageEffect, bossHitSpawn.position, Quaternion.identity);
+            bossHealthSlider.fillAmount -= (float)damage / maxHealth;
 
-        if (currentHealth <= healthThreshold)
-        {
-            isInSecondPhase = true;
+            if (currentHealth <= healthThreshold)
+            {
+                isInSecondPhase = true;
 
-           
 
+
+            }
+            if (currentHealth <= 0)
+            {   
+                canTakeDamage = false;
+                Instantiate(healthpickup, transform.position + new Vector3(0, 2, 0), transform.rotation);
+                isBossDefeated = true;
+                bossAnim.SetTrigger(Death);
+                bossAnim.SetBool(isMoving, false);
+                bossAnim.SetBool(isAttacking, false);
+                Invoke(nameof(BossCompletedUI), 8f);
+            }
         }
-        if (currentHealth <= 0)
-        {
-            Instantiate(healthpickup, transform.position + new Vector3(0, 2, 0), transform.rotation);
-            isBossDefeated = true;
-            bossAnim.SetTrigger(Death);
-            bossAnim.SetBool(isMoving, false);
-            bossAnim.SetBool(isAttacking, false);
-        }
+       
     }
     
 
