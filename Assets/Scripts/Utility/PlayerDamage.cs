@@ -6,7 +6,7 @@ using TMPro;
 
 public class PlayerDamage : MonoBehaviour,IDamagable
 {
-    [SerializeField] Slider healthSlider;
+    [SerializeField] Image healthSlider;
     [SerializeField] PlayerConfig playerConfig;
     [SerializeField] GameObject hitEffect;
     [SerializeField] Transform hitSpawn;
@@ -37,7 +37,7 @@ public class PlayerDamage : MonoBehaviour,IDamagable
     {
         maxHealth = playerConfig.maxHealth;
         currentHealth = maxHealth;
-        healthSlider.value = currentHealth;
+        healthSlider.fillAmount = currentHealth;
         canTakeDamage = true;
         inputDection = GameObject.FindObjectOfType<InputDection>();
     }
@@ -47,7 +47,7 @@ public class PlayerDamage : MonoBehaviour,IDamagable
         if(canTakeDamage)
         {
             currentHealth -= amount;
-            healthSlider.value = currentHealth;
+            healthSlider.fillAmount -= (float)amount/playerConfig.maxHealth;
             Instantiate(hitEffect, hitSpawn.position, Quaternion.identity);
 
             if (currentHealth <= 0)
@@ -65,7 +65,7 @@ public class PlayerDamage : MonoBehaviour,IDamagable
         if (currentHealth <= maxHealth)
         {
             currentHealth += calculatedHealth;  
-            healthSlider.value = currentHealth;
+            healthSlider.fillAmount += (float)calculatedHealth/ playerConfig.maxHealth;
         }
     }
     private void Die()
